@@ -69,7 +69,12 @@ THREEx.MinecraftChar	= function(skinUrl){
 
 	// build model.head
 	var geometry	= new THREE.CubeGeometry(sizes.headW, sizes.headH, sizes.headD)
-
+        mapUv(geometry, 0, 16, 24, 24, 16)	// left
+	mapUv(geometry, 1,  0, 24,  8, 16)	// right
+	mapUv(geometry, 2,  8, 32, 16, 24)	// top
+	mapUv(geometry, 3, 16, 32, 24, 24)	// bottom
+	mapUv(geometry, 4,  8, 24, 16, 16)	// front
+	mapUv(geometry, 5, 24, 24, 32, 16)	// back
 	var mesh	= new THREE.Mesh(geometry, material)
 	mesh.position.y	= sizes.headH/2
 	model.head	= mesh
