@@ -5,9 +5,9 @@ var THREEx	= THREEx || {};
  * @param  {[type]} skinUrl [description]
  * @return {[type]}         [description]
  */
-THREEx.MinecraftChar	= function(skinUrl){
+THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || (THREEx.MinecraftChar.baseUrl + "images/jetienne.png")
+	skinUrl	= skinUrl || (THREEx.TinygigantiumChar.baseUrl + "images/jetienne.png")
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -17,10 +17,10 @@ THREEx.MinecraftChar	= function(skinUrl){
 	texture.minFilter	= THREE.NearestFilter;
 	this.texture	= texture
 
-	var material	= new THREEx.MinecraftChar.defaultMaterial({
+	var material	= new THREEx.TinygigantiumChar.defaultMaterial({
 		map	: texture
 	});
-	var materialTran= new THREEx.MinecraftChar.defaultMaterial({
+	var materialTran= new THREEx.TinygigantiumChar.defaultMaterial({
 		map		: texture,
 		transparent	: true,
 		depthWrite	: false,
@@ -188,14 +188,14 @@ THREEx.MinecraftChar	= function(skinUrl){
 }
 
 
-THREEx.MinecraftChar.baseUrl	= '../'
-THREEx.MinecraftChar.defaultMaterial	= THREE.MeshBasicMaterial
+THREEx.TinygigantiumChar.baseUrl	= '../'
+THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
  *
  * @param {string} url the url of the skin image
 */
-THREEx.MinecraftChar.prototype.loadSkin	= function(url, onLoad){
+THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
 	var image	= new Image();
 	image.onload	= function () {
 		this.texture.image		= image;
@@ -211,12 +211,12 @@ THREEx.MinecraftChar.prototype.loadSkin	= function(url, onLoad){
 //		support for skin Well Known Url					//
 //////////////////////////////////////////////////////////////////////////////////
 
-THREEx.MinecraftChar.prototype.loadWellKnownSkin	= function(name, onLoad){
-	console.assert(THREEx.MinecraftChar.skinWellKnownUrls[name])
-	var url	= THREEx.MinecraftChar.baseUrl + THREEx.MinecraftChar.skinWellKnownUrls[name];
+THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
+	console.assert(THREEx.TinygigantiumChar.skinWellKnownUrls[name])
+	var url	= THREEx.TinygigantiumChar.baseUrl + THREEx.TinygigantiumChar.skinWellKnownUrls[name];
 	return this.loadSkin(url, onLoad)
 }
 
-THREEx.MinecraftChar.skinWellKnownUrls	= {
+THREEx.TinygigantiumChar.skinWellKnownUrls	= {
 	
 }
