@@ -1,4 +1,4 @@
-<!--http://jeromeetienne.github.io/threex/src/threex.minecraft/examples/animation.html-->
+<!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
 
 <script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
@@ -56,10 +56,10 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var character = new THREEx.MinecraftChar()
+  var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
   
-  var headAnims = new THREEx.MinecraftCharHeadAnimations(character);
+  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
   updateFcts.push(function(delta, now) {
     headAnims.update(delta, now)
   })
@@ -69,7 +69,7 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   }
   
   // init bodyAnims
-  var bodyAnims = new THREEx.MinecraftCharBodyAnimations(character);
+  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
