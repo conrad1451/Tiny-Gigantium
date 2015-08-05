@@ -1,6 +1,6 @@
 <!--http://jeromeetienne.github.io/threex/src/threex.minecraft/examples/animation.html-->
 
-<script src='http://jeromeetienne.github.io/threex/vendor/three.js/build/three.min.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
 <script src='http://jeromeetienne.github.io/threex/src/threex.minecraft/threex.minecraft.js'></script>
 <!-- include animation -->
 <script src='http://jeromeetienne.github.io/threex/src/threex.minecraft/threex.animation.js'></script>
@@ -36,8 +36,9 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     <button onclick='switchHeadValue(this.innerText);'>yes</button>
     <button onclick='switchHeadValue(this.innerText);'>no</button>
   </div>
-<script>
-      // Added onmousedown and onmouseup and can now walk when and only when mouse is being pressed down. Try and get same effect when a key is being held down
+
+  <script>
+    // Added onmousedown and onmouseup and can now walk when and only when mouse is being pressed down. Try and get same effect when a key is being held down
   
   var cheese = 0.02;
   
@@ -170,7 +171,8 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     updateFcts.forEach(function(updateFn) {
       updateFn(deltaMsec / 1000, nowMsec / 1000)
     })
-  }) 
-</script>
+  })
+  </script>
+
 
 </body>
