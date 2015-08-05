@@ -218,20 +218,5 @@ THREEx.MinecraftChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 }
 
 THREEx.MinecraftChar.skinWellKnownUrls	= {
-	'3djesus'		: 'images/3djesus.png',
-	'iron-man'		: 'images/Iron-Man-Minecraft-Skin.png',
-	'joker'			: 'images/Joker.png',
-	'mario'			: 'images/Mario.png',
-	'sonicthehedgehog'	: 'images/Sonicthehedgehog.png',
-	'spiderman'		: 'images/Spiderman.png',
-	'superman'		: 'images/Superman.png',
-	'agentsmith'		: 'images/agentsmith.png',
-	'batman'		: 'images/batman.png',
-	'char'			: 'images/char.png',
-	'god'			: 'images/god.png',
-	'jetienne'		: 'images/jetienne.png',
-	'martialartist'		: 'images/martialartist.png',
-	'robocop'		: 'images/robocop.png',
-	'theflash'		: 'images/theflash.png',
-	'woody'			: 'images/woody.png',
+	
 }
