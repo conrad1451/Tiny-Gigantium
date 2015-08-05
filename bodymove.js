@@ -1,10 +1,10 @@
 var THREEx	= THREEx || {};
 
-THREEx.createMinecraftCharBodyAnimations	= function(character){
-	return new THREEx.MinecraftCharBodyAnimations(character);
+THREEx.createTinygigantiumCharBodyAnimations	= function(character){
+	return new THREEx.TinygigantiumCharBodyAnimations(character);
 }
 
-THREEx.MinecraftCharBodyAnimations	= function(character){
+THREEx.TinygigantiumCharBodyAnimations	= function(character){
 	var animations	= this;
 	// call parent ctor
 	THREEx.Animations.call(this)
@@ -193,4 +193,4 @@ THREEx.MinecraftCharBodyAnimations	= function(character){
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 }
 
-THREEx.MinecraftCharBodyAnimations.prototype	= Object.create(THREEx.Animations.prototype);
+THREEx.TinygigantiumCharBodyAnimations.prototype	= Object.create(THREEx.Animations.prototype);
