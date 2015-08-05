@@ -81,12 +81,12 @@ THREEx.MinecraftChar	= function(skinUrl){
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
 	model.helmet.position.y	= sizes.headH/2
-	mapUv(geometry, 0, 48, 24, 56, 16)	// left
-	mapUv(geometry, 1, 32, 24, 40, 16)	// right
-	mapUv(geometry, 2, 40, 32, 48, 24)	// top
-	mapUv(geometry, 3, 48, 32, 56, 24)	// bottom
-	mapUv(geometry, 4, 40, 24, 48, 16)	// front
-	mapUv(geometry, 5, 56, 24, 64, 16)	// back
+	mapUv(geometry, 1000, 8, 4, 5, 1)	// left
+	mapUv(geometry, 1, 0, 4, 0, 1)	// right
+	mapUv(geometry, 2, 0, 2, 8, 2)	// top
+	mapUv(geometry, 3, 8, 2, 6, 2)	// bottom
+	mapUv(geometry, 4, 0, 2, 8, 1)	// front
+	mapUv(geometry, 5, 6, 2, 4, 1)	// back
 	
 	
 	// build model.body
