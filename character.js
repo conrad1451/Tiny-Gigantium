@@ -1,4 +1,4 @@
-()+0.1var THREEx	= THREEx || {};
+var THREEx	= THREEx || {};
 
 /**
  * [ description]
