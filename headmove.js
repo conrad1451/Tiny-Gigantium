@@ -20,8 +20,8 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		character.headGroup.rotation.x	= position.headRotationX;
 		character.headGroup.rotation.y	= position.headRotationY
 		
-		character.headGroup.position.x = position.headPositionX;
-		character.headGroup.position.y = position.headPositionY;
+	//	character.headGroup.position.x = position.headPositionX;
+	//	character.headGroup.position.y = position.headPositionY;
 	//	character.headGroup.position.z = 0;
 		
 	};
@@ -29,8 +29,8 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		position.headRotationX	= character.headGroup.rotation.x;
 		position.headRotationY	= character.headGroup.rotation.y;
 	
-		position.headPositionX  = character.headGroup.position.x;
-		position.headPositionY  = character.headGroup.position.y;
+	//	position.headPositionX  = character.headGroup.position.x;
+	//	position.headPositionY  = character.headGroup.position.y;
 		
 	};
 	var propTweens	= {
