@@ -85,7 +85,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.helmetH, sizes.helmetH, sizes.helmetH)
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
-	model.helmet.position.y	= (sizes.headH/2)
+	model.helmet.position.y	= sizes.headH/2
 	mapUv(geometry, 1000, 8, 4, 5, 1)	// left
 	mapUv(geometry, 1, 0, 4, 0, 1)	// right
 	mapUv(geometry, 2, 0, 2, 8, 2)	// top
@@ -98,7 +98,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.bodyW, sizes.bodyH, sizes.bodyD)
 	model.body	= new THREE.Mesh(geometry, material)
 	model.root.add(model.body)
-	model.body.position.y	= (sizes.legH + sizes.bodyH/2)
+	model.body.position.y	= sizes.legH + sizes.bodyH/2
 	mapUv(geometry, 0, 28, 12, 32,  0)	// left
 	mapUv(geometry, 1, 16, 12, 20,  0)	// right
 	mapUv(geometry, 2, 20, 16, 28, 12)	// top
@@ -111,8 +111,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.armR	= new THREE.Mesh(geometry, material)
 	model.root.add(model.armR)
 	geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, -sizes.armH/2 + sizes.armW/2, 0) );
-	model.armR.position.x	= (-sizes.bodyW/2 - sizes.armW/2)
-	model.armR.position.y	=  (sizes.legH + sizes.bodyH - sizes.armW/2)
+	model.armR.position.x	= -sizes.bodyW/2 - sizes.armW/2
+	model.armR.position.y	=  sizes.legH + sizes.bodyH - sizes.armW/2
 	mapUv(geometry, 0, 48, 12, 52,  0)	// right
 	mapUv(geometry, 1, 40, 12, 44,  0)	// left
 	mapUv(geometry, 2, 44, 16, 48, 12)	// top
@@ -125,8 +125,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.armL	= new THREE.Mesh(geometry, material)
 	model.root.add(model.armL)
 	geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, -sizes.armH/2 + sizes.armW/2, 0) );
-	model.armL.position.x	= (sizes.bodyW/2 + sizes.armW/2)
-	model.armL.position.y	= (sizes.legH + sizes.bodyH - sizes.armW/2)
+	model.armL.position.x	= sizes.bodyW/2 + sizes.armW/2
+	model.armL.position.y	= sizes.legH + sizes.bodyH - sizes.armW/2
 	mapUv(geometry, 0, 44, 12, 40,  0)	// right
 	mapUv(geometry, 1, 52, 12, 48,  0)	// left
 	mapUv(geometry, 2, 44, 16, 48, 12)	// top
@@ -139,8 +139,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.legR	= new THREE.Mesh(geometry, material)
 	model.root.add(model.legR)
 	geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, -sizes.legH/2, 0) );
-	model.legR.position.x	= (-sizes.legW/2)
-	model.legR.position.y	=  (sizes.legH)
+	model.legR.position.x	= -sizes.legW/2
+	model.legR.position.y	=  sizes.legH
 	mapUv(geometry, 0,  8, 12, 12,  0)	// right
 	mapUv(geometry, 1,  0, 12,  4,  0)	// left
 	mapUv(geometry, 2,  4, 16,  8, 12)	// top
@@ -153,8 +153,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.legL	= new THREE.Mesh(geometry, material)
 	model.root.add(model.legL)
 	geometry.applyMatrix( new THREE.Matrix4().makeTranslation(0, -sizes.legH/2, 0) );
-	model.legL.position.x	= (sizes.legW/2)
-	model.legL.position.y	= (sizes.legH)
+	model.legL.position.x	= sizes.legW/2
+	model.legL.position.y	= sizes.legH
 	mapUv(geometry, 0,  4, 12,  0,  0)	// left
 	mapUv(geometry, 1, 12, 12,  8,  0)	// right
 	mapUv(geometry, 2,  8, 16,  4, 12)	// top
