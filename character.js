@@ -5,9 +5,9 @@ var THREEx	= THREEx || {};
  * @param  {[type]} skinUrl [description]
  * @return {[type]}         [description]
  */
-THREEx.TinygigantiumChar	= function(skinUrl){
+THREEx.MinecraftChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || (THREEx.TinygigantiumChar.baseUrl + "images/jetienne.png")
+	skinUrl	= skinUrl || (THREEx.MinecraftChar.baseUrl + "images/jetienne.png")
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -17,10 +17,10 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	texture.minFilter	= THREE.NearestFilter;
 	this.texture	= texture
 
-	var material	= new THREEx.TinygigantiumChar.defaultMaterial({
+	var material	= new THREEx.MinecraftChar.defaultMaterial({
 		map	: texture
 	});
-	var materialTran= new THREEx.TinygigantiumChar.defaultMaterial({
+	var materialTran= new THREEx.MinecraftChar.defaultMaterial({
 		map		: texture,
 		transparent	: true,
 		depthWrite	: false,
@@ -69,14 +69,14 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 
 	// build model.head
 	var geometry	= new THREE.CubeGeometry(sizes.headW, sizes.headH, sizes.headD)
-        mapUv(geometry, 0, 16, 24, 24, 16)	// left
+	mapUv(geometry, 0, 16, 24, 24, 16)	// left
 	mapUv(geometry, 1,  0, 24,  8, 16)	// right
 	mapUv(geometry, 2,  8, 32, 16, 24)	// top
 	mapUv(geometry, 3, 16, 32, 24, 24)	// bottom
 	mapUv(geometry, 4,  8, 24, 16, 16)	// front
 	mapUv(geometry, 5, 24, 24, 32, 16)	// back
 	var mesh	= new THREE.Mesh(geometry, material)
-	mesh.position.y	= (sizes.headH/2)
+	mesh.position.y	= sizes.headH/2
 	model.head	= mesh
 	model.headGroup.add(model.head)
 
@@ -86,12 +86,12 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
 	model.helmet.position.y	= sizes.headH/2
-	mapUv(geometry, 1000, 8, 4, 5, 1)	// left
-	mapUv(geometry, 1, 0, 4, 0, 1)	// right
-	mapUv(geometry, 2, 0, 2, 8, 2)	// top
-	mapUv(geometry, 3, 8, 2, 6, 2)	// bottom
-	mapUv(geometry, 4, 0, 2, 8, 1)	// front
-	mapUv(geometry, 5, 6, 2, 4, 1)	// back
+	mapUv(geometry, 0, 48, 24, 56, 16)	// left
+	mapUv(geometry, 1, 32, 24, 40, 16)	// right
+	mapUv(geometry, 2, 40, 32, 48, 24)	// top
+	mapUv(geometry, 3, 48, 32, 56, 24)	// bottom
+	mapUv(geometry, 4, 40, 24, 48, 16)	// front
+	mapUv(geometry, 5, 56, 24, 64, 16)	// back
 	
 	
 	// build model.body
@@ -188,14 +188,14 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 }
 
 
-THREEx.TinygigantiumChar.baseUrl	= '../'
-THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
+THREEx.MinecraftChar.baseUrl	= '../'
+THREEx.MinecraftChar.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
  *
  * @param {string} url the url of the skin image
 */
-THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
+THREEx.MinecraftChar.prototype.loadSkin	= function(url, onLoad){
 	var image	= new Image();
 	image.onload	= function () {
 		this.texture.image		= image;
@@ -211,12 +211,13 @@ THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
 //		support for skin Well Known Url					//
 //////////////////////////////////////////////////////////////////////////////////
 
-THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
-	console.assert(THREEx.TinygigantiumChar.skinWellKnownUrls[name])
-	var url	= THREEx.TinygigantiumChar.baseUrl + THREEx.TinygigantiumChar.skinWellKnownUrls[name];
+THREEx.MinecraftChar.prototype.loadWellKnownSkin	= function(name, onLoad){
+	console.assert(THREEx.MinecraftChar.skinWellKnownUrls[name])
+	var url	= THREEx.MinecraftChar.baseUrl + THREEx.MinecraftChar.skinWellKnownUrls[name];
 	return this.loadSkin(url, onLoad)
 }
 
-THREEx.TinygigantiumChar.skinWellKnownUrls	= {
-	
+THREEx.MinecraftChar.skinWellKnownUrls	= {
+
+
 }
