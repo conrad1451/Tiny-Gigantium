@@ -19,15 +19,27 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 	var onUpdate	= function(position){
 		character.headGroup.rotation.x	= position.headRotationX;
 		character.headGroup.rotation.y	= position.headRotationY
+		
+		character.headGroup.position.x = position.headPositionX;
+		character.headGroup.position.y = position.headPositionY;
+	//	character.headGroup.position.z = 0;
+		
 	};
 	var onCapture	= function(position){
 		position.headRotationX	= character.headGroup.rotation.x;
 		position.headRotationY	= character.headGroup.rotation.y;
+	
+		position.headPositionX  = character.headGroup.position.x;
+		position.headPositionY  = character.headGroup.position.y;
+		
 	};
 	var propTweens	= {
 		headRotationX	: tweenAngle,
 		headRotationY	: tweenAngle
 	};
+	
+	headPositionX = 3;
+	headPositionY = 1;
 	
 	
 	// Setup 'still' animation
@@ -53,6 +65,8 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		headRotationX	: -Math.PI/8,
 		headRotationY	: 0
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
+	
+	
 }
 
 THREEx.TinygigantiumCharHeadAnimations.prototype	= Object.create(THREEx.Animations.prototype);
