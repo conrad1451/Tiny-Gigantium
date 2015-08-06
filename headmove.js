@@ -22,7 +22,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		
 	//	character.headGroup.position.x = position.headPositionX;
 	//	character.headGroup.position.y = position.headPositionY;
-	//	character.headGroup.position.z = 0;
+
 		
 	};
 	var onCapture	= function(position){
