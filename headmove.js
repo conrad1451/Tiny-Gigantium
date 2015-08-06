@@ -38,7 +38,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		headRotationY	: tweenAngle
 	};
 	
-	headPositionX = 1;
+	headPositionX = 3;
 	headPositionY = 1;
 	
 	
