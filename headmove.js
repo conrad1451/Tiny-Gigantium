@@ -54,7 +54,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		headRotationY	: 0
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 	
-	character.headGroup.position.x = 10;
+	character.headGroup.position.x = 0;
 }
 
 THREEx.TinygigantiumCharHeadAnimations.prototype	= Object.create(THREEx.Animations.prototype);
