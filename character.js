@@ -54,7 +54,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	sizes.armH	= 12 * sizes.pixRatio;
 	sizes.armW	=  4 * sizes.pixRatio;
 	sizes.armD	=  4 * sizes.pixRatio;
-
+	
+	var chowder = 1;
 
 	// build model core hierachy
 	// - origin between 2 feet
@@ -63,7 +64,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.root	= new THREE.Object3D;
 
 	var group	= new THREE.Object3D()
-	group.position.y= sizes.charH - sizes.headH + 1	
+	group.position.y= sizes.charH - sizes.headH + chowder	
 	model.headGroup	= group
 	model.root.add(model.headGroup)
 
