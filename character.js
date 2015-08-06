@@ -2,6 +2,7 @@
 All body parts but head and helmet move regularly when sizes and positions are changed 
 fix y Position of head and helmet by first setting each to 0, then at different numerical values to see what works
 
+Also remeber to change 1/16 back to 1/32 when fixed head positioning
 
 
 */
