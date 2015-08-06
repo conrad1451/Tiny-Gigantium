@@ -59,6 +59,9 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
   
+  
+  character.headGroup.rotation.x = 0.01;
+  
   var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
   updateFcts.push(function(delta, now) {
     headAnims.update(delta, now)
