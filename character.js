@@ -73,7 +73,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.root	= new THREE.Object3D;
 
 	var group	= new THREE.Object3D()
-	group.position.y= sizes.charH - sizes.headH + yPosi	
+	group.position.y= sizes.charH - sizes.headH + 0.4	
 	model.headGroup	= group
 	model.root.add(model.headGroup)
 
