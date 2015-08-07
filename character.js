@@ -95,7 +95,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.helmetH, sizes.helmetH, sizes.helmetH)
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
-	model.helmet.position.y	= 0 //sizes.headH/2 + yPosi
+	model.helmet.position.y	= 0.7 //sizes.headH/2 + yPosi
 	mapUv(geometry, 0, 48, 24, 56, 16)	// left
 	mapUv(geometry, 1, 32, 24, 40, 16)	// right
 	mapUv(geometry, 2, 40, 32, 48, 24)	// top
