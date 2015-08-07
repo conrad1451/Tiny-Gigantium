@@ -64,7 +64,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	sizes.armW	=  4 * sizes.pixRatio;
 	sizes.armD	=  4 * sizes.pixRatio;
 	
-	var xPosi = -0.5;
+	var xPosi = 0;
 	var yPosi = 0.0;
 
 	// build model core hierachy
