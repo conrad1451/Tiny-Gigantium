@@ -64,7 +64,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	sizes.armW	=  4 * sizes.pixRatio;
 	sizes.armD	=  4 * sizes.pixRatio;
 	
-	var yPosi = 0.3;
+	var yPosi = 0.0;
 
 	// build model core hierachy
 	// - origin between 2 feet
@@ -86,7 +86,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	mapUv(geometry, 4,  8, 24, 16, 16)	// front
 	mapUv(geometry, 5, 24, 24, 32, 16)	// back
 	var mesh	= new THREE.Mesh(geometry, material)
-	mesh.position.y	= 0.125 // sizes.headH/2 + yPosi // (8/32)/2 + 0.3 = 0.125 + 0.3 = 0.425 
+	mesh.position.y	= /*0.125 */ sizes.headH/2 + yPosi // (8/32)/2 + 0.3 = 0.125 + 0.3 = 0.425 
 	model.head	= mesh
 	model.headGroup.add(model.head)
 
@@ -95,7 +95,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.helmetH, sizes.helmetH, sizes.helmetH)
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
-	model.helmet.position.y	= 0.125 //sizes.headH/2 + yPosi // (8/32)/2 + 0.3 = 0.125 + 0.3 = 0.425 
+	model.helmet.position.y	= /*0.125*/ sizes.headH/2 + yPosi // (8/32)/2 + 0.3 = 0.125 + 0.3 = 0.425 
 	mapUv(geometry, 0, 48, 24, 56, 16)	// left
 	mapUv(geometry, 1, 32, 24, 40, 16)	// right
 	mapUv(geometry, 2, 40, 32, 48, 24)	// top
