@@ -69,7 +69,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	
 	var xPosi = 0;
 	var yPosi = 0;
-	var zPosi = 0;
+	var zPosi = 0.5;
 
 	// build model core hierachy
 	// - origin between 2 feet
