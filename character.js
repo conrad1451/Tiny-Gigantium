@@ -4,6 +4,9 @@ fix y Position of head and helmet by first setting each to 0, then at different 
 
 Also remeber to change 1/16 back to 1/32 when fixed head positioning
 
+Would only need to do mesh.position.x and model.helmet.position.x if you wanted the helmet 
+to come off the head for some reason, you would set them at different y and x values
+
 
 */
 
@@ -91,7 +94,6 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	mapUv(geometry, 4,  8, 24, 16, 16)	// front
 	mapUv(geometry, 5, 24, 24, 32, 16)	// back
 	var mesh	= new THREE.Mesh(geometry, material)
-//	mesh.position.x = xPosi
 	mesh.position.y	= sizes.headH/2 + yPosi  
 	model.head	= mesh
 	model.headGroup.add(model.head)
@@ -101,7 +103,6 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.helmetH, sizes.helmetH, sizes.helmetH)
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
-//	model.helmet.position.x = xPosi
 	model.helmet.position.y	= sizes.headH/2 + yPosi
 	mapUv(geometry, 0, 48, 24, 56, 16)	// left
 	mapUv(geometry, 1, 32, 24, 40, 16)	// right
