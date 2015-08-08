@@ -94,7 +94,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	mapUv(geometry, 4,  8, 24, 16, 16)	// front
 	mapUv(geometry, 5, 24, 24, 32, 16)	// back
 	var mesh	= new THREE.Mesh(geometry, material)
-	mesh.position.y	= sizes.headH/2 + yPosi  
+	mesh.position.y	= sizes.headH/2 + yPosi
+	mesh.position.z = 0.4
 	model.head	= mesh
 	model.headGroup.add(model.head)
 
