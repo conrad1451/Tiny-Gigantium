@@ -19,7 +19,7 @@ var THREEx	= THREEx || {};
  */
 THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || ("http://jeromeetienne.github.io/threex/src/threex.minecraft/images/jetienne.png")
+	skinUrl	= skinUrl || ('jetienne')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
