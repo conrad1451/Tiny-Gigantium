@@ -212,7 +212,7 @@ return
 }
 
 
-THREEx.TinygigantiumChar.baseUrl	= '../'
+THREEx.TinygigantiumChar.baseUrl	= 'http://jeromeetienne.github.io/threex/src/threex.minecraft/'
 THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
