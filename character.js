@@ -19,7 +19,7 @@ var THREEx	= THREEx || {};
  */
 THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || (THREEx.TinygigantiumChar.baseUrl + "images/jetienne.png")
+	skinUrl	= skinUrl || ("http://jeromeetienne.github.io/threex/src/threex.minecraft/images/jetienne.png")
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -212,7 +212,7 @@ return
 }
 
 
-THREEx.TinygigantiumChar.baseUrl	= '../'
+
 THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
@@ -237,25 +237,15 @@ THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
 
 THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 	console.assert(THREEx.TinygigantiumChar.skinWellKnownUrls[name])
-	var url	= THREEx.TinygigantiumChar.baseUrl + THREEx.TinygigantiumChar.skinWellKnownUrls[name];
+	var url	= THREEx.TinygigantiumChar.skinWellKnownUrls[name];
 	return this.loadSkin(url, onLoad)
 }
 
 THREEx.TinygigantiumChar.skinWellKnownUrls	= {
-	'3djesus'		: 'images/3djesus.png',
-	'iron-man'		: 'images/Iron-Man-Tinygigantium-Skin.png',
-	'joker'			: 'images/Joker.png',
-	'mario'			: 'images/Mario.png',
-	'sonicthehedgehog'	: 'images/Sonicthehedgehog.png',
-	'spiderman'		: 'images/Spiderman.png',
-	'superman'		: 'images/Superman.png',
-	'agentsmith'		: 'images/agentsmith.png',
-	'batman'		: 'images/batman.png',
-	'char'			: 'images/char.png',
-	'god'			: 'images/god.png',
-	'jetienne'		: 'images/jetienne.png',
-	'martialartist'		: 'images/martialartist.png',
-	'robocop'		: 'images/robocop.png',
-	'theflash'		: 'images/theflash.png',
-	'woody'			: 'images/woody.png',
+	'mario'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/Mario.png',
+	'char'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/char.png',
+	'jetienne'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/jetienne.png',
+	'martialartist'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/martialartist.png',
+	'theflash'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/theflash.png',
+	'woody'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/woody.png',
 }
