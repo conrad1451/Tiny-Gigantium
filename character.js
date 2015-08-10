@@ -186,7 +186,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	mapUv(geometry, 4,  8, 12,  4,  0)	// front
 	mapUv(geometry, 5, 16, 12, 12,  0)	// back
 
-	return
+return
 	
 	function mapUv(geometry, faceIdx, x1, y1, x2, y2){
 		var tileUvW	= 1/64;
@@ -242,6 +242,20 @@ THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 }
 
 THREEx.TinygigantiumChar.skinWellKnownUrls	= {
-
-
+	'3djesus'		: 'images/3djesus.png',
+	'iron-man'		: 'images/Iron-Man-Tinygigantium-Skin.png',
+	'joker'			: 'images/Joker.png',
+	'mario'			: 'images/Mario.png',
+	'sonicthehedgehog'	: 'images/Sonicthehedgehog.png',
+	'spiderman'		: 'images/Spiderman.png',
+	'superman'		: 'images/Superman.png',
+	'agentsmith'		: 'images/agentsmith.png',
+	'batman'		: 'images/batman.png',
+	'char'			: 'images/char.png',
+	'god'			: 'images/god.png',
+	'jetienne'		: 'images/jetienne.png',
+	'martialartist'		: 'images/martialartist.png',
+	'robocop'		: 'images/robocop.png',
+	'theflash'		: 'images/theflash.png',
+	'woody'			: 'images/woody.png',
 }
