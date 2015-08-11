@@ -37,6 +37,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 	animations.add('still'	, THREEx.createAnimation().pushKeyframe(0.5, {
 		headRotationX	: 0,
 		headRotationY	: 0
+		character.headGroup.rotation.y += 0.1
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 
 	// Setup 'no' animation
