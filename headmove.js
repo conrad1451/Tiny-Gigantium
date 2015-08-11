@@ -19,7 +19,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 	var onUpdate	= function(position){
 		character.headGroup.rotation.x	= position.headRotationX;
 		character.headGroup.rotation.y	= position.headRotationY
-		character.headGroup.position.y += 1;
+		character.headGroup.position.y += 0;
 		
 	};
 	var onCapture	= function(position){
