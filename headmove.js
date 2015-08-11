@@ -31,7 +31,7 @@ THREEx.TinygigantiumCharHeadAnimations	= function(character){
 		headRotationY	: tweenAngle
 	};
 
-character.headGroup.position.z += 0.01;
+character.headGroup.position.y += 0.1;
 	
 	// Setup 'still' animation
 	animations.add('still'	, THREEx.createAnimation().pushKeyframe(0.5, {
