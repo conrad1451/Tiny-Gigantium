@@ -194,38 +194,8 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   
  // character.legL.position.x = xPosi;
     character.legL.position.y += cheese; 
-    
-//     function keyEvent(event) {
-    /*
-    a = unicode 97
-    z = unicode 122
-    0 = unicdoe 48
-    9 = unicode 57
-    
-    */
-  
-    var leftarrow = 37;
-    var uparrow = 38;
-    var rightarrow = 39;
-    var downarrow = 40;
-  
-    var key = event.keyCode || event.which;
-    var keychar = String.fromCharCode(key);
- 
-    if (key == uparrow) {
-      bodyAnims.start('walk');
-      // move character forwards
-    }
-    if (key == downarrow) {
-      bodyAnims.start('walk');
-      // move character backwards
-    }
-    if (key >= leftarrow && key <= downarrow) {
-      onkeyup = function() {
-        bodyAnims.start('stand');
-      }
-    }
-    }
+   
+   
     
   })
   
