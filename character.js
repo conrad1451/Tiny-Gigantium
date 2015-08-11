@@ -21,7 +21,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
 	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
 	
-	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash%20-%20Copy_zpscprmcdrl.png')
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
