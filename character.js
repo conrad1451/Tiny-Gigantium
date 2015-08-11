@@ -19,7 +19,7 @@ var THREEx	= THREEx || {};
  */
 THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || ('http://jeromeetienne.github.io/threex/src/threex.minecraft/images/theflash.png')
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -248,4 +248,5 @@ THREEx.TinygigantiumChar.skinWellKnownUrls	= {
 	'martialartist'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/martialartist.png',
 	'theflash'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/theflash.png',
 	'woody'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/woody.png',
+	'cheesy'                : 'http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png'
 }
