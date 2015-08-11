@@ -19,7 +19,9 @@ var THREEx	= THREEx || {};
  */
 THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
-	skinUrl	= skinUrl || ('http://jeromeetienne.github.io/threex/src/threex.minecraft/images/Mario.png')
+	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
+	
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -103,7 +105,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var geometry	= new THREE.CubeGeometry(sizes.helmetH, sizes.helmetH, sizes.helmetH)
 	model.helmet	= new THREE.Mesh(geometry, materialTran)
 	model.headGroup.add(model.helmet)
-	model.helmet.position.y	= sizes.headH/2 + yPosi
+	model.helmet.position.y	= sizes.headH/2 + yPosi 
 	mapUv(geometry, 0, 48, 24, 56, 16)	// left
 	mapUv(geometry, 1, 32, 24, 40, 16)	// right
 	mapUv(geometry, 2, 40, 32, 48, 24)	// top
@@ -248,4 +250,5 @@ THREEx.TinygigantiumChar.skinWellKnownUrls	= {
 	'martialartist'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/martialartist.png',
 	'theflash'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/theflash.png',
 	'woody'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/woody.png',
+
 }
