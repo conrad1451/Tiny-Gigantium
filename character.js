@@ -79,7 +79,6 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	group.position.x = xPosi
 	group.position.y = sizes.legH + sizes.bodyH  // 12/32 + 12/32 + (8/32)/2 ---> 3/8 + 3/8 --> 3/4
 	group.position.z = zPosi
-	group.rotation.z = 180
 	model.headGroup	= group
 	model.root.add(model.headGroup)
 
