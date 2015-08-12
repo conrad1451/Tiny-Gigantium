@@ -120,12 +120,12 @@ Pasted the code from these 2 sources straight into the JS part of this pen
  
     if (key == uparrow) {
       bodyAnims.start('walk');
-      zMove = 0.005;
+      zMove = -0.005;
       // move character forwards
     }
     if (key == downarrow) {
       bodyAnims.start('walkbackwards');
-      zMove = -0.005;
+      zMove = 0.005;
       // move character backwards
     }
     if (key >= leftarrow && key <= downarrow) {
