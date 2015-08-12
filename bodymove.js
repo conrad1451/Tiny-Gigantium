@@ -78,18 +78,18 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 	
 		animations.add('strafeRight'	, THREEx.createAnimation().pushKeyframe(0.5, {
-		armLRotationZ	: +angleRange/2,
-		armRRotationZ	: -angleRange/2,
-		armRotationX	: +Math.PI/10,
-		legLRotationZ	: -angleRange,
-		legRRotationZ	: +angleRange,
-		legRotationX	: +Math.PI/5		
-	}).pushKeyframe(0.5, {
 		armLRotationZ	: -angleRange/2,
 		armRRotationZ	: +angleRange/2,
 		armRotationX	: +Math.PI/10,
 		legLRotationZ	: +angleRange,
 		legRRotationZ	: -angleRange,
+		legRotationX	: +Math.PI/5		
+	}).pushKeyframe(0.5, {
+		armLRotationZ	: +angleRange/2,
+		armRRotationZ	: -angleRange/2,
+		armRotationX	: +Math.PI/10,
+		legLRotationZ	: -angleRange,
+		legRRotationZ	: +angleRange,
 		legRotationX	: -Math.PI/5
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 	
