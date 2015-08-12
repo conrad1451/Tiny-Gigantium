@@ -82,13 +82,13 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 	animations.add('walk'	, THREEx.createAnimation().pushKeyframe(0.5, {
 		armLRotationZ	: +Math.PI/30,
 		armRRotationZ	: -Math.PI/30,
-		armRotationX	: +angleRange,
-		legRotationX	: -angleRange		
+		armRotationX	: -angleRange,
+		legRotationX	: +angleRange		
 	}).pushKeyframe(0.5, {
 		armLRotationZ	: +Math.PI/30,
 		armRRotationZ	: -Math.PI/30,
-		armRotationX	: -angleRange,
-		legRotationX	: +angleRange
+		armRotationX	: +angleRange,
+		legRotationX	: -angleRange
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 
 
@@ -97,13 +97,13 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 	animations.add('walkbackwards'	, THREEx.createAnimation().pushKeyframe(0.5, {
 		armLRotationZ	: +Math.PI/30,
 		armRRotationZ	: -Math.PI/30,
-		armRotationX	: -angleRange,
-		legRotationX	: +angleRange		
+		armRotationX	: +angleRange,
+		legRotationX	: -angleRange		
 	}).pushKeyframe(0.5, {
 		armLRotationZ	: +Math.PI/30,
 		armRRotationZ	: -Math.PI/30,
-		armRotationX	: +angleRange,
-		legRotationX	: -angleRange
+		armRotationX	: -angleRange,
+		legRotationX	: +angleRange
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 
 
