@@ -40,7 +40,14 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   <script>
     // Added onmousedown and onmouseup and can now walk when and only when mouse is being pressed down. Try and get same effect when a key is being held down
   
-  var cheese = 0.00;
+        var cheese = 0.00;
+        var xMove = 0;
+        var yMove = 0;
+        var zMove = 0;
+        var xRoll = 0;
+        var yRoll = 0;
+        var zRoll = 0;
+  
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
@@ -111,17 +118,19 @@ Pasted the code from these 2 sources straight into the JS part of this pen
  
     if (key == uparrow) {
       bodyAnims.start('walk');
-      cheese = 0.005;
+      zMove = 0.005;
       // move character forwards
     }
     if (key == downarrow) {
       bodyAnims.start('walk');
+      zMove = -0.005;
       // move character backwards
     }
     if (key >= leftarrow && key <= downarrow) {
       onkeyup = function() {
         bodyAnims.start('stand');
-        cheese = 0;
+        yMove = 0;
+        zMove = 0;
       }
     }
     }
@@ -162,15 +171,12 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     
     
     
-    
-    
-    
-  //  character.root.position.x += cheese;
-      character.root.position.y += cheese;
-  //  character.root.position.z += cheese;
-  //  character.root.rotation.x += cheese;
-      character.root.rotation.y += cheese;
-  //  character.root.rotation.z += 0.02;
+      character.root.position.x += xMove;
+      character.root.position.y += yMove;
+      character.root.position.z += zMove;
+ //   character.root.rotation.x += cheese;
+ //   character.root.rotation.y += cheese;
+ //   character.root.rotation.z += 0.02;
    
     
   })
