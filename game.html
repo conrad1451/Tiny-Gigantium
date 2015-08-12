@@ -121,21 +121,32 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     if (key == uparrow) {
       bodyAnims.start('walk');
       zMove = -0.005;
+      xMove = 0;
       // move character forwards
     }
     if (key == downarrow) {
       bodyAnims.start('walkbackwards');
       zMove = 0.005;
+      xMove = 0;
       // move character backwards
     }
-    if (key >= leftarrow && key <= downarrow) {
+    
+    if (key == leftarrow) {
+      bodyAnims.start('strafe');
+      zMove = 0;
+      xMove = -0.005;
+      // move character backwards
+    }   
+    
+    
+    if(key >= leftarrow && key <= downarrow) {
       onkeyup = function() {
         bodyAnims.start('stand');
         yMove = 0;
         zMove = 0;
       }
     }
-    }
+  }
   
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
