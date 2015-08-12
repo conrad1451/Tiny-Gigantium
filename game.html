@@ -132,12 +132,18 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     }
     
     if (key == leftarrow) {
-      bodyAnims.start('strafe');
+      bodyAnims.start('strafeLeft');
       zMove = 0;
       xMove = -0.005;
-      // move character backwards
+      // move character left
     }   
-    
+
+    if (key == rightarrow) {
+      bodyAnims.start('strafeRight');
+      zMove = 0;
+      xMove = 0.005;
+      // move character right
+    }     
     
     if(key >= leftarrow && key <= downarrow) {
       onkeyup = function() {
