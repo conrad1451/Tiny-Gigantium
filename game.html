@@ -146,13 +146,15 @@ Pasted the code from these 2 sources straight into the JS part of this pen
       // move character right
     }     
     
+    var pie = return character.root.rotation.y
+    
     if(key >= leftarrow && key <= downarrow) {
       onkeyup = function() {
         bodyAnims.start('stand');
         xMove = 0
         yMove = 0;
         zMove = 0;
-        var pie = return character.root.rotation.y 
+         
         alert(pie);
       }
     }
