@@ -87,7 +87,7 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 	}).pushKeyframe(0.5, {
 		armLRotationZ	: +angleRange/2,
 		armRRotationZ	: -angleRange/2,
-		armRotationX	: -Math.PI/10,
+		armRotationX	: +Math.PI/10,
 		legLRotationZ	: -angleRange,
 		legRRotationZ	: +angleRange,
 		legRotationX	: +Math.PI/5
