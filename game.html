@@ -114,6 +114,7 @@
     var uparrow = 38;
     var rightarrow = 39;
     var downarrow = 40;
+    var shift = 16;
   
     var key = event.keyCode || event.which;
     var keychar = String.fromCharCode(key);
@@ -131,14 +132,14 @@
       // move character backwards
     }
     
-    if (key == leftarrow) {
+    if (key == leftarrow && key == shift) {
       bodyAnims.start('strafeLeft');
       zMove = 0;
       xMove = -0.005;
       // move character left
     }   
 
-    if (key == rightarrow) {
+    if (key == rightarrow && key == shift) {
       bodyAnims.start('strafeRight');
       zMove = 0;
       xMove = 0.005;
