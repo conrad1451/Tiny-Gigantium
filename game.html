@@ -116,7 +116,8 @@
     9 = unicode 57
     
     */
-  
+
+character.root.rotation.y = 180 * Math.PI/180  
 
 function keyEvent(event) {
   var key = event.keyCode || event.which;
@@ -137,6 +138,7 @@ function keyEvent(event) {
             bodyAnims.start('strafeRight');
             zMove = 0;
             xMove = 0.005;
+            yRoll = 0;
             // move character right
           }  
       metaChar = false;
@@ -155,9 +157,9 @@ function keyEvent(event) {
       }
       if (key == leftarrow) {
          bodyAnims.start('walk');
-         yRoll = 10 * Math.PI/180;
+         yRoll = 0.5 * Math.PI/180;
          
-         // move character backwards
+         // rotate character left
       }
       
     }
