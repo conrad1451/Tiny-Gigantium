@@ -101,8 +101,16 @@
   }
   document.onkeypress = abcmoves
   
-  function keyEvent(event) {
+  
+    var metaChar = false;
+    var exampleKey = 16;
+    var leftarrow = 37;
+    var uparrow = 38;
+    var rightarrow = 39;
+    var downarrow = 40;
+    var shift = 16;
     /*
+    
     a = unicode 97
     z = unicode 122
     0 = unicdoe 48
@@ -110,47 +118,45 @@
     
     */
   
-    var leftarrow = 37;
-    var uparrow = 38;
-    var rightarrow = 39;
-    var downarrow = 40;
-    var shift = 16;
-  
-    var key = event.keyCode || event.which;
-    var keychar = String.fromCharCode(key);
-    
-    
-     
-    if (key == uparrow) {
-      bodyAnims.start('walk');
-      zMove = -0.005;
-      xMove = 0;
-      // move character forwards
-    }
-    if (key == downarrow) {
-      bodyAnims.start('walkbackwards');
-      zMove = 0.005;
-      xMove = 0;
-      // move character backwards
-    }
-    
-    if (key == leftarrow && key == shift) {
-      bodyAnims.start('strafeLeft');
-      zMove = 0;
-      xMove = -0.005;
-      // move character left
-    }   
 
-    if (key == rightarrow && key == shift) {
-      bodyAnims.start('strafeRight');
-      zMove = 0;
-      xMove = 0.005;
-      // move character right
-    }     
-    
-    var pie = 1; //return (character.root.rotation.y)
-    
-    if(key >= leftarrow && key <= downarrow) {
+function keyEvent(event) {
+  var key = event.keyCode || event.which;
+  var keychar = String.fromCharCode(key);
+  if (key == exampleKey) {
+    metaChar = true;
+  }
+  if (key != exampleKey) {
+    if (metaChar) {
+          if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            zMove = 0;
+            xMove = -0.005;
+            // move character left
+    }   
+          if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            zMove = 0;
+            xMove = 0.005;
+            // move character right
+          }  
+      metaChar = false;
+    } else {
+      if (key == uparrow) {
+         bodyAnims.start('walk');
+         zMove = -0.005;
+         xMove = 0;
+         // move character forwards
+    }
+      if (key == downarrow) {
+         bodyAnims.start('walkbackwards');
+         zMove = 0.005;
+         xMove = 0;
+         // move character backwards
+      }
+    }
+   }
+   
+   if(key >= leftarrow && key <= downarrow) {
       onkeyup = function() {
         bodyAnims.start('stand');
         xMove = 0
@@ -160,7 +166,21 @@
         alert(key);
       }
     }
+}
+
+function metaKeyUp (event) {
+  var key = event.keyCode || event.which;
+
+  if (key == exampleKey) {
+    metaChar = false;
   }
+}
+  
+  
+   // var pie = 1; //return (character.root.rotation.y)
+    
+    
+ 
   
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
