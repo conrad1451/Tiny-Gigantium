@@ -152,9 +152,9 @@ function keyEvent(event) {
          xMove = 0;
          // move character backwards
       }
-      if (key == leftarrow) {
+      if (key == 97) {
          bodyAnims.start('walk');
-         yRoll = 0.5 * Math.PI/180
+         yRoll = 10 * Math.PI/180;
          
          // move character backwards
       }
@@ -169,7 +169,7 @@ function keyEvent(event) {
         yMove = 0;
         zMove = 0;
         yRoll = 0;
-        alert(character.root.rotation.y);
+       // alert(character.root.rotation.y);
       }
     }
 }
