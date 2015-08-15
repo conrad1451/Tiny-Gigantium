@@ -152,7 +152,7 @@ function keyEvent(event) {
          xMove = 0;
          // move character backwards
       }
-      if (key == leftarrow) {
+      if (key == leftarrow && key != exampleKey) {
          bodyAnims.start('walk');
          yRoll = 10 * Math.PI/180;
          
