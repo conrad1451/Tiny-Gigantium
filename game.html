@@ -48,7 +48,7 @@
         var zRoll = 0;
   
 	var xPosi = 0;
-	var yPosi = 0;
+	var yPosi = 0.5 * Math.PI/180;
 	var zPosi = 0;
   
   var renderer = new THREE.WebGLRenderer();
@@ -84,8 +84,7 @@
     bodyAnims.update(delta, now)
   })
   
-  var rot = 180 * Math.PI/180;
-  character.root.rotation.y = rot;
+
   
   function abcmoves(e) {
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
@@ -153,6 +152,13 @@ function keyEvent(event) {
          xMove = 0;
          // move character backwards
       }
+      if (key == leftarrow) {
+         bodyAnims.start('walk');
+         
+         
+         // move character backwards
+      }
+      
     }
    }
    
@@ -162,7 +168,7 @@ function keyEvent(event) {
         xMove = 0
         yMove = 0;
         zMove = 0;
-        alert(rot);
+        alert(character.root.rotation.y);
       }
     }
 }
@@ -175,7 +181,8 @@ function metaKeyUp (event) {
   }
 }
   
-  
+  //  var rot = 180 * Math.PI/180;
+//  character.root.rotation.y = rot;
    // var pie = 1; //return (character.root.rotation.y)
     
     
@@ -221,7 +228,7 @@ function metaKeyUp (event) {
       character.root.position.y += yMove;
       character.root.position.z += zMove;
  //   character.root.rotation.x += cheese;
- //   character.root.rotation.y += cheese;
+      character.root.rotation.y += yRoll;
  //   character.root.rotation.z += 0.02;
    
     
