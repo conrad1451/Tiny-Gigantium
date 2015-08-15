@@ -48,7 +48,7 @@
         var zRoll = 0;
   
 	var xPosi = 0;
-	var yPosi = 0.5 * Math.PI/180;
+	var yPosi = 0;
 	var zPosi = 0;
   
   var renderer = new THREE.WebGLRenderer();
@@ -154,7 +154,7 @@ function keyEvent(event) {
       }
       if (key == leftarrow) {
          bodyAnims.start('walk');
-         
+         yRoll = 0.5 * Math.PI/180
          
          // move character backwards
       }
@@ -168,6 +168,7 @@ function keyEvent(event) {
         xMove = 0
         yMove = 0;
         zMove = 0;
+        yRoll = 0;
         alert(character.root.rotation.y);
       }
     }
