@@ -158,10 +158,14 @@ function keyEvent(event) {
       if (key == leftarrow) {
          bodyAnims.start('walk');
          yRoll = 0.5 * Math.PI/180;
-         
          // rotate character left
       }
-      
+      if (key == rightarrow) {
+         bodyAnims.start('walk');
+         yRoll = -0.5 * Math.PI/180;
+         // rotate character left
+      }
+
     }
    }
    
