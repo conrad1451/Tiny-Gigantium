@@ -189,10 +189,10 @@ function metaKeyUp (event) {
   }
 }
   
-  character.root.rotation.y = 180 * Math.PI/180;  
+ // character.root.rotation.y = 180 * Math.PI/180;  
   
-  //  var rot = 180 * Math.PI/180;
-//  character.root.rotation.y = rot;
+    var rot = 180 * Math.PI/180;
+  character.root.rotation.y = rot;
    // var pie = 1; //return (character.root.rotation.y)
     
     
@@ -238,7 +238,8 @@ function metaKeyUp (event) {
       character.root.position.y += yMove;
       character.root.position.z += zMove;
  //   character.root.rotation.x += cheese;
-      character.root.rotation.y += yRoll;
+ //   character.root.rotation.y += yRoll;
+      rot += yRoll;
  //   character.root.rotation.z += 0.02;
    
     
