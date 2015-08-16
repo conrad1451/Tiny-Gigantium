@@ -119,7 +119,51 @@
 
 
 
-function keyEvent(event) {
+ 
+  
+ // var rot = 180 * Math.PI/180;
+ // character.root.rotation.y = rot;
+ // var pie = 1; //return (character.root.rotation.y)
+    
+    
+ 
+  
+  var switchBodyValue = function(value) {
+    bodyAnims.start(value)
+  }
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		Camera Controls							//
+  //////////////////////////////////////////////////////////////////////////////////
+  var mouse = {
+    x: 0,
+    y: 0
+  }
+  document.addEventListener('mousemove', function(event) {
+    mouse.x = (event.clientX / window.innerWidth) - 0.5
+    mouse.y = (event.clientY / window.innerHeight) - 0.5
+  }, false)
+  updateFcts.push(function(delta, now) {
+    //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+    // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+    // camera.lookAt makes camera focus move along with character 
+    //	 camera.lookAt( scene.position )
+  })
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		render the scene						//
+  //////////////////////////////////////////////////////////////////////////////////
+  updateFcts.push(function() {
+    renderer.render(scene, camera);
+  
+    /* 
+    code I added to test flexibilty of program (IT WORKS!)
+    */
+     
+   // camera.position.y += cheese; 
+    
+    
+    function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
   if (key == exampleKey) {
@@ -189,48 +233,7 @@ function metaKeyUp (event) {
   }
 }
   
-  character.root.rotation.y = 180 * Math.PI/180;  
-  
- // var rot = 180 * Math.PI/180;
- // character.root.rotation.y = rot;
- // var pie = 1; //return (character.root.rotation.y)
-    
-    
- 
-  
-  var switchBodyValue = function(value) {
-    bodyAnims.start(value)
-  }
-  
-  //////////////////////////////////////////////////////////////////////////////////
-  //		Camera Controls							//
-  //////////////////////////////////////////////////////////////////////////////////
-  var mouse = {
-    x: 0,
-    y: 0
-  }
-  document.addEventListener('mousemove', function(event) {
-    mouse.x = (event.clientX / window.innerWidth) - 0.5
-    mouse.y = (event.clientY / window.innerHeight) - 0.5
-  }, false)
-  updateFcts.push(function(delta, now) {
-    //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
-    // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
-    // camera.lookAt makes camera focus move along with character 
-    //	 camera.lookAt( scene.position )
-  })
-  
-  //////////////////////////////////////////////////////////////////////////////////
-  //		render the scene						//
-  //////////////////////////////////////////////////////////////////////////////////
-  updateFcts.push(function() {
-    renderer.render(scene, camera);
-  
-    /* 
-    code I added to test flexibilty of program (IT WORKS!)
-    */
-     
-   // camera.position.y += cheese; 
+  character.root.rotation.y = 180 * Math.PI/180; 
     
     
     
