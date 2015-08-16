@@ -145,8 +145,8 @@ function keyEvent(event) {
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = -0.005;
-         xMove = 0;
+         zMove = cos(character.root.rotation.y);
+         xMove = sin(character.root.rotation.y);
          // move character forwards
     }
       if (key == downarrow) {
@@ -176,7 +176,7 @@ function keyEvent(event) {
         yMove = 0;
         zMove = 0;
         yRoll = 0;
-        alert(character.root.rotation.y);
+        alert(character.root.rotation.y);  // works!!
       }
     }
 }
