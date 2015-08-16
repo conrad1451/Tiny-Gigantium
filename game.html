@@ -30,6 +30,7 @@
     <button onclick='switchBodyValue(this.innerText);'>hiwave</button>
     <button onclick='switchBodyValue(this.innerText);'>circularPunch</button>
     <button onclick='switchBodyValue(this.innerText);'>rightPunch</button>
+    <p id="rotationAngle"></p> 
   </div>
   <div>
     <strong>Head Animations</strong>
@@ -39,7 +40,7 @@
   </div>
 
   <script>
-   
+   document.getElementById("rotationAngle").innerHTML = 1;
         var cheese = 0.00;
         var xMove = 0;
         var yMove = 0;
