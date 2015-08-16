@@ -120,8 +120,8 @@
 
 // var cooly = 0;
 
-var cosMove;
-var sinMove;
+//var cosMove;
+//var sinMove;
 
     function keyEvent(event) {
   var key = event.keyCode || event.which;
@@ -149,8 +149,8 @@ var sinMove;
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = cos(character.root.rotation.y);
-         xMove = sin(character.root.rotation.y);
+         zMove = -0.005;
+         xMove = 0;
          // move character forwards
     }
       if (key == downarrow) {
@@ -248,8 +248,8 @@ function metaKeyUp (event) {
     
     
 
-      cosMove = cos(character.root.rotation.y);
-      sinMove = sin(character.root.rotation.y);
+      //cosMove = cos(character.root.rotation.y);
+    //  sinMove = sin(character.root.rotation.y);
      // cooly += 0.01; 
       character.root.position.x += xMove;
       character.root.position.y += yMove;
