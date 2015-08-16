@@ -1,5 +1,7 @@
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
 
+<!--Cannot plug in updating variable into rotation.x to make the rotational position continually change-->
+
 <script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
 
@@ -37,8 +39,7 @@
   </div>
 
   <script>
-    // Added onmousedown and onmouseup and can now walk when and only when mouse is being pressed down. Try and get same effect when a key is being held down
-  
+   
         var cheese = 0.00;
         var xMove = 0;
         var yMove = 0;
@@ -117,7 +118,10 @@
     
     */
 
-var cooly = 0;
+// var cooly = 0;
+
+var cosMove;
+var sinMove;
 
     function keyEvent(event) {
   var key = event.keyCode || event.which;
@@ -176,10 +180,16 @@ var cooly = 0;
         yMove = 0;
         zMove = 0;
         yRoll = 0;
-        alert(cooly);
+      //  alert(cooly); works
     //  alert(character.root.rotation.y);  // works!!
       }
     }
+    if(key == 97){
+      onkeyup = function() {
+      alert(cosMove);  // works!!
+      }	
+    }
+    
 }
 
 function metaKeyUp (event) {
@@ -191,7 +201,7 @@ function metaKeyUp (event) {
 }
   
   character.root.rotation.y = 180 * Math.PI/180; 
-  character.root.position.x = cooly;  
+ // character.root.position.x = cooly;  won't work for changing x position
 
  
   
@@ -238,8 +248,9 @@ function metaKeyUp (event) {
     
     
 
-    
-      cooly += 0.01; 
+      cosMove = cos(character.root.rotation.y);
+      sinMove = sin(character.root.rotation.y);
+     // cooly += 0.01; 
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
