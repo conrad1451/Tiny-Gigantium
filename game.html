@@ -41,8 +41,11 @@
 
   <script>
   
+  
+  
   function checkingRotation () {
   	document.getElementById("rotationAngle").innerHTML = character.root.rotation.y;
+  	var chess = character.root.rotation.y;
   }
   
     setInterval(checkingRotation, 1);
@@ -157,7 +160,7 @@
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = -0.005;
+         zMove = chess;
          xMove = 0;
          // move character forwards
     }
