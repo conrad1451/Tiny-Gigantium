@@ -40,7 +40,14 @@
   </div>
 
   <script>
-    document.getElementById("rotationAngle").innerHTML = Date();//character.root.rotation.y;
+  
+  function checkingRotation () {
+  	document.getElementById("rotationAngle").innerHTML = character.root.rotation.y;
+  }
+  
+    setInterval(checkingRotation, 1000);
+  
+  
         var cheese = 0.00;
         var xMove = 0;
         var yMove = 0;
