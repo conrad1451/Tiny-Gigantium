@@ -45,7 +45,8 @@
   
   function checkingRotation () {
   	document.getElementById("rotationAngle").innerHTML = character.root.rotation.y;
-  	var chess = character.root.rotation.y;
+  	var chess = character.root.rotation.y * 180 / Math.PI;
+  	document.getElementById("rotationAngle").innerHTML = chess;
   }
   
     setInterval(checkingRotation, 1);
