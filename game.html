@@ -153,20 +153,22 @@
   }
   if (key != exampleKey) {
     if (metaChar) {
-          if (key == 97) {
+    	/*
+          if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
             zMove = 0;
             xMove = -0.005;
             yRoll = 0;
             // move character left
     }   
-          if (key == 99) {
+          if (key == rightarrow) {
             bodyAnims.start('strafeRight');
             zMove = 0;
             xMove = 0.005;
             yRoll = 0;
             // move character right
           }  
+          */
       metaChar = false;
     } else {
       if (key == uparrow) {
@@ -181,27 +183,44 @@
          xMove = 0;
          // move character backwards
       }
-      if (key == leftarrow) {
+      if (key == 97) {
          bodyAnims.start('walk');
          yRoll = 0.5 * Math.PI/180;
          // rotate character left
       }
-      if (key == rightarrow) {
+      if (key == 99) {
          bodyAnims.start('walk');
          yRoll = -0.5 * Math.PI/180;
-         // rotate character left
+         // rotate character right
       }
+      if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            zMove = 0;
+            xMove = -0.005;
+            yRoll = 0;
+            // move character left
+    }   
+      if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            zMove = 0;
+            xMove = 0.005;
+            yRoll = 0;
+            // move character right
+          }  
+     
+     
+      
       
       var h = 5;
       var s = 1.15;
-      
+      /*
       if (key == spacebar) {
          bodyAnims.start('jump');
-
+         yMove = sqrt((h*h)-(x-h))
 
          // make character jump
       }
-      
+      */
 
     }
    }
