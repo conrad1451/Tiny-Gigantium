@@ -61,7 +61,7 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 		legRotationX	: +angleRange
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
 
-	animations.add('strafe'	, THREEx.createAnimation().pushKeyframe(0.5, {
+	animations.add('strafeLeft'	, THREEx.createAnimation().pushKeyframe(0.5, {
 		armLRotationZ	: +angleRange/2,
 		armRRotationZ	: -angleRange/2,
 		armRotationX	: +Math.PI/10,
@@ -76,10 +76,44 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 		legRRotationZ	: -angleRange,
 		legRotationX	: -Math.PI/5
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
+	
+		animations.add('strafeRight'	, THREEx.createAnimation().pushKeyframe(0.5, {
+		armLRotationZ	: +angleRange/2,
+		armRRotationZ	: -angleRange/2,
+		armRotationX	: -Math.PI/10,
+		legLRotationZ	: -angleRange,
+		legRRotationZ	: +angleRange,
+		legRotationX	: +Math.PI/5		
+	}).pushKeyframe(0.5, {
+		armLRotationZ	: -angleRange/2,
+		armRRotationZ	: +angleRange/2,
+		armRotationX	: -Math.PI/10,
+		legLRotationZ	: +angleRange,
+		legRRotationZ	: -angleRange,
+		legRotationX	: +Math.PI/5
+	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
+	
+	
+	
 
 	// Setup 'walk' animation
 	var angleRange	= Math.PI/3-Math.PI/10;
 	animations.add('walk'	, THREEx.createAnimation().pushKeyframe(0.5, {
+		armLRotationZ	: +Math.PI/30,
+		armRRotationZ	: -Math.PI/30,
+		armRotationX	: -angleRange,
+		legRotationX	: +angleRange		
+	}).pushKeyframe(0.5, {
+		armLRotationZ	: +Math.PI/30,
+		armRRotationZ	: -Math.PI/30,
+		armRotationX	: +angleRange,
+		legRotationX	: -angleRange
+	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
+
+
+	// Setup 'walkbackwards' animation
+	var angleRange	= Math.PI/3-Math.PI/10;
+	animations.add('walkbackwards'	, THREEx.createAnimation().pushKeyframe(0.5, {
 		armLRotationZ	: +Math.PI/30,
 		armRRotationZ	: -Math.PI/30,
 		armRotationX	: +angleRange,
@@ -90,6 +124,8 @@ THREEx.TinygigantiumCharBodyAnimations	= function(character){
 		armRotationX	: -angleRange,
 		legRotationX	: +angleRange
 	}).propertyTweens(propTweens).onCapture(onCapture).onUpdate(onUpdate));
+
+
 
 	// Setup 'stand' animation
 	animations.add('stand', THREEx.createAnimation().pushKeyframe(0.3, {
