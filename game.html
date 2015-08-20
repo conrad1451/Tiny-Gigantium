@@ -115,7 +115,7 @@
     
     var actualkey = String.fromCharCode(unicode)
   
-    alert(unicode);
+  //  alert(actualkey);
     
   }
   document.onkeypress = abcmoves
@@ -128,15 +128,14 @@
     var rightarrow = 39;
     var downarrow = 40;
     var shift = 16;
-    var spacebar = 65;
-    var spacebar1 = 32;
+    var spacebar = 32;
      
     /*
     
     a = 65, not 97
     z = 90
-    0 = unicdoe 48
-    9 = unicode 57
+    0 = 48
+    9 = 57
     
     */
 
@@ -187,18 +186,18 @@
       }
       
       
-      if (key == spacebar) {
+      if (key == 65) {
          bodyAnims.start('walk');
          yRoll = 0.5 * Math.PI/180;
          // rotate character left
       }
-      /*
-      if (key == 99) {
+      
+      if (key == 68) {
          bodyAnims.start('walk');
          yRoll = -0.5 * Math.PI/180;
          // rotate character right
       }
-      */
+      
       
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
