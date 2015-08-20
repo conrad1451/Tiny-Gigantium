@@ -111,13 +111,13 @@
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
     var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
   
-    /* Use to make it based on alphabet characters
+    /* Use to make it based on alphabet characters */
     
     var actualkey = String.fromCharCode(unicode)
   
-  */ 
+  
    
-    alert(unicode);
+    alert(actualkey);
   }
   document.onkeypress = abcmoves
   
