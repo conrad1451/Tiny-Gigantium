@@ -241,13 +241,16 @@
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
         bodyAnims.start('stand');
-        xMove = 0
+        xMove = 0;
         zMove = 0;
         //  yRoll = 0;
         //  alert(cooly); works
         // alert(character.root.rotation.y);  // works!!
       }
-      
+        if(key = spacebar) {
+        bodyAnims.start('stand');
+        yRoll = 0;
+        }
       /*  if(key = 97 || key = 99) {
         bodyAnims.start('stand');
         yRoll = 0;
