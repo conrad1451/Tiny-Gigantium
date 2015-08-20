@@ -130,6 +130,8 @@
     var downarrow = 40;
     var shift = 16;
     var spacebar = 32;
+    var a = 97;
+    var d = 100;
      
     /*
     
@@ -192,7 +194,7 @@
       }
       
       
-      if (key == spacebar) {
+      if (key == a) {
          bodyAnims.start('walk');
          yRoll = 0.5 * Math.PI/180;
          // rotate character left
@@ -247,7 +249,7 @@
         //  alert(cooly); works
         // alert(character.root.rotation.y);  // works!!
       }
-        if(key = spacebar) {
+        if(key = a) {
         bodyAnims.start('stand');
         yRoll = 0;
         }
