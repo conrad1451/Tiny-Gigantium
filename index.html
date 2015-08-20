@@ -1,15 +1,15 @@
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
 
+<!--Cannot plug in updating variable into rotation.x to make the rotational position continually change-->
+
 <script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
 
 <!-- include animation -->
 <script src='http://conrad1451.github.io/Tiny-Gigantium/animation.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/animations.js'></script>
-<!--
 
-Pasted the code from these 2 sources straight into the JS part of this pen
--->
+<!-- Headmove and bodymove -->
 <script src='http://conrad1451.github.io/Tiny-Gigantium/headmove.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/bodymove.js'></script>
 
@@ -21,7 +21,8 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     <strong>Body Animations</strong>
     <button onclick='switchBodyValue(this.innerText);'>stand</button>
     <button onclick='switchBodyValue(this.innerText);'>fall</button>
-    <button onclick='switchBodyValue(this.innerText);'>strafe</button>
+    <button onclick='switchBodyValue(this.innerText);'>strafeLeft</button>
+    <button onclick='switchBodyValue(this.innerText);'>strafeRight</button>
     <button onclick='switchBodyValue(this.innerText);'>jump</button>
     <button onclick='switchBodyValue(this.innerText);'>walk</button>
     <button onclick='switchBodyValue(this.innerText);'>run</button>
@@ -29,6 +30,8 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     <button onclick='switchBodyValue(this.innerText);'>hiwave</button>
     <button onclick='switchBodyValue(this.innerText);'>circularPunch</button>
     <button onclick='switchBodyValue(this.innerText);'>rightPunch</button>
+    <p id="rotationAngle"></p>
+    <p id="degrees"></p> 
   </div>
   <div>
     <strong>Head Animations</strong>
@@ -38,12 +41,36 @@ Pasted the code from these 2 sources straight into the JS part of this pen
   </div>
 
   <script>
-    // Added onmousedown and onmouseup and can now walk when and only when mouse is being pressed down. Try and get same effect when a key is being held down
   
-  var cheese = 0.00;
+  
+  
+  function checkingRotation () {
+  	var radians = character.root.rotation.y;
+    	var suffixer1 = radians + " radians";
+  	document.getElementById("rotationAngle").innerHTML = suffixer1;
+  	
+  	var degreez = character.root.rotation.y * 180 / Math.PI;
+    	var suffixer2 = degreez + " degrees";
+  	document.getElementById("degrees").innerHTML = suffixer2;
+  	
+  }
+  
+    setInterval(checkingRotation, 1);
+    
+  
+        var cheese = 0.00;
+        var xMove = 0;
+        var yMove = 0;
+        var zMove = 0;
+        var xRoll = 0;
+        var yRoll = 0;
+        var zRoll = 0;
+  
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
+  
+  
   
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -78,53 +105,184 @@ Pasted the code from these 2 sources straight into the JS part of this pen
     bodyAnims.update(delta, now)
   })
   
+
+  
   function abcmoves(e) {
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
     var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
   
-    /* Use to make it based on alphabet characters
+    /* Use to make it based on alphabet characters */
     
     var actualkey = String.fromCharCode(unicode)
   
-  */ 
-   
-  //  alert(unicode);
+    alert(actualkey);
+    
   }
   document.onkeypress = abcmoves
   
-  function keyEvent(event) {
+  
+    var metaChar = false;
+    var exampleKey = 16;
+    var leftarrow = 37;
+    var uparrow = 38;
+    var rightarrow = 39;
+    var downarrow = 40;
+    var shift = 16;
+    var spacebar = 32;
+  
+     
     /*
+    
     a = unicode 97
     z = unicode 122
     0 = unicdoe 48
     9 = unicode 57
     
     */
-  
-    var leftarrow = 37;
-    var uparrow = 38;
-    var rightarrow = 39;
-    var downarrow = 40;
-  
-    var key = event.keyCode || event.which;
-    var keychar = String.fromCharCode(key);
- 
-    if (key == uparrow) {
-      bodyAnims.start('walk');
-      cheese = 0.005;
-      // move character forwards
+
+// var cooly = 0;
+
+//var cosMove;
+//var sinMove;
+
+    function keyEvent(event) {
+  var key = event.keyCode || event.which;
+  var keychar = String.fromCharCode(key);
+  if (key == exampleKey) {
+    metaChar = true;
+  }
+  if (key != exampleKey) {
+    if (metaChar) {
+    	if (key == 98) {
+            bodyAnims.start('jump');
+            zMove = 0;
+            xMove = -0.005;
+            yRoll = 0;
+        }   
+    	
+    	/*
+          if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            zMove = 0;
+            xMove = -0.005;
+            yRoll = 0;
+            // move character left
+    }   
+          if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            zMove = 0;
+            xMove = 0.005;
+            yRoll = 0;
+            // move character right
+          }  
+          */
+      metaChar = false;
+    } else {
+      if (key == uparrow) {
+         bodyAnims.start('walk');
+         zMove = -0.005;
+         xMove = 0;
+         // move character forwards
     }
-    if (key == downarrow) {
-      bodyAnims.start('walk');
-      // move character backwards
-    }
-    if (key >= leftarrow && key <= downarrow) {
-      onkeyup = function() {
-        bodyAnims.start('stand');
-        cheese = 0;
+      if (key == downarrow) {
+         bodyAnims.start('walkbackwards');
+         zMove = 0.005;
+         xMove = 0;
+         // move character backwards
       }
+      
+      
+      if (key == spacebar) {
+         bodyAnims.start('walk');
+         yRoll = 0.5 * Math.PI/180;
+         // rotate character left
+      }
+      /*
+      if (key == 99) {
+         bodyAnims.start('walk');
+         yRoll = -0.5 * Math.PI/180;
+         // rotate character right
+      }
+      */
+      
+      if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            xMove = -0.005;
+            yRoll = 0;
+            // move character left
+    }   
+      if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            xMove = 0.005;
+            yRoll = 0;
+            // move character right
+          }  
+     
+     
+      
+      /*
+      var h = 5;
+      var s = 1.15;
+      */
+      
+      /*
+      if (key == spacebar) {
+         bodyAnims.start('jump');
+         yMove = sqrt((h*h)-(x-h))
+
+         // make character jump
+      }
+      */
+
     }
+   }
+   
+   
+      onkeyup = function() {
+        if(key >= leftarrow && key <= downarrow) {
+        bodyAnims.start('stand');
+        xMove = 0;
+        zMove = 0;
+        //  yRoll = 0;
+        //  alert(cooly); works
+        // alert(character.root.rotation.y);  // works!!
+      }
+        if(key = spacebar) {
+        bodyAnims.start('stand');
+        yRoll = 0;
+        }
+      /*  if(key = 97 || key = 99) {
+        bodyAnims.start('stand');
+        yRoll = 0;
+    }    */
     }
+
+    /*
+    if(key == 40){
+      alert(1);  // works!!
+    }
+    */
+}
+
+function metaKeyUp (event) {
+  var key = event.keyCode || event.which;
+
+  if (key == exampleKey) {
+    metaChar = false;
+  }
+}
+  
+  character.root.rotation.y = 180 * Math.PI/180; 
+ // character.root.position.x = cooly;  won't work for changing x position
+
+ 
+  
+ // var rot = 180 * Math.PI/180;
+ // character.root.rotation.y = rot;
+ // var pie = 1; //return (character.root.rotation.y)
+    
+    
+
   
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
@@ -161,16 +319,17 @@ Pasted the code from these 2 sources straight into the JS part of this pen
    // camera.position.y += cheese; 
     
     
-    
-    
-    
-    
-  //  character.root.position.x += cheese;
-      character.root.position.y += cheese;
-  //  character.root.position.z += cheese;
-  //  character.root.rotation.x += cheese;
-      character.root.rotation.y += cheese;
-  //  character.root.rotation.z += 0.02;
+
+      //cosMove = cos(character.root.rotation.y);
+    //  sinMove = sin(character.root.rotation.y);
+     // cooly += 0.01; 
+      character.root.position.x += xMove;
+      character.root.position.y += yMove;
+      character.root.position.z += zMove;
+ //   character.root.rotation.x += cheese;
+      character.root.rotation.y += yRoll;
+//    rot += yRoll;
+ //   character.root.rotation.z += 0.02;
    
     
   })
