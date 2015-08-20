@@ -21,7 +21,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
 	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
 	
-	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png')
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/character_zps6kfdlafp.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
@@ -244,11 +244,6 @@ THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
 }
 
 THREEx.TinygigantiumChar.skinWellKnownUrls	= {
-	'mario'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/Mario.png',
-	'char'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/char.png',
-	'jetienne'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/jetienne.png',
-	'martialartist'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/martialartist.png',
-	'theflash'		: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/theflash.png',
-	'woody'			: 'http://jeromeetienne.github.io/threex/src/threex.minecraft/images/woody.png',
+	'character'			: 'http://i1205.photobucket.com/albums/bb424/cman_was_here/character_zps6kfdlafp.png',
 
 }
