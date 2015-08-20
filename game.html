@@ -153,6 +153,13 @@
   }
   if (key != exampleKey) {
     if (metaChar) {
+    	if (key == 98) {
+            bodyAnims.start('jump');
+            zMove = 0;
+            xMove = -0.005;
+            yRoll = 0;
+        }   
+    	
     	/*
           if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
@@ -183,6 +190,7 @@
          xMove = 0;
          // move character backwards
       }
+      /*
       if (key == 97) {
          bodyAnims.start('walk');
          yRoll = 0.5 * Math.PI/180;
@@ -193,6 +201,8 @@
          yRoll = -0.5 * Math.PI/180;
          // rotate character right
       }
+      */
+      
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
             zMove = 0;
@@ -210,9 +220,11 @@
      
      
       
-      
+      /*
       var h = 5;
       var s = 1.15;
+      */
+      
       /*
       if (key == spacebar) {
          bodyAnims.start('jump');
