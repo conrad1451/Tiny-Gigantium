@@ -70,6 +70,8 @@
 	var yPosi = 0;
 	var zPosi = 0;
   
+  
+  
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
@@ -127,6 +129,8 @@
     var rightarrow = 39;
     var downarrow = 40;
     var shift = 16;
+    var spacebar = 32;
+     
     /*
     
     a = unicode 97
@@ -149,14 +153,14 @@
   }
   if (key != exampleKey) {
     if (metaChar) {
-          if (key == leftarrow) {
+          if (key == 97) {
             bodyAnims.start('strafeLeft');
             zMove = 0;
             xMove = -0.005;
             yRoll = 0;
             // move character left
     }   
-          if (key == rightarrow) {
+          if (key == 99) {
             bodyAnims.start('strafeRight');
             zMove = 0;
             xMove = 0.005;
@@ -187,6 +191,17 @@
          yRoll = -0.5 * Math.PI/180;
          // rotate character left
       }
+      
+      var h = 5;
+      var s = 1.15;
+      
+      if (key == spacebar) {
+         bodyAnims.start('jump');
+
+
+         // make character jump
+      }
+      
 
     }
    }
@@ -195,13 +210,21 @@
       onkeyup = function() {
         bodyAnims.start('stand');
         xMove = 0
-        yMove = 0;
         zMove = 0;
-        yRoll = 0;
+      //  yRoll = 0;
       //  alert(cooly); works
      // alert(character.root.rotation.y);  // works!!
       }
     }
+    
+   if(key = 97 || key = 99) {
+      onkeyup = function() {
+        bodyAnims.start('stand');
+        yRoll = 0;
+      }
+    }    
+    
+    
     /*
     if(key == 40){
       onkeyup = function() {
