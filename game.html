@@ -1,3 +1,8 @@
+<!-- 
+line 72, 222, 258, 332
+
+-->
+
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
 
 <!--Cannot plug in updating variable into rotation.x to make the rotational position continually change-->
@@ -69,11 +74,11 @@
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
-   
+   /*
         var x = 0;
         var h = 0;
         var s = 1.15;
-  
+  */
   
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -213,9 +218,7 @@
             // move character right
           }  
      
-     
-      
-
+     /*
       if (key == spacebar) {
          bodyAnims.start('jump');
          h = 5;
@@ -225,7 +228,7 @@
       	 alert('hi');
          }
       }
-      
+      */
       
 
     }
@@ -251,12 +254,13 @@
         yRoll = 0;
         } 
         
+        /*
         if (key == spacebar) {
          bodyAnims.start('stand');
          h = 0;
          yMove = 0;
         }
-        
+        */
     }
 
     /*
@@ -325,7 +329,7 @@ function metaKeyUp (event) {
       //cosMove = cos(character.root.rotation.y);
     //  sinMove = sin(character.root.rotation.y);
      // cooly += 0.01;
-      x += 2*h/(60*s);
+ //     x += 2*h/(60*s);
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
