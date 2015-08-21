@@ -139,7 +139,8 @@ line 77, 227, 263, 337
     var a = 65;
     var d = 68;
     var s = 83;
-    var f = 70; 
+    var f = 70;
+    var l = 76;
     
      
     /*
@@ -197,7 +198,6 @@ line 77, 227, 263, 337
          // move character backwards
       }
       
-      
       if (key == a) {
          bodyAnims.start('walk');
          yRoll = 0.5 * degrees;
@@ -208,8 +208,7 @@ line 77, 227, 263, 337
          yRoll = -0.5 * degrees;
          // rotate character right
       }
-      
-      
+     
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
             xMove = -0.005;
@@ -230,11 +229,8 @@ line 77, 227, 263, 337
        	}
        }
        
-       if(key == s) {
+       if(key == l) {
        	xRoll = 0.25;
-       	if (character.root.rotation.x >= 9 * degrees) {
-       		xRoll = 0;
-       	}
        }       
        
        
@@ -278,8 +274,9 @@ line 77, 227, 263, 337
         character.root.rotation.x = 0;
         xRoll = 0;
         }
-        if(key = s) {
-        character.root.rotation.x = 0;
+        if(key = l) {
+        yMove = Math.sin(character.root.rotation.x);
+        zMove = Math.cos(character.root.rotation.x);
         xRoll = 0;
         }        
         
