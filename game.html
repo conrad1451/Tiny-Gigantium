@@ -2,13 +2,12 @@
 line 77, 227, 263, 337
 
 cos/20 - speed walking
-cos/50 - 
+cos/50 - normal walking
 
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
 
-<!--Cannot plug in updating variable into rotation.x to make the rotational position continually change-->
 
 <script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
 <script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
@@ -230,8 +229,8 @@ cos/50 -
     }   
       if (key == rightarrow) {
             bodyAnims.start('strafeRight');
-            xMove = 0.005;
-            yRoll = 0;
+            xMove = /* 0.005; */  ((Math.cos(character.root.rotation.y - (90 * degrees) ))) /50;
+            yRoll = /* 0; */      ((Math.sin(character.root.rotation.y - (90 * degrees) ))) /50;
             // move character right
           }
           
@@ -294,7 +293,7 @@ cos/50 -
         
         if(key == s) {
    	xRoll = -0.025;
-       	if (character.root.rotation.x <= 0) {
+       	if (character.root.rotation.x = 0) {
        		xRoll = 0;
        	}
         }
