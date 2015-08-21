@@ -224,8 +224,8 @@ cos/50 -
      
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
-            xMove = /* -0.005;  */ ( -1 / ((Math.cos(character.root.rotation.y))) ) /50;
-            yRoll = /*  0; */      (  1 / ((Math.sin(character.root.rotation.y))) ) /50;
+            xMove = /* -0.005;  */ ((Math.cos(character.root.rotation.y + (90 * degrees) ))) /50;
+            yRoll = /*  0; */      ((Math.sin(character.root.rotation.y + (90 * degrees) ))) /50;
             // move character left
     }   
       if (key == rightarrow) {
