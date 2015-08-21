@@ -136,6 +136,7 @@ line 72, 222, 258, 332
     var downarrow = 40;
     var shift = 16;
     var spacebar = 32;
+    
      
     /*
     
@@ -216,7 +217,16 @@ line 72, 222, 258, 332
             xMove = 0.005;
             yRoll = 0;
             // move character right
-          }  
+          }
+          
+       if(key == 83) {
+       	xRoll = 0.025;
+       	if (character.root.rotation.x >= 90 * Math.PI/180) {
+       		xRoll = 0;
+       	}
+       }
+       
+          
      
      /*
       if (key == spacebar) {
@@ -333,8 +343,10 @@ function metaKeyUp (event) {
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
- //   character.root.rotation.x += cheese;
+      character.root.rotation.x += xRoll;
       character.root.rotation.y += yRoll;
+      character.root.rotation.z += zRoll;
+      
 //    rot += yRoll;
  //   character.root.rotation.z += 0.02;
    
