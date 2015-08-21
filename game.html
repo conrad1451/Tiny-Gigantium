@@ -197,8 +197,8 @@ line 77, 227, 263, 337
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = /*-0.005; */     Math.cos(character.root.rotation.y);
-         xMove = /*0*/            Math.sin(character.root.rotation.y);
+         zMove = /*-0.005; */     Math.cos(character.root.rotation.y)/20;
+         xMove = /*0*/            Math.sin(character.root.rotation.y)/20;
          // move character forwards
     }
       if (key == downarrow) {
