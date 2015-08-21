@@ -35,21 +35,23 @@ line 77, 227, 263, 337
     <button onclick='switchBodyValue(this.innerText);'>hiwave</button>
     <button onclick='switchBodyValue(this.innerText);'>circularPunch</button>
     <button onclick='switchBodyValue(this.innerText);'>rightPunch</button>
-    <p id="rotationAngle"></p>
-    <p id="degreez"></p> 
-  </div>
+     </div>
   <div>
     <strong>Head Animations</strong>
     <button onclick='switchHeadValue(this.innerText);'>still</button>
     <button onclick='switchHeadValue(this.innerText);'>yes</button>
     <button onclick='switchHeadValue(this.innerText);'>no</button>
   </div>
-
+ <p id="rotationAngle"></p>
+    <p id="degreez"></p>
+    <p id="cos(rotation.x)"></p>
+    <p id="sin(rotation.x)"></p> 
+    
   <script>
   
   var degrees = Math.PI/180;
   
-  function checkingRotation () {
+  function rotationThings () {
   	var radians = character.root.rotation.y;
     	var suffixer1 = radians + " radians";
   	document.getElementById("rotationAngle").innerHTML = suffixer1;
@@ -58,9 +60,17 @@ line 77, 227, 263, 337
     	var suffixer2 = degreez + " degrees";
   	document.getElementById("degreez").innerHTML = suffixer2;
   	
+  	var cos = Math.cos(character.root.rotation.y);
+  	var suffixer3 = cos + " is the cos";
+  	document.getElementById("cos(rotation.x)").innerHTML = suffixer3;
+  	
+  	var sin = Math.sin(character.root.rotation.y);
+  	var suffixer4 = cos + " is the sin";
+  	document.getElementById("sin(rotation.x)").innerHTML = suffixer4;
+  	
   }
   
-    setInterval(checkingRotation, 1);
+    setInterval(rotationThings, 1);
     
   
         var cheese = 0.00;
