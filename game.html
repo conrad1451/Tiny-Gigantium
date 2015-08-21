@@ -223,14 +223,14 @@ cos/50 - normal walking
      
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
-            xMove = /* -0.005;  */ ((Math.cos(character.root.rotation.y + (90 * degrees) ))) /50;
-            yRoll = /*  0; */      ((Math.sin(character.root.rotation.y + (90 * degrees) ))) /50;
+            xMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * Math.PI/180) )) / 50;
+            yRoll = /*  0; */      (Math.sin(character.root.rotation.y + (90 * Math.PI/180) )) / 50;
             // move character left
     }   
       if (key == rightarrow) {
             bodyAnims.start('strafeRight');
-            xMove = /* 0.005; */  ((Math.cos(character.root.rotation.y - (90 * degrees) ))) /50;
-            yRoll = /* 0; */      ((Math.sin(character.root.rotation.y - (90 * degrees) ))) /50;
+            xMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * Math.PI/180) )) / 50;
+            yRoll = /* 0; */      (Math.sin(character.root.rotation.y - (90 * Math.PI/180) )) / 50;
             // move character right
           }
           
