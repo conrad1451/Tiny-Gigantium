@@ -238,6 +238,10 @@ line 77, 227, 263, 337
        		xRoll = 0;
        	}
        }
+       
+       if(key == s) {
+       	character.root.rotation.x = 90 * degrees;
+       }
        /*
        if(key == l) {
        	xRoll = 0.25;
@@ -271,18 +275,25 @@ line 77, 227, 263, 337
         // alert(character.root.rotation.y);  // works!!
       }
       
-        if(key = a) {
+        if(key == a) {
         bodyAnims.start('stand');
         yRoll = 0;
         } 
-        if(key = d) {
+        if(key == d) {
         bodyAnims.start('stand');
         yRoll = 0;
         } 
         
-        if(key = f) {
+        if(key == f) {
         character.root.rotation.x = 0;
         xRoll = 0;
+        }
+        
+        if(key == s) {
+   	xRoll = -0.025;
+       	if (character.root.rotation.x <= 0) {
+       		xRoll = 0;
+       	}
         }
         /*
         if(key = l) {
