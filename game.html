@@ -1,6 +1,9 @@
 <!-- 
 line 77, 227, 263, 337
 
+cos/20 - speed walking
+cos/50 - 
+
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -197,14 +200,14 @@ line 77, 227, 263, 337
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = /*-0.005; */     (Math.cos(character.root.rotation.y))/20;
-         xMove = /*0*/            (Math.sin(character.root.rotation.y))/20;
+         zMove = /*-0.005; */     (Math.cos(character.root.rotation.y))/50;
+         xMove = /*0*/            (Math.sin(character.root.rotation.y))/50;
          // move character forwards
     }
       if (key == downarrow) {
          bodyAnims.start('walkbackwards');
-         zMove = 0.005;
-         xMove = 0;
+         zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y))/50;
+         xMove = /* 0; */      -(Math.sin(character.root.rotation.y))/50;
          // move character backwards
       }
       
