@@ -1,6 +1,9 @@
 <!-- 
 line 72, 222, 258, 332
 
+search in all 7 files to see if there is a variable called degrees, if not make one equal to Math.PI/180 
+so can do things like 90 * degrees when want rotation to be 90 degrees
+
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -263,6 +266,10 @@ line 72, 222, 258, 332
         bodyAnims.start('stand');
         yRoll = 0;
         } 
+        
+        if(key = 83) {
+        character.root.rotation.x = 0;
+        }
         
         /*
         if (key == spacebar) {
