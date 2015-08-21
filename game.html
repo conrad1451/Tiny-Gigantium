@@ -136,6 +136,10 @@ line 77, 227, 263, 337
     var downarrow = 40;
     var shift = 16;
     var spacebar = 32;
+    var a = 65;
+    var d = 68;
+    var s = 83;
+    var f = 70; 
     
      
     /*
@@ -194,12 +198,12 @@ line 77, 227, 263, 337
       }
       
       
-      if (key == 65) {
+      if (key == a) {
          bodyAnims.start('walk');
          yRoll = 0.5 * degrees;
          // rotate character left
       }
-      if (key == 68) {
+      if (key == d) {
          bodyAnims.start('walk');
          yRoll = -0.5 * degrees;
          // rotate character right
@@ -219,14 +223,19 @@ line 77, 227, 263, 337
             // move character right
           }
           
-       if(key == 83) {
+       if(key == f) {
        	xRoll = 0.025;
        	if (character.root.rotation.x >= 90 * degrees) {
        		xRoll = 0;
        	}
        }
        
-          
+       if(key == s) {
+       	xRoll = 0.5;
+       	if (character.root.rotation.x >= 90 * degrees) {
+       		xRoll = 0;
+       	}
+       }   
      
      /*
       if (key == spacebar) {
@@ -255,20 +264,24 @@ line 77, 227, 263, 337
         // alert(character.root.rotation.y);  // works!!
       }
       
-        if(key = 65) {
+        if(key = a) {
         bodyAnims.start('stand');
         yRoll = 0;
         } 
-        if(key = 68) {
+        if(key = d) {
         bodyAnims.start('stand');
         yRoll = 0;
         } 
         
-        if(key = 83) {
+        if(key = f) {
         character.root.rotation.x = 0;
         xRoll = 0;
         }
-        
+        if(key = s) {
+        xRoll = -0.125;
+        if (character.root.rotation.x <= 0 * degrees) {
+       		xRoll = 0;
+        }        
         /*
         if (key == spacebar) {
          bodyAnims.start('stand');
