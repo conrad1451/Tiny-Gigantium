@@ -1,7 +1,7 @@
 <!-- 
 line 72, 222, 258, 332
 
-search in all 7 files to see if there is a variable called degrees, if not make one equal to Math.PI/180 
+search in all 7 files to see if there is a variable called degrees, if not make one equal to degrees 
 so can do things like 90 * degrees when want rotation to be 90 degrees
 
 -->
@@ -50,7 +50,7 @@ so can do things like 90 * degrees when want rotation to be 90 degrees
 
   <script>
   
-  
+  var degrees = Math.PI/180;
   
   function checkingRotation () {
   	var radians = character.root.rotation.y;
@@ -199,12 +199,12 @@ so can do things like 90 * degrees when want rotation to be 90 degrees
       
       if (key == 65) {
          bodyAnims.start('walk');
-         yRoll = 0.5 * Math.PI/180;
+         yRoll = 0.5 * degrees;
          // rotate character left
       }
       if (key == 68) {
          bodyAnims.start('walk');
-         yRoll = -0.5 * Math.PI/180;
+         yRoll = -0.5 * degrees;
          // rotate character right
       }
       
@@ -224,7 +224,7 @@ so can do things like 90 * degrees when want rotation to be 90 degrees
           
        if(key == 83) {
        	xRoll = 0.025;
-       	if (character.root.rotation.x >= 90 * Math.PI/180) {
+       	if (character.root.rotation.x >= 90 * degrees) {
        		xRoll = 0;
        	}
        }
@@ -295,12 +295,12 @@ function metaKeyUp (event) {
   }
 }
   
-  character.root.rotation.y = 180 * Math.PI/180; 
+  character.root.rotation.y = 180 * degrees; 
  // character.root.position.x = cooly;  won't work for changing x position
 
  
   
- // var rot = 180 * Math.PI/180;
+ // var rot = 180 * degrees;
  // character.root.rotation.y = rot;
  // var pie = 1; //return (character.root.rotation.y)
     
