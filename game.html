@@ -47,7 +47,7 @@ cos/50 - normal walking
         var x = 0;
         var h = 0;
         var s = 1.15;
-  
+  	var jumping = false;
   
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -206,15 +206,27 @@ function keyEvent(event) {
        	xRoll = 0.25;
        }       
        
+    function land() {
+    jumping = false;
+    }     
+        
+    function jumpz() {
+                        
+  	if (!jumping) {
+    	jumping = true;
+    	setTimeout(land, 500);
+  	}
+    }    
+        
+    if (jumping) {
+    	yMove = 0.5;
+    }
+        
        
      
       if (key == spacebar) {
          bodyAnims.start('jump');
-         h = 5;
-         yMove = sqrt((h*h)-((x-h)(x-h)));
-         // make character jump
-         if (x >= 2*h) {
-      	 alert('hi');
+         jumpz;
          }
       }
       
@@ -259,11 +271,13 @@ function keyEvent(event) {
         xRoll = 0;
         }        
         
+   
+ 
+        
         
         if (key == spacebar) {
          bodyAnims.start('stand');
-         h = 0;
-         yMove = 0;
+         land;
         }
         
     }
