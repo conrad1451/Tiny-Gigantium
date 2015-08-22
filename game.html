@@ -23,31 +23,8 @@ cos/50 - normal walking
 
 <!-- ================= -->
 
-<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;' onkeydown="keyEvent(event)">
-  <div>
-    <strong>Body Animations</strong>
-    <button onclick='switchBodyValue(this.innerText);'>stand</button>
-    <button onclick='switchBodyValue(this.innerText);'>fall</button>
-    <button onclick='switchBodyValue(this.innerText);'>strafeLeft</button>
-    <button onclick='switchBodyValue(this.innerText);'>strafeRight</button>
-    <button onclick='switchBodyValue(this.innerText);'>jump</button>
-    <button onclick='switchBodyValue(this.innerText);'>walk</button>
-    <button onclick='switchBodyValue(this.innerText);'>run</button>
-    <button onclick='switchBodyValue(this.innerText);'>wave</button>
-    <button onclick='switchBodyValue(this.innerText);'>hiwave</button>
-    <button onclick='switchBodyValue(this.innerText);'>circularPunch</button>
-    <button onclick='switchBodyValue(this.innerText);'>rightPunch</button>
-     </div>
-  <div>
-    <strong>Head Animations</strong>
-    <button onclick='switchHeadValue(this.innerText);'>still</button>
-    <button onclick='switchHeadValue(this.innerText);'>yes</button>
-    <button onclick='switchHeadValue(this.innerText);'>no</button>
-  </div>
- <p id="rotationAngle"></p>
-    <p id="degreez"></p>
-    <p id="cos(rotation.x)"></p>
-    <p id="sin(rotation.x)"></p> 
+<body style='margin: 0px; overflow: hidden;'>
+  
     
   <script>
   
@@ -169,7 +146,8 @@ cos/50 - normal walking
 //var cosMove;
 //var sinMove;
 
-    function keyEvent(event) {
+onkeydown = function () {
+ function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
   if (key == exampleKey) {
@@ -321,6 +299,8 @@ cos/50 - normal walking
     }
     */
 }
+}
+    
 
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
