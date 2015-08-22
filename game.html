@@ -1,5 +1,9 @@
 <!-- 
-line 77, 227, 263, 337
+
+for commented out sections:
+
+line 114, 135, 201, 271, 321
+
 cos/20 - speed walking
 cos/50 - normal walking
 -->
@@ -39,11 +43,11 @@ cos/50 - normal walking
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
-   /*
+   
         var x = 0;
         var h = 0;
         var s = 1.15;
-  */
+  
   
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -193,12 +197,17 @@ function keyEvent(event) {
        	character.root.rotation.x = 90 * degrees;
        }
        
+       /*
+        Once developed world, make monkey bars and store if statement 
+        for key l in if character is hanging from a monkey bar
+       */
+       
        if(key == l) {
        	xRoll = 0.25;
        }       
        
        
-     /*
+     
       if (key == spacebar) {
          bodyAnims.start('jump');
          h = 5;
@@ -208,7 +217,7 @@ function keyEvent(event) {
       	 alert('hi');
          }
       }
-      */
+      
       
     }
    }
@@ -251,14 +260,12 @@ function keyEvent(event) {
         }        
         
         
-        
-        /*
         if (key == spacebar) {
          bodyAnims.start('stand');
          h = 0;
          yMove = 0;
         }
-        */
+        
     }
     /*
     if(key == 40){
