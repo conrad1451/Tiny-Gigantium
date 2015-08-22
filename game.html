@@ -26,37 +26,15 @@ cos/50 - normal walking
   
  
     
-<p id="rotationAngle"></p>
-    <p id="degreez"></p>
-    <p id="cos(rotation.x)"></p>
-    <p id="sin(rotation.x)"></p> 
+
+    <p id="x"></p>
+    <p id="yMove"></p>
+    <p id="moverX"></p> 
     
   <script>
   
   var degrees = Math.PI/180;
-  
-  function rotationThings () {
-  	var radians = character.root.rotation.y;
-    	var suffixer1 = radians + " radians";
-  	document.getElementById("rotationAngle").innerHTML = suffixer1;
-  	
-  	var degreez = character.root.rotation.y * 180 / Math.PI;
-    	var suffixer2 = degreez + " degrees";
-  	document.getElementById("degreez").innerHTML = suffixer2;
-  	
-  	var cos = Math.cos(character.root.rotation.y);
-  	var suffixer3 = cos + " is the cos";
-  	document.getElementById("cos(rotation.x)").innerHTML = suffixer3;
-  	
-  	var sin = Math.sin(character.root.rotation.y);
-  	var suffixer4 = sin + " is the sin";
-  	document.getElementById("sin(rotation.x)").innerHTML = suffixer4;
-  	
-  }
-  
-    setInterval(rotationThings, 1);
-    
-  
+
   	var degrees = Math.PI/180;
         var cheese = 0.00;
         var xMove = 0;
@@ -73,7 +51,31 @@ cos/50 - normal walking
         var x = 0;
         var h = 0;
         var s = 1.15;
-        var moverX = 0;
+        var moverX; // = 0;
+  
+    function valuedisplayer () {
+
+  	var showx = x;
+  	var suffixer1 = showx + " is the value of x";
+  	document.getElementById("x").innerHTML = suffixer1;
+  	
+  	var showyMove = yMove;
+  	var suffixer2 = showyMove + " is the value of yMove";
+  	document.getElementById("yMove").innerHTML = suffixer2;
+  	
+  	var showmoverX = moverX;
+  	var suffixer3 = showmoverX + " is the value of moverX";
+  	document.getElementById("moverX").innerHTML = suffixer3;
+  	
+  }
+  
+    setInterval(valuedisplayer, 1);
+  
+  
+  
+  
+  
+  
   
   
   var renderer = new THREE.WebGLRenderer();
