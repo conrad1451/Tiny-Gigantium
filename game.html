@@ -44,6 +44,7 @@ cos/50 - normal walking
         var x = 0;
         var h = 0;
         var s = 1.15;
+        var moverX = 0;
   
   
   var renderer = new THREE.WebGLRenderer();
@@ -205,11 +206,15 @@ function keyEvent(event) {
       if (key == spacebar) {
          bodyAnims.start('jump');
          h = 5;
-         yMove = Math.sqrt((h*h)-((x-h)(x-h)));
-         // make character jump
-         if (x >= 2*h) {
-      	 alert('hi');
+         moverX = 2*5/(60*s);
+         yMove = Math.sqrt(25-((x-5)(x-5)));
+         
+         if (x >= 10) { 
+          x = 0;	
          }
+         
+         // make character jump
+        
       }
       
       
@@ -257,7 +262,9 @@ function keyEvent(event) {
         if (key == spacebar) {
          bodyAnims.start('stand');
          h = 0;
-         yMove = 0;
+        // yMove = 0; uneeded when make moverX = 0 so can't increase, and set x = 0
+         moverX = 0;
+         x = 0;
         }
         
     }
@@ -316,7 +323,7 @@ function metaKeyUp (event) {
    // camera.position.y += cheese; 
     
     
- //     x += 2*h/(60*s);
+      x += moverX;
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
