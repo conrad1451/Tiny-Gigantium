@@ -1,9 +1,7 @@
 <!-- 
 line 77, 227, 263, 337
-
 cos/20 - speed walking
 cos/50 - normal walking
-
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -23,7 +21,7 @@ cos/50 - normal walking
 
 <!-- ================= -->
 
-<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'>
+<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;' onkeydown="keyEvent(event)">
   <div>
     <strong>Body Animations</strong>
     <button onclick='switchBodyValue(this.innerText);'>stand</button>
@@ -109,7 +107,6 @@ cos/50 - normal walking
   var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
   
-
   var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
   updateFcts.push(function(delta, now) {
     headAnims.update(delta, now)
@@ -125,7 +122,6 @@ cos/50 - normal walking
     bodyAnims.update(delta, now)
   })
   
-
   
   function abcmoves(e) {
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
@@ -163,13 +159,10 @@ cos/50 - normal walking
     9 = 57
     
     */
-
 // var cooly = 0;
-
 //var cosMove;
 //var sinMove;
-onkeyup = function () {
- function keyEvent(event) {
+    function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
   if (key == exampleKey) {
@@ -262,7 +255,6 @@ onkeyup = function () {
       }
       */
       
-
     }
    }
    
@@ -314,19 +306,14 @@ onkeyup = function () {
         }
         */
     }
-
     /*
     if(key == 40){
       alert(1);  // works!!
     }
     */
 }
-}
-    
-
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
-
   if (key == exampleKey) {
     metaChar = false;
   }
@@ -334,7 +321,6 @@ function metaKeyUp (event) {
   
   character.root.rotation.y = 180 * degrees; 
  // character.root.position.x = cooly;  won't work for changing x position
-
  
   
  // var rot = 180 * degrees;
@@ -342,7 +328,6 @@ function metaKeyUp (event) {
  // var pie = 1; //return (character.root.rotation.y)
     
     
-
   
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
@@ -379,7 +364,6 @@ function metaKeyUp (event) {
    // camera.position.y += cheese; 
     
     
-
       //cosMove = cos(character.root.rotation.y);
     //  sinMove = sin(character.root.rotation.y);
      // cooly += 0.01;
