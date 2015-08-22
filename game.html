@@ -54,7 +54,7 @@ cos/50 - normal walking
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
   camera.position.y = 0.5;
-  camera.position.z = 20;
+  camera.position.z = 5;
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
@@ -78,19 +78,19 @@ cos/50 - normal walking
     bodyAnims.update(delta, now)
   })
   
-  
+  /*
   function abcmoves(e) {
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
     var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
   
-    /* Use to make it based on alphabet characters */
+    // Use to make it based on alphabet characters 
     
     var actualkey = String.fromCharCode(unicode)
   
   //  alert(actualkey);
   }
   document.onkeypress = abcmoves
-  
+  */
   
     var metaChar = false;
     var exampleKey = 16;
@@ -205,7 +205,7 @@ function keyEvent(event) {
       if (key == spacebar) {
          bodyAnims.start('jump');
          h = 5;
-         yMove = sqrt((h*h)-((x-h)(x-h)));
+         yMove = Math.sqrt((h*h)-((x-h)(x-h)));
          // make character jump
          if (x >= 2*h) {
       	 alert('hi');
