@@ -21,7 +21,7 @@ cos/50 - normal walking
 
 <!-- ================= -->
 
-<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;' onkeydown="keyEvent(event)">
+<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'>
   
  
     
@@ -116,7 +116,8 @@ cos/50 - normal walking
     */
 
 
-    function keyEvent(event) {
+
+function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
   if (key == exampleKey) {
@@ -265,6 +266,11 @@ cos/50 - normal walking
     }
     */
 }
+
+onkeydown = function() {
+	keyEvent(event);
+}
+
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
   if (key == exampleKey) {
