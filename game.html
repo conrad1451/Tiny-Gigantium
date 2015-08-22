@@ -52,7 +52,7 @@ cos/50 - normal walking
   var updateFcts = [];
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
-  camera.position.y = 0;
+  camera.position.y = 0.5;
   camera.position.z = 3;
   
   //////////////////////////////////////////////////////////////////////////////////
@@ -192,11 +192,11 @@ function keyEvent(event) {
        if(key == s) {
        	character.root.rotation.x = 90 * degrees;
        }
-       /*
+       
        if(key == l) {
        	xRoll = 0.25;
        }       
-       */
+       
        
      /*
       if (key == spacebar) {
@@ -243,14 +243,14 @@ function keyEvent(event) {
        		xRoll = 0;
        	}
         }
-        /*
+        
         if(key = l) {
         yMove = Math.sin(character.root.rotation.x);
         zMove = Math.cos(character.root.rotation.x);
         xRoll = 0;
         }        
         
-        */
+        
         
         /*
         if (key == spacebar) {
