@@ -27,11 +27,7 @@ cos/50 - normal walking
     
   <script>
   
-  var degrees = Math.PI/180;
-  
-
-    
-  
+  	var degrees = Math.PI/180;
         var cheese = 0.00;
         var xMove = 0;
         var yMove = 0;
@@ -119,8 +115,7 @@ cos/50 - normal walking
     
     */
 // var cooly = 0;
-//var cosMove;
-//var sinMove;
+
     function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
@@ -323,8 +318,6 @@ function metaKeyUp (event) {
    // camera.position.y += cheese; 
     
     
-      //cosMove = cos(character.root.rotation.y);
-    //  sinMove = sin(character.root.rotation.y);
      // cooly += 0.01;
  //     x += 2*h/(60*s);
       character.root.position.x += xMove;
