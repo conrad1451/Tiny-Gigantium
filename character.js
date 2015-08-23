@@ -49,7 +49,6 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	sizes.charH	= 1;
 	sizes.pixRatio	= 1/32;
 
-s+ 8s + 12s + 12s = 33s
 
 var characterHeight = 33 * sizes.pixRatio;
 
