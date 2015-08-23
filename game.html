@@ -188,7 +188,7 @@ function keyEvent(event) {
             xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
             // move character right
           }
-          
+          /*
        if(key == f) {
        	xRoll = 0.025;
        	if (character.root.rotation.x >= 90 * degrees) {
@@ -199,27 +199,22 @@ function keyEvent(event) {
        if(key == s) {
        	character.root.rotation.x = 90 * degrees;
        }
-       
+       */
        /*
         Once developed world, make monkey bars and store if statement 
         for key l in if character is hanging from a monkey bar
        */
        
+       /*
        if(key == l) {
        	xRoll = 0.25;
        }       
        
-       
+       */
      
       if (key == spacebar) {
          bodyAnims.start('jump');
-         h = 5;
-         moverX = 2*5/(60*s);
-         yMove = Math.sqrt(25-((x-5)(x-5)));
          
-         if (x >= 10) { 
-          x = 0;	
-         }
          
          // make character jump
         
@@ -248,6 +243,7 @@ function keyEvent(event) {
         yRoll = 0;
         } 
         
+        /*
         if(key == f) {
         character.root.rotation.x = 0;
         xRoll = 0;
@@ -265,14 +261,11 @@ function keyEvent(event) {
         zMove = Math.sin(character.root.rotation.x);
         xRoll = 0;
         }        
-        
+        */
         
         if (key == spacebar) {
          bodyAnims.start('stand');
-         h = 0;
-        // yMove = 0; uneeded when make moverX = 0 so can't increase, and set x = 0
-         moverX = 0;
-         x = 0;
+        
         }
         
     }
@@ -331,7 +324,7 @@ function metaKeyUp (event) {
    // camera.position.y += cheese; 
     
     
-      x += moverX;
+ 
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
