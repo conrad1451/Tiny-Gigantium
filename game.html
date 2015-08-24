@@ -44,6 +44,7 @@ cos/50 - normal walking
 	var yPosi = 0;
 	var zPosi = 0;
    
+        var characterHeight = 33 * sizes.pixRatio;
      
   /*
     function valuedisplayer () {
@@ -213,6 +214,7 @@ function keyEvent(event) {
        
       if (key == spacebar) {
          bodyAnims.start('jump');
+         character.root.position.y = characterHeight;
       //   yMove = -16*(x-Math.sqrt(characterHeight/16))*(x-Math.sqrt(characterHeight/16)) + characterHeight;
       
          // make character jump
@@ -230,7 +232,7 @@ function keyEvent(event) {
         xMove = 0;
         zMove = 0;
         yRoll = 0;
-         alert(characterHeight);  // works!!
+        // alert(characterHeight);  // works!!
       }
       
         if(key == a) {
@@ -281,7 +283,8 @@ function metaKeyUp (event) {
   }
 }
   
-  character.root.rotation.y = 180 * degrees; 
+  character.root.rotation.y = 180 * degrees;
+  character.root.position.y = 0;
  
   
   
