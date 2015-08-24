@@ -45,7 +45,8 @@ cos/50 - normal walking
 	var yPosi = 0;
 	var zPosi = 0;
 	var xMoverz = 0;
-   
+        var aGraph = 16;
+        
         var characterHeight = 33 * (1/32);
      
   
@@ -218,7 +219,7 @@ function keyEvent(event) {
          xMoverz += 0.01;
         // character.root.position.y = characterHeight;
          
-         character.root.position.y = -16 * (xMoverz-Math.sqrt(characterHeight/16)) * (xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
+         character.root.position.y = -aGraph * (xMoverz-Math.sqrt(characterHeight/aGraph)) * (xMoverz-Math.sqrt(characterHeight/aGraph)) + characterHeight;
       
          // make character jump
         
