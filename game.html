@@ -43,6 +43,7 @@ cos/50 - normal walking
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
+	var xMoverz = 0;
    
         var characterHeight = 33 * (1/32);
      
@@ -214,8 +215,10 @@ function keyEvent(event) {
        
       if (key == spacebar) {
          bodyAnims.start('jump');
-         character.root.position.y = characterHeight;
-      //   yMove = -16*(x-Math.sqrt(characterHeight/16))*(x-Math.sqrt(characterHeight/16)) + characterHeight;
+         xMoverz += 0.1;
+        // character.root.position.y = characterHeight;
+         
+         yMove = -16*(xMoverz-Math.sqrt(characterHeight/16))*(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
       
          // make character jump
         
@@ -263,6 +266,7 @@ function keyEvent(event) {
         
         if (key == spacebar) {
          bodyAnims.start('stand');
+         xMoverz = 0;
         
         }
         
