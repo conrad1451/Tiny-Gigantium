@@ -216,7 +216,7 @@ function keyEvent(event) {
          xMoverz += 0.00001;
         // character.root.position.y = characterHeight;
          
-         yMove = -16*sq(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
+         yMove = -16*(xMoverz-Math.sqrt(characterHeight/16)) * (xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
       
          // make character jump
         
