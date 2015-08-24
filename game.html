@@ -29,6 +29,10 @@ cos/50 - normal walking
   
   <script>
   
+	function sq (aValue) {
+		aValue * aValue;
+	}    
+  
   	var degrees = Math.PI/180;
         var cheese = 0.00;
         var xMove = 0;
@@ -216,7 +220,7 @@ function keyEvent(event) {
          xMoverz += 0.1;
         // character.root.position.y = characterHeight;
          
-         yMove = -16*(xMoverz-Math.sqrt(characterHeight/16))*(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
+         yMove = -16* sq(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
       
          // make character jump
         
