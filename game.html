@@ -66,7 +66,7 @@ cos/50 - normal walking
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
   camera.position.y = 0.5;
-  camera.position.z = 21;
+  camera.position.z = 10;
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
@@ -264,7 +264,7 @@ function keyEvent(event) {
         
         if (key == spacebar) {
          bodyAnims.start('stand');
-         xMoverz = 0;
+         xMoverz += 0;
         
         }
         
