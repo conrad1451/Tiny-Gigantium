@@ -4,7 +4,7 @@ line 46, 119, 137, 203, 271, 321
 cos/20 - speed walking
 cos/50 - normal walking
 
-problem had fixed when deleted all of jump actions with sqrt, so uncomment keys s, f, and l
+
 
 -->
 
@@ -213,8 +213,8 @@ function keyEvent(event) {
        
       if (key == spacebar) {
          bodyAnims.start('jump');
-         
-         
+      //   yMove = -16*(x-Math.sqrt(characterHeight/16))*(x-Math.sqrt(characterHeight/16)) + characterHeight;
+      
          // make character jump
         
       }
@@ -230,7 +230,7 @@ function keyEvent(event) {
         xMove = 0;
         zMove = 0;
         yRoll = 0;
-        // alert(character.root.rotation.y);  // works!!
+         alert(characterHeight);  // works!!
       }
       
         if(key == a) {
