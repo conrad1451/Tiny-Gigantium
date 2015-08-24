@@ -217,7 +217,7 @@ function keyEvent(event) {
        
       if (key == spacebar) {
          bodyAnims.start('jump');
-         xMoverz += 0.1;
+         xMoverz += 0.001;
         // character.root.position.y = characterHeight;
          
          yMove = -16* sq(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
