@@ -70,7 +70,7 @@ cos/50 - normal walking
   var scene = new THREE.Scene();
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
   camera.position.y = 0.5;
-  camera.position.z = 20;
+  camera.position.z = 25;
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
@@ -220,7 +220,7 @@ function keyEvent(event) {
          xMoverz += 0.1;
         // character.root.position.y = characterHeight;
          
-         yMove = -16* sq(xMoverz-Math.sqrt(characterHeight/16)) + 0; //characterHeight;
+         yMove = -16* sq(xMoverz-Math.sqrt(characterHeight/16)) + characterHeight;
       
          // make character jump
         
