@@ -6,6 +6,23 @@ cos/50 - normal walking
 
 comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
 Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
+
+
+var name (one letter) - V
+suffix - S
+
+suffixes
+p - parabola
+sqrt - sqare root
+
+setup of variable name
+VGraphS
+
+Examples: 
+aGraphP - a for parabola graph
+aGraphSqrt - a for sqaure root graph
+
+
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -53,8 +70,11 @@ Once developed world, make monkey bars and store if statement for key l in if ch
 	var zPosi = 0;
 	
 	var xMoverz = 0;
-        var aGraph = 16;
-    //  var h = xMoverz-Math.sqrt(characterHeight/aGraph);
+        var aGraphP = 16;
+        var aGraphSqrt = 0.01;
+        var bGraphSqrt = 0.6;
+        var xGraphSqrt = 0;
+        
         var speedUp = 0;
         
         var seconds = 60;
@@ -231,16 +251,20 @@ function keyEvent(event) {
        */
        
       if (key == spacebar) {
-         bodyAnims.start('jump');
-         
-        speedUp += 1/3000;
+       bodyAnims.start('jump');
        
+       xGraphSqrt += 0.5 * seconds;
+       
+       speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
+       
+       xMovers += speedUp;
+       /*
          if(xMoverz < 0.01) {
           xMoverz += speedUp;	
          } else {
           xMoverz += 0.01;	
          }
-
+*/
       /*   
          if(xMoverz < 0.01) {
           xMoverz += 0.001;	
@@ -248,7 +272,7 @@ function keyEvent(event) {
           xMoverz += 0.01;	
          }
       */ 
-         character.root.position.y = -aGraph * (xMoverz-Math.sqrt(characterHeight/aGraph)) * (xMoverz-Math.sqrt(characterHeight/aGraph)) + characterHeight;
+         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
           
          // make character jump
         
@@ -295,7 +319,9 @@ function keyEvent(event) {
         
         if (key == spacebar) {
          bodyAnims.start('stand');
-         xMoverz += 0;
+         xGraphSqrt = 0;
+         speedUp = 0;
+        // xMoverz += 0;
         }
     }
     /*
