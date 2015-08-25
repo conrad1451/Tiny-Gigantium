@@ -254,21 +254,17 @@ function keyEvent(event) {
        bodyAnims.start('jump');
        /*
        xGraphSqrt += 0.5 / seconds;
-       
-       speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
-       
        xMovers += speedUp;
        */
+         
+         speedUp = 0.001; //(aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
        
-       xMoverz += 0.01;
        
-       /*
          if(xMoverz < 0.01) {
           xMoverz += speedUp;	
          } else {
           xMoverz += 0.01;	
          }
-*/
       /*   
          if(xMoverz < 0.01) {
           xMoverz += 0.001;	
