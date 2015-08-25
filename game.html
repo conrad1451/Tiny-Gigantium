@@ -5,7 +5,7 @@ cos/20 - speed walking
 cos/50 - normal walking
 
 comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
-
+Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -198,7 +198,9 @@ function keyEvent(event) {
             xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
             // move character right
           }
-          
+       
+         
+      /*    
       if(key == f) {
        	xRoll = 0.025;
        	if (character.root.rotation.x >= 90 * degrees) {
@@ -208,15 +210,10 @@ function keyEvent(event) {
       if(key == s) {
        	character.root.rotation.x = 79 * degrees;
        }
-       
-       /*
-        Once developed world, make monkey bars and store if statement 
-        for key l in if character is hanging from a monkey bar
-       */
-       
       if(key == l) {
        	xRoll = 0.25;
        }       
+       */
        
       if (key == spacebar) {
          bodyAnims.start('jump');
@@ -258,7 +255,7 @@ function keyEvent(event) {
         yRoll = 0;
         } 
         
-        
+        /*
         if(key == f) {
          character.root.rotation.x = 0;
          xRoll = 0;
@@ -267,13 +264,12 @@ function keyEvent(event) {
          character.root.rotation.x = 0;
          xRoll = 0;       	
         }
-        
-        
         if(key == l) {
         yMove = Math.cos(character.root.rotation.x);
         zMove = Math.sin(character.root.rotation.x);
         xRoll = 0;
-        }        
+        }
+        */
         
         if (key == spacebar) {
          bodyAnims.start('stand');
