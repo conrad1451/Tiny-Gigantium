@@ -51,9 +51,12 @@ Once developed world, make monkey bars and store if statement for key l in if ch
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
+	
 	var xMoverz = 0;
         var aGraph = 16;
+        var h = xMoverz-Math.sqrt(characterHeight/aGraph);
         var speedUp = 0;
+        
         var seconds = 60;
         
         var characterHeight = 33 * (1/32);
@@ -231,7 +234,7 @@ function keyEvent(event) {
          bodyAnims.start('jump');
          
         speedUp += 1/3000;
-        
+       
          if(xMoverz < 0.01) {
           xMoverz += speedUp;	
          } else {
@@ -245,7 +248,7 @@ function keyEvent(event) {
           xMoverz += 0.01;	
          }
       */ 
-         character.root.position.y = -aGraph * (xMoverz-Math.sqrt(characterHeight/aGraph)) * (xMoverz-Math.sqrt(characterHeight/aGraph)) + characterHeight;
+         character.root.position.y = -aGraph * h * h + characterHeight;
           
          // make character jump
         
