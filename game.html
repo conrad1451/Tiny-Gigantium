@@ -248,7 +248,7 @@ function keyEvent(event) {
           xMoverz += 0.01;	
          }
       */ 
-         character.root.position.y = -aGraph * (h * h) + characterHeight;
+         character.root.position.y = -aGraph * (xMoverz-Math.sqrt(characterHeight/aGraph)) * (xMoverz-Math.sqrt(characterHeight/aGraph)) + characterHeight;
           
          // make character jump
         
