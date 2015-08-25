@@ -252,12 +252,16 @@ function keyEvent(event) {
        
       if (key == spacebar) {
        bodyAnims.start('jump');
-       
+       /*
        xGraphSqrt += 0.5 / seconds;
        
        speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
        
        xMovers += speedUp;
+       */
+       
+       xMoverz += 0.01;
+       
        /*
          if(xMoverz < 0.01) {
           xMoverz += speedUp;	
@@ -319,9 +323,11 @@ function keyEvent(event) {
         
         if (key == spacebar) {
          bodyAnims.start('stand');
+        /*
          xGraphSqrt = 0;
          speedUp = 0;
-        // xMoverz += 0;
+        */
+         xMoverz += 0;
         }
     }
     /*
