@@ -142,8 +142,6 @@ function keyEvent(event) {
   }
   if (key != exampleKey) {
     if (metaChar) {
-    
-    	
     	/*
           if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
@@ -199,7 +197,6 @@ function keyEvent(event) {
             // move character right
           }
        
-         
       /*    
       if(key == f) {
        	xRoll = 0.025;
@@ -274,9 +271,7 @@ function keyEvent(event) {
         if (key == spacebar) {
          bodyAnims.start('stand');
          xMoverz += 0;
-        
         }
-        
     }
     /*
     if(key == 40){
@@ -295,10 +290,7 @@ function metaKeyUp (event) {
 }
   
   character.root.rotation.y = 180 * degrees;
-
  
-  
-  
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
   }
