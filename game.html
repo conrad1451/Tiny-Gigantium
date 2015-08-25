@@ -253,7 +253,7 @@ function keyEvent(event) {
       if (key == spacebar) {
        bodyAnims.start('jump');
        
-       xGraphSqrt += 0.5 * seconds;
+       xGraphSqrt += 0.5 / seconds;
        
        speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
        
