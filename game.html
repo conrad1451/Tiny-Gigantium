@@ -3,6 +3,9 @@ for commented out sections:
 line 46, 119, 137, 203, 271, 321
 cos/20 - speed walking
 cos/50 - normal walking
+
+comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
+
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -264,6 +267,8 @@ function keyEvent(event) {
          character.root.rotation.x = 0;
          xRoll = 0;       	
         }
+        
+        
         if(key == l) {
         yMove = Math.cos(character.root.rotation.x);
         zMove = Math.sin(character.root.rotation.x);
