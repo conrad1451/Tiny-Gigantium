@@ -203,7 +203,7 @@ function keyEvent(event) {
        	}
        }
       if(key == s) {
-       	character.root.rotation.x = 90 * degrees;
+       	character.root.rotation.x = 89 * degrees;
        }
        
        /*
@@ -257,17 +257,12 @@ function keyEvent(event) {
         
         
         if(key == f) {
-        character.root.rotation.x = 0;
-        xRoll = 0;
+         character.root.rotation.x = 0;
+         xRoll = 0;
         }
         if(key == s) {
-   	
-       	if (character.root.rotation.x > 0) {
-       		xRoll = -0.025;
-       	} else {
-       		xRoll = 0;	
-       	}
-       	
+         character.root.rotation.x = 0;
+         xRoll = 0;       	
         }
         if(key == l) {
         yMove = Math.cos(character.root.rotation.x);
