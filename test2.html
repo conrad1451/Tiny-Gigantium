@@ -124,22 +124,7 @@ line 46, 119, 137, 203, 271, 321
   
   var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
-  /*
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
-  updateFcts.push(function(delta, now) {
-    headAnims.update(delta, now)
-  })
-  headAnims.start('still');
-  var switchHeadValue = function(value) {
-    headAnims.start(value)
-  }
-  
-  // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
-  updateFcts.push(function(delta, now) {
-    bodyAnims.update(delta, now)
-  })
-  */
+
   
   /*
     // for FPS indicator
@@ -151,35 +136,6 @@ line 46, 119, 137, 203, 271, 321
 // End of fps indicator
   */
   
-  /*
-  function abcmoves(e) {
-    var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
-    var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
-  
-    // Use to make it based on alphabet characters 
-    
-    var actualkey = String.fromCharCode(unicode)
-  
-  //  alert(actualkey);
-  }
-  document.onkeypress = abcmoves
-  */
-  
-    var metaChar = false;
-    var exampleKey = 16;
-    var leftarrow = 37;
-    var uparrow = 38;
-    var rightarrow = 39;
-    var downarrow = 40;
-    var shift = 16;
-    var spacebar = 32;
-    var a = 65;
-    var d = 68;
-    var s = 83;
-    var f = 70;
-    var l = 76;
-    
-     
     /*
     
     a = 65, not 97
@@ -188,40 +144,6 @@ line 46, 119, 137, 203, 271, 321
     9 = 57
     
     */
-    
-function jumpParabola() {
-	if(xMoverz >= 0.00001) {
-	bodyAnims.start('jump');
-	}
-	speedUp = 0.000001;       
-        
-        if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-        } else {
-          xMoverz += 0.01;	
-        }
-         
-        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-}    
-    
-function fallParabola() {
-	if(xMoverz >= 0.00001) {
-	bodyAnims.start('fall');
-	}
-	speedUp = 0.000001;       
-        
-        if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-        } else {
-          xMoverz += 0.01;	
-        }
-         
-        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
-} 
-    
-    
-    
-
   
   character.root.rotation.y = 180 * degrees;
  
@@ -259,22 +181,7 @@ function fallParabola() {
   //////////////////////////////////////////////////////////////////////////////////
   //		loop runner							//
   //////////////////////////////////////////////////////////////////////////////////
-  /*
-  var lastTimeMsec = null
-  requestAnimationFrame(function animate(nowMsec) {
-    // keep looping
-    requestAnimationFrame(animate);
-    // measure time
-    lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
-    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
-    lastTimeMsec = nowMsec
-      // call each update function
-    updateFcts.forEach(function(updateFn) {
-      updateFn(deltaMsec / 1000, nowMsec / 1000)
-    })
-  })
-  */
-  
+
   </script>
 
 
