@@ -7,6 +7,7 @@ cos/50 - normal walking
 comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
 Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
 
+function jumpParabola has a 0.5 second delay - oh well.
 
 var name (one letter) - V
 suffix - S
@@ -65,10 +66,13 @@ aGraphSqrt - a for sqaure root graph
         var yRoll = 0;
         var zRoll = 0;
   
+  /*
+        not sure if needed, probably for absolute position when going through little big planet checkpoints? 
+  
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
-	
+  */	
 	var xMoverz = 0;
         var aGraphP = 16;
         var aGraphSqrt = 0.01;
@@ -124,6 +128,11 @@ aGraphSqrt - a for sqaure root graph
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
+  
+  var block = new THREEx.TinygigantiumBlock()
+  scene.add(block.root)
+  
+  
   
   /*
     // for FPS indicator
