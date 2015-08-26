@@ -2,40 +2,10 @@
 for commented out sections:
 line 46, 119, 137, 203, 271, 321
 
-cos/20 - speed walking
+157
 
-cos/50 - normal walking
+commented out everything character
 
-comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
-
-once s key works properly, set up r for roll
-
-roll on ground: working key s +  character rotating along character.root.rotation.y while moving along character.root.position.x
-
-
-
-
-Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
-
-var name (one letter) - V
-
-suffix - S
-
-suffixes
-
-p - parabola
-
-sqrt - sqare root
-
-setup of variable name
-
-VGraphS
-
-Examples: 
-
-aGraphP - a for parabola graph
-
-aGraphSqrt - a for sqaure root graph
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -154,6 +124,7 @@ aGraphSqrt - a for sqaure root graph
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
   
+  /*
   var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
   
@@ -171,6 +142,8 @@ aGraphSqrt - a for sqaure root graph
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
+  */
+  
   
   /*
     // for FPS indicator
@@ -219,7 +192,8 @@ aGraphSqrt - a for sqaure root graph
     9 = 57
     
     */
-    
+
+/* 
 function jumpParabola() {
 	if(xMoverz >= 0.00001) {
 	bodyAnims.start('jump');
@@ -249,17 +223,21 @@ function fallParabola() {
          
         character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
 } 
+*/   
     
-    
-    
-function keyEvent(event) {
-  var key = event.keyCode || event.which;
-  var keychar = String.fromCharCode(key);
+   
+// function keyEvent(event) {
+//   var key = event.keyCode || event.which;
+//  var keychar = String.fromCharCode(key);
+  /*
   if (key == exampleKey) {
     metaChar = true;
   }
-  if (key != exampleKey) {
-    if (metaChar) {
+  */
+  
+//  if (key != exampleKey) {
+  
+//  if (metaChar) {
     	/*
           if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
@@ -276,44 +254,48 @@ function keyEvent(event) {
             // move character right
         }  
         */
-      metaChar = false;
-    } else {
-      if (key == uparrow) {
-         bodyAnims.start('walk');
-         zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
-         xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
+//    metaChar = false;
+//    } 
+    
+  //  else {
+    	
+    //  if (key == uparrow) {
+      	
+       //  bodyAnims.start('walk');
+        // zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
+        // xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
          // move character forwards
-    }
-      if (key == downarrow) {
-         bodyAnims.start('walkbackwards');
-         zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
-         xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
+   //   }
+    //  if (key == downarrow) {
+    //     bodyAnims.start('walkbackwards');
+    //     zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
+    //     xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
          // move character backwards
-      }
+    //  }
       
-      if (key == a) {
-         bodyAnims.start('walk');
-         yRoll = 0.5 * degrees;
+    //  if (key == a) {
+    //     bodyAnims.start('walk');
+    //     yRoll = 0.5 * degrees;
          // rotate character left
-      }
-      if (key == d) {
-         bodyAnims.start('walk');
-         yRoll = -0.5 * degrees;
+    //  }
+    //  if (key == d) {
+    //     bodyAnims.start('walk');
+    //     yRoll = -0.5 * degrees;
          // rotate character right
-      }
+    //  }
      
-      if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
-            xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
+   //   if (key == leftarrow) {
+   //         bodyAnims.start('strafeLeft');
+   //         zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
+   //         xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
             // move character left
-    }   
-      if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
-            xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
+   // }   
+   //   if (key == rightarrow) {
+   //         bodyAnims.start('strafeRight');
+   //         zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
+   //         xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
             // move character right
-          }
+   //       }
        
       /*    
       if(key == f) {
@@ -329,25 +311,30 @@ function keyEvent(event) {
        	xRoll = 0.25;
        }       
        */
-       
+   /*    
       if (key == spacebar) {
          jumpParabola();
        // make character jump
       }
-      
-    }
-   }
+   */
+     
+  //  }
+  
+//   }
    
+ //     onkeyup = function() {
    
-      onkeyup = function() {
-        if(key >= leftarrow && key <= downarrow) {
+      /* 
+       if(key >= leftarrow && key <= downarrow) {
         bodyAnims.start('stand');
         xMove = 0;
         zMove = 0;
         yRoll = 0;
         // alert(characterHeight);  // works!!
       }
+      */
       
+      /*
         if(key == a) {
         bodyAnims.start('stand');
         yRoll = 0;
@@ -356,8 +343,9 @@ function keyEvent(event) {
         bodyAnims.start('stand');
         yRoll = 0;
         } 
-        
-        /*
+       */
+       
+      /*
         if(key == f) {
          character.root.rotation.x = 0;
          xRoll = 0;
@@ -372,37 +360,44 @@ function keyEvent(event) {
         xRoll = 0;
         }
         */
-        
+      /*
         if (key == spacebar) {
          bodyAnims.start('stand');
-        /*
-         xGraphSqrt = 0;
-         speedUp = 0;
-        */
          xMoverz += 0;
         }
-    }
+    */
+      	
+   //   } 
+      
+      
     /*
     if(key == 40){
       alert(1);  // works!!
     }
     */
-}
+// }
+
+
+/*
 onkeydown = function() {
 	keyEvent(event);
 }
+
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
   if (key == exampleKey) {
     metaChar = false;
   }
 }
-  
-  character.root.rotation.y = 180 * degrees;
  
-  var switchBodyValue = function(value) {
+character.root.rotation.y = 180 * degrees;
+
+var switchBodyValue = function(value) {
     bodyAnims.start(value)
   }
+
+*/  
+  
   
   //////////////////////////////////////////////////////////////////////////////////
   //		Camera Controls							//
@@ -434,7 +429,7 @@ function metaKeyUp (event) {
      
    // camera.position.y += cheese; 
     
-    
+  /*  
  
       character.root.position.x += xMove;
       character.root.position.y += yMove;
@@ -442,7 +437,7 @@ function metaKeyUp (event) {
       character.root.rotation.x += xRoll;
       character.root.rotation.y += yRoll;
       character.root.rotation.z += zRoll;
-      
+     */ 
  //   character.root.rotation.z += 0.02;
    
     
