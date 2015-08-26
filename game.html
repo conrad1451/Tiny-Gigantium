@@ -174,8 +174,11 @@ aGraphSqrt - a for sqaure root graph
     */
     
 function jumpParabola() {
+	if(xMoverz >= 0.00001) {
 	bodyAnims.start('jump');
+	}
 	speedUp = 0.000001;       
+        
         if(xMoverz < 0.00001) {
           xMoverz += speedUp;	
         } else {
