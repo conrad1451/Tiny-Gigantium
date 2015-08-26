@@ -53,6 +53,7 @@ aGraphSqrt - a for sqaure root graph
 
 <!--<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'> -->
 <body>
+<div id="container"></div>
   
 <!-- <p id="xMoverz"></p> -->
 
@@ -112,6 +113,32 @@ aGraphSqrt - a for sqaure root graph
   var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
   camera.position.y = 0.5;
   camera.position.z = 5;
+  
+  // lights
+
+  light = new THREE.DirectionalLight(0xffffff);
+  light.position.set(1, 1, 1);
+  scene.add(light);
+
+  light = new THREE.DirectionalLight(0x002288);
+  light.position.set(-1, -1, -1);
+  scene.add(light);
+
+  light = new THREE.AmbientLight(0x222222);
+  scene.add(light);
+
+  // controls fog
+  renderer.setClearColor(scene.fog.color);
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  container = document.getElementById('container');
+  container.appendChild(renderer.domElement);
+  
+  
+  
+  
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
