@@ -117,12 +117,23 @@ commented out everything character
   container.appendChild(renderer.domElement);
   */
   
-  
+  var sizerz = 1.8;
   
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
+     var geometry1 = new THREE.BoxGeometry(sizerz * 2, sizerz * 6, sizerz * 2);
+    var material1 = new THREE.MeshBasicMaterial({
+      wireframe: true
+        //  color: 'lightblue'
+
+    }); 
+  
+  
+  var rightArm = new THREE.Mesh(geometry1, material1);
+  
+  
   
   /*
   var character = new THREEx.TinygigantiumChar()
