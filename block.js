@@ -3,6 +3,9 @@ for world blocks
 
 properties to add:
 
+- if your character in on top of the box (in a certain range of x and z position and y position at top of box) stand
+If chagacter is standing on a block of air, automatically trigger the fall function until he is standing on a non-air block
+
 - can break blocks up to remove them from a space, and collect them in inventory
 
 - can place blocks in a place
