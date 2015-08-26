@@ -1,0 +1,470 @@
+<!-- 
+for commented out sections:
+line 46, 119, 137, 203, 271, 321
+
+cos/20 - speed walking
+
+cos/50 - normal walking
+
+comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
+
+once s key works properly, set up r for roll
+
+roll on ground: working key s +  character rotating along character.root.rotation.y while moving along character.root.position.x
+
+
+
+
+Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
+
+var name (one letter) - V
+
+suffix - S
+
+suffixes
+
+p - parabola
+
+sqrt - sqare root
+
+setup of variable name
+
+VGraphS
+
+Examples: 
+
+aGraphP - a for parabola graph
+
+aGraphSqrt - a for sqaure root graph
+-->
+
+<!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
+
+
+<script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
+
+<!-- include animation -->
+<script src='http://conrad1451.github.io/Tiny-Gigantium/animation.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/animations.js'></script>
+
+<!-- Headmove and bodymove -->
+<script src='http://conrad1451.github.io/Tiny-Gigantium/headmove.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/bodymove.js'></script>
+
+<!--<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>-->
+
+
+
+<!-- ================= -->
+
+<!--<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'> -->
+<body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
+<!--- <div id="container"></div> -->
+  
+<!-- <p id="xMoverz"></p> -->
+
+  
+  <script>
+  
+        function sq (aNumber) {
+          aNumber * aNumber;
+        }
+ 
+  	var degrees = Math.PI/180;
+        var cheese = 0.00;
+        var xMove = 0;
+        var yMove = 0;
+        var zMove = 0;
+        var xRoll = 0;
+        var yRoll = 0;
+        var zRoll = 0;
+  
+	var xPosi = 0;
+	var yPosi = 0;
+	var zPosi = 0;
+	
+	var xMoverz = 0;
+        var aGraphP = 16;
+        var aGraphSqrt = 0.01;
+        var bGraphSqrt = 0.6;
+        var xGraphSqrt = 0;
+        
+        var speedUp = 0;
+        
+        var seconds = 60;
+        
+        var characterHeight = 33 * (1/32);
+     
+  /*
+    function valuedisplayer () {
+  //	var variablenamez = avalue;
+  	var suffixer1 = xMoverz + " is value of xMovers";
+  	document.getElementById("xMoverz").innerHTML = suffixer1;
+  
+  }
+  
+    setInterval(valuedisplayer, 1);
+*/  
+  
+  
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+  
+  var updateFcts = [];
+  var scene = new THREE.Scene();
+  
+  /*
+  //controls fog
+  scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+  */
+  
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
+  camera.position.y = 0.5;
+  camera.position.z = 5;
+  /*
+  // lights
+
+  light = new THREE.DirectionalLight(0xffffff);
+  light.position.set(1, 1, 1);
+  scene.add(light);
+
+  light = new THREE.DirectionalLight(0x002288);
+  light.position.set(-1, -1, -1);
+  scene.add(light);
+
+  light = new THREE.AmbientLight(0x222222);
+  scene.add(light);
+
+  // controls fog
+  renderer.setClearColor(scene.fog.color);
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  container = document.getElementById('container');
+  container.appendChild(renderer.domElement);
+  */
+  
+  
+  
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		load Character							//
+  //////////////////////////////////////////////////////////////////////////////////
+  
+  var character = new THREEx.TinygigantiumChar()
+  scene.add(character.root)
+  
+  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
+  updateFcts.push(function(delta, now) {
+    headAnims.update(delta, now)
+  })
+  headAnims.start('still');
+  var switchHeadValue = function(value) {
+    headAnims.start(value)
+  }
+  
+  // init bodyAnims
+  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
+  updateFcts.push(function(delta, now) {
+    bodyAnims.update(delta, now)
+  })
+  
+  /*
+    // for FPS indicator
+  stats = new Stats();
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.top = '0px';
+  stats.domElement.style.zIndex = 100;
+  container.appendChild(stats.domElement);
+// End of fps indicator
+  */
+  
+  /*
+  function abcmoves(e) {
+    var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
+    var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
+  
+    // Use to make it based on alphabet characters 
+    
+    var actualkey = String.fromCharCode(unicode)
+  
+  //  alert(actualkey);
+  }
+  document.onkeypress = abcmoves
+  */
+  
+    var metaChar = false;
+    var exampleKey = 16;
+    var leftarrow = 37;
+    var uparrow = 38;
+    var rightarrow = 39;
+    var downarrow = 40;
+    var shift = 16;
+    var spacebar = 32;
+    var a = 65;
+    var d = 68;
+    var s = 83;
+    var f = 70;
+    var l = 76;
+    
+     
+    /*
+    
+    a = 65, not 97
+    z = 90
+    0 = 48
+    9 = 57
+    
+    */
+    
+function jumpParabola() {
+	if(xMoverz >= 0.00001) {
+	bodyAnims.start('jump');
+	}
+	speedUp = 0.000001;       
+        
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+}    
+    
+function fallParabola() {
+	if(xMoverz >= 0.00001) {
+	bodyAnims.start('fall');
+	}
+	speedUp = 0.000001;       
+        
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+} 
+    
+    
+    
+function keyEvent(event) {
+  var key = event.keyCode || event.which;
+  var keychar = String.fromCharCode(key);
+  if (key == exampleKey) {
+    metaChar = true;
+  }
+  if (key != exampleKey) {
+    if (metaChar) {
+    	/*
+          if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            zMove = 0;
+            xMove = -0.005;
+            yRoll = 0;
+            // move character left
+    	}   
+          if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            zMove = 0;
+            xMove = 0.005;
+            yRoll = 0;
+            // move character right
+        }  
+        */
+      metaChar = false;
+    } else {
+      if (key == uparrow) {
+         bodyAnims.start('walk');
+         zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
+         xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
+         // move character forwards
+    }
+      if (key == downarrow) {
+         bodyAnims.start('walkbackwards');
+         zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
+         xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
+         // move character backwards
+      }
+      
+      if (key == a) {
+         bodyAnims.start('walk');
+         yRoll = 0.5 * degrees;
+         // rotate character left
+      }
+      if (key == d) {
+         bodyAnims.start('walk');
+         yRoll = -0.5 * degrees;
+         // rotate character right
+      }
+     
+      if (key == leftarrow) {
+            bodyAnims.start('strafeLeft');
+            zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
+            xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
+            // move character left
+    }   
+      if (key == rightarrow) {
+            bodyAnims.start('strafeRight');
+            zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
+            xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
+            // move character right
+          }
+       
+      /*    
+      if(key == f) {
+       	xRoll = 0.025;
+       	if (character.root.rotation.x >= 90 * degrees) {
+       		xRoll = 0;
+       	}
+       }
+      if(key == s) {
+       	character.root.rotation.x = 79 * degrees;
+       }
+      if(key == l) {
+       	xRoll = 0.25;
+       }       
+       */
+       
+      if (key == spacebar) {
+         jumpParabola();
+       // make character jump
+      }
+      
+    }
+   }
+   
+   
+      onkeyup = function() {
+        if(key >= leftarrow && key <= downarrow) {
+        bodyAnims.start('stand');
+        xMove = 0;
+        zMove = 0;
+        yRoll = 0;
+        // alert(characterHeight);  // works!!
+      }
+      
+        if(key == a) {
+        bodyAnims.start('stand');
+        yRoll = 0;
+        } 
+        if(key == d) {
+        bodyAnims.start('stand');
+        yRoll = 0;
+        } 
+        
+        /*
+        if(key == f) {
+         character.root.rotation.x = 0;
+         xRoll = 0;
+        }
+        if(key == s) {
+         character.root.rotation.x = 0;
+         xRoll = 0;       	
+        }
+        if(key == l) {
+        yMove = Math.cos(character.root.rotation.x);
+        zMove = Math.sin(character.root.rotation.x);
+        xRoll = 0;
+        }
+        */
+        
+        if (key == spacebar) {
+         bodyAnims.start('stand');
+        /*
+         xGraphSqrt = 0;
+         speedUp = 0;
+        */
+         xMoverz += 0;
+        }
+    }
+    /*
+    if(key == 40){
+      alert(1);  // works!!
+    }
+    */
+}
+onkeydown = function() {
+	keyEvent(event);
+}
+function metaKeyUp (event) {
+  var key = event.keyCode || event.which;
+  if (key == exampleKey) {
+    metaChar = false;
+  }
+}
+  
+  character.root.rotation.y = 180 * degrees;
+ 
+  var switchBodyValue = function(value) {
+    bodyAnims.start(value)
+  }
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		Camera Controls							//
+  //////////////////////////////////////////////////////////////////////////////////
+  var mouse = {
+    x: 0,
+    y: 0
+  }
+  document.addEventListener('mousemove', function(event) {
+    mouse.x = (event.clientX / window.innerWidth) - 0.5
+    mouse.y = (event.clientY / window.innerHeight) - 0.5
+  }, false)
+  updateFcts.push(function(delta, now) {
+    //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+    // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+    // camera.lookAt makes camera focus move along with character 
+    //	 camera.lookAt( scene.position )
+  })
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		render the scene						//
+  //////////////////////////////////////////////////////////////////////////////////
+  updateFcts.push(function() {
+    renderer.render(scene, camera);
+  
+    /* 
+    code I added to test flexibilty of program (IT WORKS!)
+    */
+     
+   // camera.position.y += cheese; 
+    
+    
+ 
+      character.root.position.x += xMove;
+      character.root.position.y += yMove;
+      character.root.position.z += zMove;
+      character.root.rotation.x += xRoll;
+      character.root.rotation.y += yRoll;
+      character.root.rotation.z += zRoll;
+      
+ //   character.root.rotation.z += 0.02;
+   
+    
+  })
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		loop runner							//
+  //////////////////////////////////////////////////////////////////////////////////
+  var lastTimeMsec = null
+  requestAnimationFrame(function animate(nowMsec) {
+    // keep looping
+    requestAnimationFrame(animate);
+    // measure time
+    lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+    lastTimeMsec = nowMsec
+      // call each update function
+    updateFcts.forEach(function(updateFn) {
+      updateFn(deltaMsec / 1000, nowMsec / 1000)
+    })
+  })
+  </script>
+
+
+</body>
