@@ -1,5 +1,5 @@
 <!-- 
-PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone alongside cheeseboy 
+PURPOSE: TO SEE if renaming character will affect things, and to make a clone alongside character 
 
 -->
 
@@ -59,7 +59,7 @@ PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone al
         
         var seconds = 60;
         
-        var cheeseboyHeight = 33 * (1/32);
+        var characterHeight = 33 * (1/32);
      
   /*
     function valuedisplayer () {
@@ -116,13 +116,13 @@ PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone al
   
   
   //////////////////////////////////////////////////////////////////////////////////
-  //		load cheeseboy							//
+  //		load character							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var cheeseboy = new THREEx.TinygigantiumChar()
-  scene.add(cheeseboy.root)
+  var character = new THREEx.TinygigantiumChar()
+  scene.add(character.root)
   
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(cheeseboy);
+  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
   updateFcts.push(function(delta, now) {
     headAnims.update(delta, now)
   })
@@ -132,7 +132,7 @@ PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone al
   }
   
   // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(cheeseboy);
+  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
@@ -156,7 +156,7 @@ PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone al
     var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
     var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
   
-    // Use to make it based on alphabet characters 
+    // Use to make it based on the alphabet
     
     var actualkey = String.fromCharCode(unicode)
   
@@ -201,143 +201,15 @@ function jumpParabola() {
           xMoverz += 0.01;	
         }
          
-        cheeseboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(cheeseboyHeight/aGraphP)) * (xMoverz-Math.sqrt(cheeseboyHeight/aGraphP)) + cheeseboyHeight;
+        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
 }    
     
-function fallParabola() {
-	if(xMoverz >= 0.00001) {
-	bodyAnims.start('fall');
-	}
-	speedUp = 0.000001;       
-        
-        if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-        } else {
-          xMoverz += 0.01;	
-        }
-         
-        cheeseboy.root.position.y = -aGraphP * xMoverz * xMoverz + cheeseboyHeight;
-} 
+function fallParabola() {charactercheesebocharacter
+} haracter
     
     
     
-function keyEvent(event) {
-  var key = event.keyCode || event.which;
-  var keychar = String.fromCharCode(key);
-  if (key == exampleKey) {
-    metaChar = true;
-  }
-  if (key != exampleKey) {
-    if (metaChar) {
-    	/*
-          if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = 0;
-            xMove = -0.005;
-            yRoll = 0;
-            // move cheeseboy left
-    	}   
-          if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = 0;
-            xMove = 0.005;
-            yRoll = 0;
-            // move cheeseboy right
-        }  
-        */
-      metaChar = false;
-    } else {
-      if (key == uparrow) {
-         bodyAnims.start('walk');
-         zMove = /*-0.005; */     (Math.cos(cheeseboy.root.rotation.y)) / 50;
-         xMove = /*0*/            (Math.sin(cheeseboy.root.rotation.y)) / 50;
-         // move cheeseboy forwards
-    }
-      if (key == downarrow) {
-         bodyAnims.start('walkbackwards');
-         zMove = /* 0.005; */  -(Math.cos(cheeseboy.root.rotation.y)) / 50;
-         xMove = /* 0; */      -(Math.sin(cheeseboy.root.rotation.y)) / 50;
-         // move cheeseboy backwards
-      }
-      
-      if (key == a) {
-         bodyAnims.start('walk');
-         yRoll = 0.5 * degrees;
-         // rotate cheeseboy left
-      }
-      if (key == d) {
-         bodyAnims.start('walk');
-         yRoll = -0.5 * degrees;
-         // rotate cheeseboy right
-      }
-     
-      if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = /* -0.005;  */ (Math.cos(cheeseboy.root.rotation.y + (90 * degrees) )) / 50;
-            xMove = /*  0; */      (Math.sin(cheeseboy.root.rotation.y + (90 * degrees) )) / 50;
-            // move cheeseboy left
-    }   
-      if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = /* 0.005; */  (Math.cos(cheeseboy.root.rotation.y - (90 * degrees) )) / 50;
-            xMove = /* 0; */      (Math.sin(cheeseboy.root.rotation.y - (90 * degrees) )) / 50;
-            // move cheeseboy right
-          }
-       
-      /*    
-      if(key == f) {
-       	xRoll = 0.025;
-       	if (cheeseboy.root.rotation.x >= 90 * degrees) {
-       		xRoll = 0;
-       	}
-       }
-      if(key == s) {
-       	cheeseboy.root.rotation.x = 79 * degrees;
-       }
-      if(key == l) {
-       	xRoll = 0.25;
-       }       
-       */
-       
-      if (key == spacebar) {
-         jumpParabola();
-       // make cheeseboy jump
-      }
-      
-    }
-   }
-   
-   
-      onkeyup = function() {
-        if(key >= leftarrow && key <= downarrow) {
-        bodyAnims.start('stand');
-        xMove = 0;
-        zMove = 0;
-        yRoll = 0;
-        // alert(cheeseboyHeight);  // works!!
-      }
-      
-        if(key == a) {
-        bodyAnims.start('stand');
-        yRoll = 0;
-        } 
-        if(key == d) {
-        bodyAnims.start('stand');
-        yRoll = 0;
-        } 
-        
-        /*
-        if(key == f) {
-         cheeseboy.root.rotation.x = 0;
-         xRoll = 0;
-        }
-        if(key == s) {
-         cheeseboy.root.rotation.x = 0;
-         xRoll = 0;       	
-        }
-        if(key == l) {
-        yMove = Math.cos(cheeseboy.root.rotation.x);
-        zMove = Math.sin(cheeseboy.root.rotation.x);
+function keyEvent(event) {ccheeseboy.root.rotation.x);
         xRoll = 0;
         }
         */
@@ -350,73 +222,69 @@ function keyEvent(event) {
         */
          xMoverz += 0;
         }
-    }
+    }character
     /*
     if(key == 40){
       alert(1);  // works!!
     }
     */
 }
-onkeydown = function() {
+onkeydown = functioncharacter
 	keyEvent(event);
 }
-function metaKeyUp (event) {
-  var key = event.keyCode || event.which;
-  if (key == exampleKey) {
-    metaChar = false;
-  }
-}
-  
-  cheeseboy.root.rotation.y = 180 * degrees;
+function metaKeyUp (event) {character
+}character
+  character
+  character.root.rotation.y = 180 * degrees;
  
   var switchBodyValue = function(value) {
-    bodyAnims.start(value)
-  }
-  
+    bodyAnims.start(value)character
+  }character
+  character
   //////////////////////////////////////////////////////////////////////////////////
   //		Camera Controls							//
   //////////////////////////////////////////////////////////////////////////////////
   var mouse = {
     x: 0,
-    y: 0
+    y: 0character
   }
   document.addEventListener('mousemove', function(event) {
     mouse.x = (event.clientX / window.innerWidth) - 0.5
     mouse.y = (event.clientY / window.innerHeight) - 0.5
-  }, false)
+  }, false)character
   updateFcts.push(function(delta, now) {
     //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
     // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
-    // camera.lookAt makes camera focus move along with cheeseboy 
-    //	 camera.lookAt( scene.position )
-  })
-  
+    // camera.lookAt makes camera focus move along with character 
+    //	 camera.lookAt( scene.position )character
+  })character
+  character
   //////////////////////////////////////////////////////////////////////////////////
   //		render the scene						//
   //////////////////////////////////////////////////////////////////////////////////
-  updateFcts.push(function() {
-    renderer.render(scene, camera);
-  
+  updateFcts.push(function() {character
+    renderer.render(scene, camera);character
+  character
     /* 
     code I added to test flexibilty of program (IT WORKS!)
     */
      
    // camera.position.y += cheese; 
-    
+    character
     
  
-      cheeseboy.root.position.x += xMove;
-      cheeseboy.root.position.y += yMove;
-      cheeseboy.root.position.z += zMove;
-      cheeseboy.root.rotation.x += xRoll;
-      cheeseboy.root.rotation.y += yRoll;
-      cheeseboy.root.rotation.z += zRoll;
+      character.root.position.x += xMove;
+      character.root.position.y += yMove;
+      character.charactertion.z += zMove;
+      character.root.rotation.x += xRoll;
+      character.root.rotation.y += yRoll;
+      character.root.rotation.z += zRoll;
       
- //   cheeseboy.root.rotation.z += 0.02;
+ //   character.root.rotation.z += 0.02;
    
     
   })
-  
+  character
   //////////////////////////////////////////////////////////////////////////////////
   //		loop runner							//
   //////////////////////////////////////////////////////////////////////////////////
@@ -429,7 +297,7 @@ function metaKeyUp (event) {
     var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
     lastTimeMsec = nowMsec
       // call each update function
-    updateFcts.forEach(function(updateFn) {
+    updateFcts.focharacterction(updateFn) {
       updateFn(deltaMsec / 1000, nowMsec / 1000)
     })
   })
@@ -437,3 +305,4 @@ function metaKeyUp (event) {
 
 
 </body>
+charactercharactercharacter
