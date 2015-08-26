@@ -1,9 +1,6 @@
 <!-- 
 for commented out sections:
 line 46, 119, 137, 203, 271, 321
-
-
-
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -93,24 +90,18 @@ line 46, 119, 137, 203, 271, 321
   camera.position.z = 5;
   /*
   // lights
-
   light = new THREE.DirectionalLight(0xffffff);
   light.position.set(1, 1, 1);
   scene.add(light);
-
   light = new THREE.DirectionalLight(0x002288);
   light.position.set(-1, -1, -1);
   scene.add(light);
-
   light = new THREE.AmbientLight(0x222222);
   scene.add(light);
-
   // controls fog
   renderer.setClearColor(scene.fog.color);
-
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-
   container = document.getElementById('container');
   container.appendChild(renderer.domElement);
   */
@@ -124,7 +115,21 @@ line 46, 119, 137, 203, 271, 321
   
   var character = new THREEx.TinygigantiumChar()
   scene.add(character.root)
-
+  
+  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
+  updateFcts.push(function(delta, now) {
+    headAnims.update(delta, now)
+  })
+  headAnims.start('still');
+  var switchHeadValue = function(value) {
+    headAnims.start(value)
+  }
+  
+  // init bodyAnims
+  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
+  updateFcts.push(function(delta, now) {
+    bodyAnims.update(delta, now)
+  })
   
   /*
     // for FPS indicator
@@ -136,6 +141,35 @@ line 46, 119, 137, 203, 271, 321
 // End of fps indicator
   */
   
+  /*
+  function abcmoves(e) {
+    var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
+    var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
+  
+    // Use to make it based on alphabet characters 
+    
+    var actualkey = String.fromCharCode(unicode)
+  
+  //  alert(actualkey);
+  }
+  document.onkeypress = abcmoves
+  */
+  
+    var metaChar = false;
+    var exampleKey = 16;
+    var leftarrow = 37;
+    var uparrow = 38;
+    var rightarrow = 39;
+    var downarrow = 40;
+    var shift = 16;
+    var spacebar = 32;
+    var a = 65;
+    var d = 68;
+    var s = 83;
+    var f = 70;
+    var l = 76;
+    
+     
     /*
     
     a = 65, not 97
@@ -144,6 +178,39 @@ line 46, 119, 137, 203, 271, 321
     9 = 57
     
     */
+    
+function jumpParabola() {
+	if(xMoverz >= 0.00001) {
+	bodyAnims.start('jump');
+	}
+	speedUp = 0.000001;       
+        
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+}    
+    
+function fallParabola() {
+	if(xMoverz >= 0.00001) {
+	bodyAnims.start('fall');
+	}
+	speedUp = 0.000001;       
+        
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+} 
+    
+    
+    
   
   character.root.rotation.y = 180 * degrees;
  
@@ -174,14 +241,25 @@ line 46, 119, 137, 203, 271, 321
   //////////////////////////////////////////////////////////////////////////////////
   updateFcts.push(function() {
     renderer.render(scene, camera);
-
     
   })
   
   //////////////////////////////////////////////////////////////////////////////////
   //		loop runner							//
   //////////////////////////////////////////////////////////////////////////////////
-
+  var lastTimeMsec = null
+  requestAnimationFrame(function animate(nowMsec) {
+    // keep looping
+    requestAnimationFrame(animate);
+    // measure time
+    lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+    lastTimeMsec = nowMsec
+      // call each update function
+    updateFcts.forEach(function(updateFn) {
+      updateFn(deltaMsec / 1000, nowMsec / 1000)
+    })
+  })
   </script>
 
 
