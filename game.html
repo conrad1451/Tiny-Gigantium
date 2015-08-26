@@ -1,29 +1,34 @@
 <!-- 
 for commented out sections:
 line 46, 119, 137, 203, 271, 321
+
 cos/20 - speed walking
+
 cos/50 - normal walking
 
 comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
+
 Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
 
-function jumpParabola has a 0.5 second delay - oh well.
-
 var name (one letter) - V
+
 suffix - S
 
 suffixes
+
 p - parabola
+
 sqrt - sqare root
 
 setup of variable name
+
 VGraphS
 
 Examples: 
+
 aGraphP - a for parabola graph
+
 aGraphSqrt - a for sqaure root graph
-
-
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -66,13 +71,10 @@ aGraphSqrt - a for sqaure root graph
         var yRoll = 0;
         var zRoll = 0;
   
-  /*
-        not sure if needed, probably for absolute position when going through little big planet checkpoints? 
-  
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
-  */	
+	
 	var xMoverz = 0;
         var aGraphP = 16;
         var aGraphSqrt = 0.01;
@@ -128,15 +130,6 @@ aGraphSqrt - a for sqaure root graph
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
-  
-  /*
-  
-  var block = new THREEx.TinygigantiumBlock()
-  scene.add(block.root)
-  
-  block.root.position.x = 0.5;
-  */
-  
   
   /*
     // for FPS indicator
@@ -199,7 +192,6 @@ function jumpParabola() {
         }
          
         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-
 }    
     
 function keyEvent(event) {
