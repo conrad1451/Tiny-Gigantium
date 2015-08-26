@@ -235,6 +235,23 @@ function jumpParabola() {
         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
 }    
     
+function fallParabola() {
+	if(xMoverz >= 0.00001) {
+	bodyAnims.start('fall');
+	}
+	speedUp = 0.000001;       
+        
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+} 
+    
+    
+    
 function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
