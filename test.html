@@ -117,7 +117,7 @@ commented out everything character
   container.appendChild(renderer.domElement);
   */
   
-  var sizerz = 1.8;
+  var sizerz = 0.8;
   
   
   //////////////////////////////////////////////////////////////////////////////////
@@ -131,6 +131,10 @@ commented out everything character
   
   
   var rightArm = new THREE.Mesh(geometry1, material1);
+  
+    rightArm.position.x = 0; // torso.position.x + (-size * 3);
+    rightArm.position.y = 0; // torso.position.y + (-size * 0.5);
+    rightArm.position.z = 0; // torso.position.z + 0;
   
   
   
