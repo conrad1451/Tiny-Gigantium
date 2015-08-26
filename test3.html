@@ -1,41 +1,6 @@
 <!-- 
-for commented out sections:
-line 46, 119, 137, 203, 271, 321
+PURPOSE: TO SEE if renaming cheeseboy will affect things, and to make a clone alongside cheeseboy 
 
-cos/20 - speed walking
-
-cos/50 - normal walking
-
-comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
-
-once s key works properly, set up r for roll
-
-roll on ground: working key s +  character rotating along character.root.rotation.y while moving along character.root.position.x
-
-
-
-
-Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
-
-var name (one letter) - V
-
-suffix - S
-
-suffixes
-
-p - parabola
-
-sqrt - sqare root
-
-setup of variable name
-
-VGraphS
-
-Examples: 
-
-aGraphP - a for parabola graph
-
-aGraphSqrt - a for sqaure root graph
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -94,7 +59,7 @@ aGraphSqrt - a for sqaure root graph
         
         var seconds = 60;
         
-        var characterHeight = 33 * (1/32);
+        var cheeseboyHeight = 33 * (1/32);
      
   /*
     function valuedisplayer () {
@@ -151,13 +116,13 @@ aGraphSqrt - a for sqaure root graph
   
   
   //////////////////////////////////////////////////////////////////////////////////
-  //		load Character							//
+  //		load cheeseboy							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var character = new THREEx.TinygigantiumChar()
-  scene.add(character.root)
+  var cheeseboy = new THREEx.TinygigantiumChar()
+  scene.add(cheeseboy.root)
   
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(cheeseboy);
   updateFcts.push(function(delta, now) {
     headAnims.update(delta, now)
   })
@@ -167,10 +132,14 @@ aGraphSqrt - a for sqaure root graph
   }
   
   // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(cheeseboy);
   updateFcts.push(function(delta, now) {
     bodyAnims.update(delta, now)
   })
+  
+  
+  
+  
   
   /*
     // for FPS indicator
@@ -232,7 +201,7 @@ function jumpParabola() {
           xMoverz += 0.01;	
         }
          
-        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+        cheeseboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(cheeseboyHeight/aGraphP)) * (xMoverz-Math.sqrt(cheeseboyHeight/aGraphP)) + cheeseboyHeight;
 }    
     
 function fallParabola() {
@@ -247,7 +216,7 @@ function fallParabola() {
           xMoverz += 0.01;	
         }
          
-        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+        cheeseboy.root.position.y = -aGraphP * xMoverz * xMoverz + cheeseboyHeight;
 } 
     
     
@@ -266,64 +235,64 @@ function keyEvent(event) {
             zMove = 0;
             xMove = -0.005;
             yRoll = 0;
-            // move character left
+            // move cheeseboy left
     	}   
           if (key == rightarrow) {
             bodyAnims.start('strafeRight');
             zMove = 0;
             xMove = 0.005;
             yRoll = 0;
-            // move character right
+            // move cheeseboy right
         }  
         */
       metaChar = false;
     } else {
       if (key == uparrow) {
          bodyAnims.start('walk');
-         zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
-         xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
-         // move character forwards
+         zMove = /*-0.005; */     (Math.cos(cheeseboy.root.rotation.y)) / 50;
+         xMove = /*0*/            (Math.sin(cheeseboy.root.rotation.y)) / 50;
+         // move cheeseboy forwards
     }
       if (key == downarrow) {
          bodyAnims.start('walkbackwards');
-         zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
-         xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
-         // move character backwards
+         zMove = /* 0.005; */  -(Math.cos(cheeseboy.root.rotation.y)) / 50;
+         xMove = /* 0; */      -(Math.sin(cheeseboy.root.rotation.y)) / 50;
+         // move cheeseboy backwards
       }
       
       if (key == a) {
          bodyAnims.start('walk');
          yRoll = 0.5 * degrees;
-         // rotate character left
+         // rotate cheeseboy left
       }
       if (key == d) {
          bodyAnims.start('walk');
          yRoll = -0.5 * degrees;
-         // rotate character right
+         // rotate cheeseboy right
       }
      
       if (key == leftarrow) {
             bodyAnims.start('strafeLeft');
-            zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
-            xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
-            // move character left
+            zMove = /* -0.005;  */ (Math.cos(cheeseboy.root.rotation.y + (90 * degrees) )) / 50;
+            xMove = /*  0; */      (Math.sin(cheeseboy.root.rotation.y + (90 * degrees) )) / 50;
+            // move cheeseboy left
     }   
       if (key == rightarrow) {
             bodyAnims.start('strafeRight');
-            zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
-            xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
-            // move character right
+            zMove = /* 0.005; */  (Math.cos(cheeseboy.root.rotation.y - (90 * degrees) )) / 50;
+            xMove = /* 0; */      (Math.sin(cheeseboy.root.rotation.y - (90 * degrees) )) / 50;
+            // move cheeseboy right
           }
        
       /*    
       if(key == f) {
        	xRoll = 0.025;
-       	if (character.root.rotation.x >= 90 * degrees) {
+       	if (cheeseboy.root.rotation.x >= 90 * degrees) {
        		xRoll = 0;
        	}
        }
       if(key == s) {
-       	character.root.rotation.x = 79 * degrees;
+       	cheeseboy.root.rotation.x = 79 * degrees;
        }
       if(key == l) {
        	xRoll = 0.25;
@@ -332,7 +301,7 @@ function keyEvent(event) {
        
       if (key == spacebar) {
          jumpParabola();
-       // make character jump
+       // make cheeseboy jump
       }
       
     }
@@ -345,7 +314,7 @@ function keyEvent(event) {
         xMove = 0;
         zMove = 0;
         yRoll = 0;
-        // alert(characterHeight);  // works!!
+        // alert(cheeseboyHeight);  // works!!
       }
       
         if(key == a) {
@@ -359,16 +328,16 @@ function keyEvent(event) {
         
         /*
         if(key == f) {
-         character.root.rotation.x = 0;
+         cheeseboy.root.rotation.x = 0;
          xRoll = 0;
         }
         if(key == s) {
-         character.root.rotation.x = 0;
+         cheeseboy.root.rotation.x = 0;
          xRoll = 0;       	
         }
         if(key == l) {
-        yMove = Math.cos(character.root.rotation.x);
-        zMove = Math.sin(character.root.rotation.x);
+        yMove = Math.cos(cheeseboy.root.rotation.x);
+        zMove = Math.sin(cheeseboy.root.rotation.x);
         xRoll = 0;
         }
         */
@@ -398,7 +367,7 @@ function metaKeyUp (event) {
   }
 }
   
-  character.root.rotation.y = 180 * degrees;
+  cheeseboy.root.rotation.y = 180 * degrees;
  
   var switchBodyValue = function(value) {
     bodyAnims.start(value)
@@ -418,7 +387,7 @@ function metaKeyUp (event) {
   updateFcts.push(function(delta, now) {
     //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
     // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
-    // camera.lookAt makes camera focus move along with character 
+    // camera.lookAt makes camera focus move along with cheeseboy 
     //	 camera.lookAt( scene.position )
   })
   
@@ -436,14 +405,14 @@ function metaKeyUp (event) {
     
     
  
-      character.root.position.x += xMove;
-      character.root.position.y += yMove;
-      character.root.position.z += zMove;
-      character.root.rotation.x += xRoll;
-      character.root.rotation.y += yRoll;
-      character.root.rotation.z += zRoll;
+      cheeseboy.root.position.x += xMove;
+      cheeseboy.root.position.y += yMove;
+      cheeseboy.root.position.z += zMove;
+      cheeseboy.root.rotation.x += xRoll;
+      cheeseboy.root.rotation.y += yRoll;
+      cheeseboy.root.rotation.z += zRoll;
       
- //   character.root.rotation.z += 0.02;
+ //   cheeseboy.root.rotation.z += 0.02;
    
     
   })
