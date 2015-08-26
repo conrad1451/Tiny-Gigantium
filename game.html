@@ -175,6 +175,15 @@ aGraphSqrt - a for sqaure root graph
     
 function jump() {
 	bodyAnims.start('jump');
+	speedUp = 0.000001;       
+        if(xMoverz < 0.00001) {
+          xMoverz += speedUp;	
+        } else {
+          xMoverz += 0.01;	
+        }
+         
+        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+
 }    
     
 function keyEvent(event) {
@@ -264,15 +273,7 @@ function keyEvent(event) {
          
  // speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
        
-         speedUp = 0.000001;       
-         if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-         } else {
-          xMoverz += 0.01;	
-         }
-         
-         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-
+        
       /*   
          if(xMoverz < 0.01) {
           xMoverz += 0.001;	
