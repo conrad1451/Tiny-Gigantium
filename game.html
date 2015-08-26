@@ -172,6 +172,11 @@ aGraphSqrt - a for sqaure root graph
     9 = 57
     
     */
+    
+function jump() {
+	bodyAnims.start('jump');
+}    
+    
 function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
@@ -251,20 +256,23 @@ function keyEvent(event) {
        */
        
       if (key == spacebar) {
-       bodyAnims.start('jump');
+       jump();
        /*
        xGraphSqrt += 0.5 / seconds;
        xMovers += speedUp;
        */
          
-         speedUp = 0.000001; //(aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
+ // speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
        
-       
+         speedUp = 0.000001;       
          if(xMoverz < 0.00001) {
           xMoverz += speedUp;	
          } else {
           xMoverz += 0.01;	
          }
+         
+         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+
       /*   
          if(xMoverz < 0.01) {
           xMoverz += 0.001;	
@@ -272,7 +280,7 @@ function keyEvent(event) {
           xMoverz += 0.01;	
          }
       */ 
-         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+         
           
          // make character jump
         
