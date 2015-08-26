@@ -2,40 +2,8 @@
 for commented out sections:
 line 46, 119, 137, 203, 271, 321
 
-cos/20 - speed walking
-
-cos/50 - normal walking
-
-comment out s, f, and l and embed it in character.js so that when turned and f, lean backward in relation to the character
-
-once s key works properly, set up r for roll
-
-roll on ground: working key s +  character rotating along character.root.rotation.y while moving along character.root.position.x
 
 
-
-
-Once developed world, make monkey bars and store if statement for key l in if character is hanging from a monkey bar
-
-var name (one letter) - V
-
-suffix - S
-
-suffixes
-
-p - parabola
-
-sqrt - sqare root
-
-setup of variable name
-
-VGraphS
-
-Examples: 
-
-aGraphP - a for parabola graph
-
-aGraphSqrt - a for sqaure root graph
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -283,24 +251,7 @@ function fallParabola() {
   //////////////////////////////////////////////////////////////////////////////////
   updateFcts.push(function() {
     renderer.render(scene, camera);
-  
-    /* 
-    code I added to test flexibilty of program (IT WORKS!)
-    */
-     
-   // camera.position.y += cheese; 
-    
-    
- 
-      character.root.position.x += xMove;
-      character.root.position.y += yMove;
-      character.root.position.z += zMove;
-      character.root.rotation.x += xRoll;
-      character.root.rotation.y += yRoll;
-      character.root.rotation.z += zRoll;
-      
- //   character.root.rotation.z += 0.02;
-   
+
     
   })
   
