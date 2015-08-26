@@ -173,7 +173,7 @@ aGraphSqrt - a for sqaure root graph
     
     */
     
-function jump() {
+function jumpParabola() {
 	bodyAnims.start('jump');
 	speedUp = 0.000001;       
         if(xMoverz < 0.00001) {
@@ -265,28 +265,9 @@ function keyEvent(event) {
        */
        
       if (key == spacebar) {
-       jump();
-       /*
-       xGraphSqrt += 0.5 / seconds;
-       xMovers += speedUp;
-       */
-         
- // speedUp = (aGraphSqrt * xGraphSqrt) / (Math.sqrt(xGraphSqrt * xGraphSqrt + bGraphSqrt));
-       
-        
-      /*   
-         if(xMoverz < 0.01) {
-          xMoverz += 0.001;	
-         } else {
-          xMoverz += 0.01;	
-         }
-      */ 
-         
-          
-         // make character jump
-        
+         jumpParabola();
+       // make character jump
       }
-      
       
     }
    }
