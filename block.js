@@ -1,18 +1,11 @@
 /* 
-for world blocks
+All body parts but head and helmet move regularly when sizes and positions are changed 
+fix y Position of head and helmet by first setting each to 0, then at different numerical values to see what works
 
-properties to add:
+Also remeber to change 1/16 back to 1/32 when fixed head positioning
 
-- if your character in on top of the box (in a certain range of x and z position and y position at top of box) stand
-If chagacter is standing on a block of air, automatically trigger the fall function until he is standing on a non-air block
-
-- can break blocks up to remove them from a space, and collect them in inventory
-
-- can place blocks in a place
-
-- certain blocks combined in inventory make items (for later implementation)
-
-- special blocks affect character (passes through water and air, burned be fire) (for later implementation)
+Would only need to do mesh.position.x and model.helmet.position.x if you wanted the helmet 
+to come off the head for some reason, you would set them at different y and x values
 
 
 */
@@ -24,7 +17,7 @@ var THREEx	= THREEx || {};
  * @param  {[type]} skinUrl [description]
  * @return {[type]}         [description]
  */
-THREEx.TinygigantiumBlock	= function(skinUrl){
+THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
 	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
 	
@@ -38,10 +31,10 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	texture.minFilter	= THREE.NearestFilter;
 	this.texture	= texture
 
-	var material	= new THREEx.TinygigantiumBlock.defaultMaterial({
+	var material	= new THREEx.TinygigantiumChar.defaultMaterial({
 		map	: texture
 	});
-	var materialTran= new THREEx.TinygigantiumBlock.defaultMaterial({
+	var materialTran= new THREEx.TinygigantiumChar.defaultMaterial({
 		map		: texture,
 		transparent	: true,
 		depthWrite	: false,
@@ -225,13 +218,13 @@ return
 
 
 
-THREEx.TinygigantiumBlock.defaultMaterial	= THREE.MeshBasicMaterial
+THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
  *
  * @param {string} url the url of the skin image
 */
-THREEx.TinygigantiumBlock.prototype.loadSkin	= function(url, onLoad){
+THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
 	var image	= new Image();
 	image.onload	= function () {
 		this.texture.image		= image;
@@ -247,13 +240,13 @@ THREEx.TinygigantiumBlock.prototype.loadSkin	= function(url, onLoad){
 //		support for skin Well Known Url					//
 //////////////////////////////////////////////////////////////////////////////////
 
-THREEx.TinygigantiumBlock.prototype.loadWellKnownSkin	= function(name, onLoad){
-	console.assert(THREEx.TinygigantiumBlock.skinWellKnownUrls[name])
-	var url	= THREEx.TinygigantiumBlock.skinWellKnownUrls[name];
+THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
+	console.assert(THREEx.TinygigantiumChar.skinWellKnownUrls[name])
+	var url	= THREEx.TinygigantiumChar.skinWellKnownUrls[name];
 	return this.loadSkin(url, onLoad)
 }
 
-THREEx.TinygigantiumBlock.skinWellKnownUrls	= {
+THREEx.TinygigantiumChar.skinWellKnownUrls	= {
 	'character'			: 'http://i1205.photobucket.com/albums/bb424/cman_was_here/character_zps6kfdlafp.png',
 	'character2'			: 'http://i1205.photobucket.com/albums/bb424/cman_was_here/character2_zps5jd07vwe.png',
 }
