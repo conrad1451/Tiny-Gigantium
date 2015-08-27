@@ -135,7 +135,7 @@ STEPS:
     headAnims.update(delta, now)
   })
   headAnims.start('still');
-  var switchHeadValue = function(value) {
+  var switchHeadValuez = function(value) {
     headAnims.start(value)
   }
   
@@ -150,7 +150,7 @@ STEPS:
     character.root.position.z = 0;
     character.root.rotation.y = 180 * degrees;
    
-  var switchBodyValue = function(value) {
+  var switchBodyValuez = function(value) {
     bodyAnims.start(value)
   }
   
@@ -163,7 +163,7 @@ STEPS:
     headAnims.update(delta, now)
   })
   headAnims.start('still');
-  var switchHeadValue = function(value) {
+  var switchHeadValues = function(value) {
     headAnims.start(value)
   }
   
@@ -178,7 +178,7 @@ STEPS:
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
   
- var switchBodyValue = function(value) {
+ var switchBodyValues = function(value) {
     bodyAnims.start(value)
   } 
   
@@ -290,6 +290,7 @@ function keyEvent(event) {
       metaChar = false;
     } else {
       if (key == uparrow) {
+         bodyAnims.start('walk');
          bodyAnims.start('walk');
          zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
          xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
@@ -451,6 +452,13 @@ function metaKeyUp (event) {
       character.root.rotation.x += xRoll;
       character.root.rotation.y += yRoll;
       character.root.rotation.z += zRoll;
+      
+      tinyboy.root.position.x += xMove;
+      tinyboy.root.position.y += yMove;
+      tinyboy.root.position.z += zMove;
+      tinyboy.root.rotation.x += xRoll;
+      tinyboy.root.rotation.y += yRoll;
+      tinyboy.root.rotation.z += zRoll;
       
  //   character.root.rotation.z += 0.02;
    
