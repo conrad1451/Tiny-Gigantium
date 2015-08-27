@@ -149,6 +149,11 @@ STEPS:
     character.root.position.y = 0;  
     character.root.position.z = 0;
     character.root.rotation.y = 180 * degrees;
+   
+  var switchBodyValue = function(value) {
+    bodyAnims.start(value)
+  }
+  
     
     var tinyboy = new THREEx.TinygigantiumChar()
   scene.add(tinyboy.root)
@@ -173,7 +178,9 @@ STEPS:
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
   
-  
+ var switchBodyValue = function(value) {
+    bodyAnims.start(value)
+  } 
   
   
   
@@ -404,12 +411,7 @@ function metaKeyUp (event) {
   
 
  
-  var switchBodyValue = function(value) {
-    bodyAnims.start(value)
-  }
-    var switchBodyValue = function(value) {
-    bodyAnims.start(value)
-  }
+
   
   //////////////////////////////////////////////////////////////////////////////////
   //		Camera Controls							//
