@@ -17,9 +17,8 @@ var THREEx	= THREEx || {};
  * @param  {[type]} skinUrl [description]
  * @return {[type]}         [description]
  */
-THREEx.TinygigantiumChar	= function(skinUrl){
+THREEx.TinygigantiumBlock	= function(skinUrl){
 	// set default arguments values
-	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
 	
 	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/character2_zps5jd07vwe.png')
 
@@ -31,10 +30,10 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	texture.minFilter	= THREE.NearestFilter;
 	this.texture	= texture
 
-	var material	= new THREEx.TinygigantiumChar.defaultMaterial({
+	var material	= new THREEx.TinygigantiumBlock.defaultMaterial({
 		map	: texture
 	});
-	var materialTran= new THREEx.TinygigantiumChar.defaultMaterial({
+	var materialTran= new THREEx.TinygigantiumBlock.defaultMaterial({
 		map		: texture,
 		transparent	: true,
 		depthWrite	: false,
@@ -218,13 +217,13 @@ return
 
 
 
-THREEx.TinygigantiumChar.defaultMaterial	= THREE.MeshBasicMaterial
+THREEx.TinygigantiumBlock.defaultMaterial	= THREE.MeshBasicMaterial
 /**
  * Load a skin
  *
  * @param {string} url the url of the skin image
 */
-THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
+THREEx.TinygigantiumBlock.prototype.loadSkin	= function(url, onLoad){
 	var image	= new Image();
 	image.onload	= function () {
 		this.texture.image		= image;
@@ -240,13 +239,13 @@ THREEx.TinygigantiumChar.prototype.loadSkin	= function(url, onLoad){
 //		support for skin Well Known Url					//
 //////////////////////////////////////////////////////////////////////////////////
 
-THREEx.TinygigantiumChar.prototype.loadWellKnownSkin	= function(name, onLoad){
-	console.assert(THREEx.TinygigantiumChar.skinWellKnownUrls[name])
-	var url	= THREEx.TinygigantiumChar.skinWellKnownUrls[name];
+THREEx.TinygigantiumBlock.prototype.loadWellKnownSkin	= function(name, onLoad){
+	console.assert(THREEx.TinygigantiumBlock.skinWellKnownUrls[name])
+	var url	= THREEx.TinygigantiumBlock.skinWellKnownUrls[name];
 	return this.loadSkin(url, onLoad)
 }
 
-THREEx.TinygigantiumChar.skinWellKnownUrls	= {
+THREEx.TinygigantiumBlock.skinWellKnownUrls	= {
 	'character'			: 'http://i1205.photobucket.com/albums/bb424/cman_was_here/character_zps6kfdlafp.png',
 	'character2'			: 'http://i1205.photobucket.com/albums/bb424/cman_was_here/character2_zps5jd07vwe.png',
 }
