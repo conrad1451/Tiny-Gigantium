@@ -47,7 +47,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	//////////////////////////////////////////////////////////////////////////////////
 	var sizes	= {};
 	sizes.charH	= 1;
-	sizes.pixRatio	= 1/32;
+	sizes.pixRatio	= 1/8;
 
 
 
