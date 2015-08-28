@@ -45,7 +45,7 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	//		define size constant						//
 	//////////////////////////////////////////////////////////////////////////////////
 	var sizes	= {};
-	sizes.pixRatio	= 1/32;
+	sizes.pixRatio	= 1/16;
 
 
 	sizes.blockH	=  8 * sizes.pixRatio;
