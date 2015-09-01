@@ -153,19 +153,19 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   var tinyboy = new THREEx.TinygigantiumChar()
   scene.add(tinyboy.root)
   
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
+  var headAnims1 = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
   updateFcts.push(function(delta, now) {
-    headAnims.update(delta, now)
+    headAnims1.update(delta, now)
   })
-  headAnims.start('still');
+  headAnims1.start('still');
   var switchHeadValues = function(value) {
-    headAnims.start(value)
+    headAnims1.start(value)
   }
   
   // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+  var bodyAnims1 = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
   updateFcts.push(function(delta, now) {
-    bodyAnims.update(delta, now)
+    bodyAnims1.update(delta, now)
   })
   
     tinyboy.root.position.x = 0.5;
@@ -174,7 +174,7 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
     tinyboy.root.rotation.y = 180 * degrees;
   
  var switchBodyValues = function(value) {
-    bodyAnims.start(value)
+    bodyAnims1.start(value)
   } 
   
   var dirtBlock =  new THREEx.TinygigantiumBlock()
