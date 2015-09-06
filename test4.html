@@ -132,35 +132,35 @@ var headAnims = [C, T];
 var bodyAnims = [C, T];
   
   // init headAnims
-  var headAnims.C = new THREEx.TinygigantiumCharHeadAnimations(character);
-  var headAnims.T = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
+  var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var headAnimsT = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
   
   updateFcts.push(function(delta, now) {
-    headAnims.C.update(delta, now)
-    headAnims.T.update(delta, now)
+    headAnimsC.update(delta, now)
+    headAnimsT.update(delta, now)
   })
   
-  headAnims.C.start('no');
-  headAnims.T.start('yes');
+  headAnimsC.start('no');
+  headAnimsT.start('yes');
   
   var switchHeadValuez = function(value) {
-    headAnims.C.start(value)
-    headAnims.T.start(value)
+    headAnimsC.start(value)
+    headAnimsT.start(value)
   }
   
 
   // init bodyAnims
-  var bodyAnims.C = new THREEx.TinygigantiumCharBodyAnimations(character);
-  var bodyAnims.T = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
   
   updateFcts.push(function(delta, now) {
-    bodyAnims.C.update(delta, now)
-    bodyAnims.T.update(delta, now)
+    bodyAnimsC.update(delta, now)
+    bodyAnimsT.update(delta, now)
   })
   
   var switchBodyValuez = function(value) {
-    bodyAnims.C.start(value)
-    bodyAnims.T.start(value)
+    bodyAnimsC.start(value)
+    bodyAnimsT.start(value)
   }
   
 
