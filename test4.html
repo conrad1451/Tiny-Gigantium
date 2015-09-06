@@ -128,8 +128,6 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   var tinyboy = new THREEx.TinygigantiumChar()
   scene.add(tinyboy.root)
   
-var headAnims = [C, T];
-var bodyAnims = [C, T];
   
   // init headAnims
   var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
@@ -140,7 +138,7 @@ var bodyAnims = [C, T];
     headAnimsT.update(delta, now)
   })
   
-  headAnimsC.start('no');
+  headAnimsC.start('still');
   headAnimsT.start('yes');
   
   var switchHeadValuez = function(value) {
@@ -163,8 +161,6 @@ var bodyAnims = [C, T];
     bodyAnimsT.start(value)
   }
   
-
-
     character.root.position.x = -0.5;
     character.root.position.y = 0;  
     character.root.position.z = 0;
