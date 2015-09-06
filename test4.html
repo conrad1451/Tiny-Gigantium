@@ -128,39 +128,43 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   var tinyboy = new THREEx.TinygigantiumChar()
   scene.add(tinyboy.root)
   
+var headAnims = [C, T];
+var bodyAnims = [C, T];
   
   // init headAnims
-  var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
-  var headAnimsT = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
+  var headAnims.C = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var headAnims.T = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
   
   updateFcts.push(function(delta, now) {
-    headAnimsC.update(delta, now)
-    headAnimsT.update(delta, now)
+    headAnims.C.update(delta, now)
+    headAnims.T.update(delta, now)
   })
   
-  headAnimsC.start('no');
-  headAnimsT.start('yes');
+  headAnims.C.start('no');
+  headAnims.T.start('yes');
   
   var switchHeadValuez = function(value) {
-    headAnimsC.start(value)
-    headAnimsT.start(value)
+    headAnims.C.start(value)
+    headAnims.T.start(value)
   }
   
 
   // init bodyAnims
-  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
-  var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+  var bodyAnims.C = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnims.T = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
   
   updateFcts.push(function(delta, now) {
-    bodyAnimsC.update(delta, now)
-    bodyAnimsT.update(delta, now)
+    bodyAnims.C.update(delta, now)
+    bodyAnims.T.update(delta, now)
   })
   
   var switchBodyValuez = function(value) {
-    bodyAnimsC.start(value)
-    bodyAnimsT.start(value)
+    bodyAnims.C.start(value)
+    bodyAnims.T.start(value)
   }
   
+
+
     character.root.position.x = -0.5;
     character.root.position.y = 0;  
     character.root.position.z = 0;
