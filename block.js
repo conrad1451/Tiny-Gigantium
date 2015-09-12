@@ -8,7 +8,7 @@ var THREEx	= THREEx || {};
 THREEx.TinygigantiumBlock	= function(skinUrl){
 	
 	
-	document.getElementById("xMoverz").innerHTML = character.root.rotation.y;
+//	document.getElementById("xMoverz").innerHTML = character.root.rotation.y;
 	// set default arguments values
 	
 	skinUrl	= skinUrl || (' ')
