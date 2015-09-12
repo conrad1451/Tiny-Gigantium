@@ -164,6 +164,9 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
     bodyAnimsT.start(value)
   }
   
+  var bodyMovement = [bodyAnimsC, bodyAnimsT];
+  
+  
     character.root.position.x = -0.5;
     character.root.position.y = 0;  
     character.root.position.z = 0;
@@ -232,7 +235,8 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
     
 function jumpParabola() {
 	if(xMoverz >= 0.00001) {
-	bodyAnims.start('jump');
+	bodyMovement[0].start('jump');
+	bodyMovement[1].start('jump');
 	}
 	speedUp = 0.000001;       
         
@@ -247,7 +251,8 @@ function jumpParabola() {
     
 function fallParabola() {
 	if(xMoverz >= 0.00001) {
-	bodyAnims.start('fall');
+	bodyMovement[0].start('fall');
+	bodyMovement[1].start('fall');
 	}
 	speedUp = 0.000001;       
         
@@ -288,40 +293,45 @@ function keyEvent(event) {
       metaChar = false;
     } else {
       if (key == uparrow) {
-         bodyAnims.start('walk');
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
          xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
          // move character forwards
     }
       if (key == downarrow) {
-         bodyAnims.start('walkbackwards');
+         bodyMovement[0].start('walkbackwards');
+         bodyMovement[1].start('walkbackwards');
          zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
          xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
          // move character backwards
       }
       
       if (key == a) {
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          yRoll = 0.5 * degrees;
          // rotate character left
       }
       if (key == d) {
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          yRoll = -0.5 * degrees;
          // rotate character right
       }
      
       if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
-            xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
+            bodyMovement[0].start('strafeLeft');
+            bodyMovement[1].start('strafeLeft');
+            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
+            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
             // move character left
     }   
       if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
-            xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
+            bodyMovement[0].start('strafeRight');
+            bodyMovement[1].start('strafeRight');
+            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
+            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
             // move character right
           }
        
@@ -351,7 +361,8 @@ function keyEvent(event) {
    
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         xMove = 0;
         zMove = 0;
         yRoll = 0;
@@ -359,11 +370,13 @@ function keyEvent(event) {
       }
       
         if(key == a) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         yRoll = 0;
         } 
         if(key == d) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         yRoll = 0;
         } 
         
@@ -384,7 +397,8 @@ function keyEvent(event) {
         */
         
         if (key == spacebar) {
-         bodyAnims.start('stand');
+         bodyMovement[0].start('stand');
+         bodyMovement[1].start('stand');
         /*
          xGraphSqrt = 0;
          speedUp = 0;
