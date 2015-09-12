@@ -115,15 +115,17 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   container.appendChild(renderer.domElement);
   */
   
+  var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
+  var choices = ['character_zps6kfdlafp.png'];
   
-  var skinner = ['http://i1205.photobucket.com/albums/bb424/cman_was_here/character_zps6kfdlafp.png'];
+  var skinner = skinSite + choices[0];
   
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var character = new THREEx.TinygigantiumChar(skinner[0])
+  var character = new THREEx.TinygigantiumChar(skinner)
   scene.add(character.root)
   
   var tinyboy = new THREEx.TinygigantiumChar()
