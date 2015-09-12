@@ -116,16 +116,16 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   */
   
   var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
-  var choices = ['character_zps6kfdlafp.png'];
+  var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
   
-  var skinner = skinSite + choices[0];
+  var skinner = [skinSite + choices[0], skinSite + choices[1]];
   
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var character = new THREEx.TinygigantiumChar(skinner)
+  var character = new THREEx.TinygigantiumChar(skinner[0])
   scene.add(character.root)
   
   var tinyboy = new THREEx.TinygigantiumChar()
