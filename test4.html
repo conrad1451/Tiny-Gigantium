@@ -136,35 +136,40 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
   var headAnimsT = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
   
+    
+  var headMovement = [headAnimsC, headAnimsT];
+  
   updateFcts.push(function(delta, now) {
-    headAnimsC.update(delta, now)
-    headAnimsT.update(delta, now)
+    headMovement[0].update(delta, now)
+    headMovement[1].update(delta, now)
   })
   
-  headAnimsC.start('no');
-  headAnimsT.start('yes');
+  headMovement[0].start('still');
+  headMovement[1].start('still');
   
   var switchHeadValuez = function(value) {
-    headAnimsC.start(value)
-    headAnimsT.start(value)
+    headMovement[0].start(value)
+    headMovement[1].start(value)
   }
   
 
   // init bodyAnims
   var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
   var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+
+  var bodyMovement = [bodyAnimsC, bodyAnimsT];
   
   updateFcts.push(function(delta, now) {
-    bodyAnimsC.update(delta, now)
-    bodyAnimsT.update(delta, now)
+    bodyMovement[0].update(delta, now)
+    bodyMovement[1].update(delta, now)
   })
   
   var switchBodyValuez = function(value) {
-    bodyAnimsC.start(value)
-    bodyAnimsT.start(value)
+    bodyMovement[0].start(value)
+    bodyMovement[1].start(value)
   }
   
-  var bodyMovement = [bodyAnimsC, bodyAnimsT];
+
   
   
     character.root.position.x = -0.5;
