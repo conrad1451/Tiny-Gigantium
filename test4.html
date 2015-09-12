@@ -147,7 +147,7 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   headAnimsC.start('still');
   headAnimsT.start('still');
   
-  var switchHeadValuez = function(value) {
+  var switchHeadValue = function(value) {
     headMovement[0].start(value)
     headMovement[1].start(value)
   }
@@ -164,12 +164,10 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
     bodyMovement[1].update(delta, now)
   })
   
-  var switchBodyValuez = function(value) {
+  var switchBodyValue = function(value) {
     bodyMovement[0].start(value)
     bodyMovement[1].start(value)
   }
-  
-
   
   
     character.root.position.x = -0.5;
