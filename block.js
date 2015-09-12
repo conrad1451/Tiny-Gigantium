@@ -6,6 +6,9 @@ var THREEx	= THREEx || {};
  * @return {[type]}         [description]
  */
 THREEx.TinygigantiumBlock	= function(skinUrl){
+	
+	
+	document.getElementById("xMoverz").innerHTML = character.root.rotation.y;
 	// set default arguments values
 	
 	skinUrl	= skinUrl || (' ')
