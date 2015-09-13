@@ -180,11 +180,16 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.legL.position.y	= sizes.legH + yPosi
 	model.legL.position.z   = zPosi
 	
-	var slope = 4;
+	var xCoordl = 4;
+	var xCoord2 = xCoordl-xCoordl;
+	var yCoordl = 12;
+	var yCoord2 = yCoordl-yCoordl;
+	
+	
 	
 //	slope = y/x
 	
-	mapUv(geometry, 0,  slope, 12, 4-4, 12-12)	// left   (slope 3 (12/4))
+	mapUv(geometry, 0,  xCoordl, yCoordl, xCoord2, yCoord2)	// left   (slope 3 (12/4))
 	mapUv(geometry, 1, 12, 12,  8,  0)	// right  (slope 3 (12/4))
 	mapUv(geometry, 2,  8, 16,  4, 12)	// top    (slope 1 (4/4))
 	mapUv(geometry, 3, 12, 16,  8, 12)	// bottom (slope 1 (4/4))
