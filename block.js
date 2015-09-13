@@ -11,7 +11,7 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 //	document.getElementById("xMoverz").innerHTML = character.root.rotation.y;
 	// set default arguments values
 	
-	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png')
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
