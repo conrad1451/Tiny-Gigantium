@@ -184,7 +184,7 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	
 //	slope = y/x
 	
-	mapUv(geometry, 0,  4, 12, 4-4, 12-12)	// left   (slope 3 (12/4))
+	mapUv(geometry, 0,  slope, 12, 4-4, 12-12)	// left   (slope 3 (12/4))
 	mapUv(geometry, 1, 12, 12,  8,  0)	// right  (slope 3 (12/4))
 	mapUv(geometry, 2,  8, 16,  4, 12)	// top    (slope 1 (4/4))
 	mapUv(geometry, 3, 12, 16,  8, 12)	// bottom (slope 1 (4/4))
