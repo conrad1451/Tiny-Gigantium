@@ -58,6 +58,7 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	model.block.position.y = yPosi
 	model.block.position.z = zPosi
 
+/*
 	// for head
 	mapUvz(geometry, 0, 16, 24, 24, 16)	// left
 	mapUvz(geometry, 1,  0, 24,  8, 16)	// right
@@ -65,9 +66,8 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	mapUvz(geometry, 3, 16, 32, 24, 24)	// bottom
 	mapUvz(geometry, 4,  8, 24, 16, 16)	// front
 	mapUvz(geometry, 5, 24, 24, 32, 16)	// back	
-
-/*
-	// for body
+*/
+// for body
 
 	mapUvz(geometry, 0, 28, 12, 32,  0)	// left
 	mapUvz(geometry, 1, 16, 12, 20,  0)	// right
@@ -75,8 +75,6 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	mapUvz(geometry, 3, 28, 16, 32, 12)	// bottom
 	mapUvz(geometry, 4, 20, 12, 28,  0)	// front
 	mapUvz(geometry, 5, 32, 12, 40,  0)	// back
-*/
-
 
 return
 	
