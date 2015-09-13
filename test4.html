@@ -55,6 +55,10 @@ next steps:
         var yRoll = 0;
         var zRoll = 0;
   
+        var xBlockRoll = 0;
+        var yBlockRoll = 0;
+        var zBlockRoll = 0;
+  
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
@@ -323,6 +327,20 @@ function keyEvent(event) {
          yRoll = 0.5 * degrees;
          // rotate character left
       }
+      
+      if (key == 90) {
+      	xBlockRoll = 3/50 * degrees;
+      }
+      
+      if (key == 88) {
+      	yBlockRoll = 3/50 * degrees;
+      }
+      
+      if (key == 67) {
+      	zBlockRoll = 3/50 * degrees;
+      }
+    
+      
       if (key == d) {
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
@@ -415,6 +433,20 @@ function keyEvent(event) {
         */
          xMoverz += 0;
         }
+        
+        if (key == 90) {
+          xBlockRoll = 0;
+        }
+      
+        if (key == 88) {
+      	  yBlockRoll = 0;
+        }
+      
+        if (key == 67) {
+      	  zBlockRoll = 0;
+        }
+        
+        
     }
     /*
     if(key == 40){
@@ -482,9 +514,9 @@ function metaKeyUp (event) {
       tinyboy.root.rotation.y += yRoll;
       tinyboy.root.rotation.z += zRoll;
       
-      dirtBlock.root.rotation.x += 3/50 * degrees;
-      
-      
+      dirtBlock.root.rotation.x += xBlockRoll;
+      dirtBlock.root.rotation.y += yBlockRoll;
+      dirtBlock.root.rotation.z += zBlockRoll;
       
  //   character.root.rotation.z += 0.02;
    
