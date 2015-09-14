@@ -3,6 +3,8 @@
 Would only need to do mesh.position.x and model.helmet.position.x if you wanted the helmet 
 to come off the head for some reason, you would set them at different y and x values
 
+checked accuracy of skins https://github.com/jeromeetienne/threex/blob/master/src/threex.minecraft/threex.minecraft.js
+
 */
 
 var THREEx	= THREEx || {};
@@ -119,12 +121,12 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.body.position.x = xPosi
 	model.body.position.y = sizes.legH + sizes.bodyH/2 + yPosi
 	model.body.position.z = zPosi
-	mapUv(geometry, 0, 28, 12, 32,  0)	// left
-	mapUv(geometry, 1, 16, 12, 20,  0)	// right
-	mapUv(geometry, 2, 20, 16, 28, 12)	// top
-	mapUv(geometry, 3, 28, 16, 32, 12)	// bottom
-	mapUv(geometry, 4, 20, 12, 28,  0)	// front
-	mapUv(geometry, 5, 32, 12, 40,  0)	// back
+	mapUv(geometry, 0, 28, 12, 32,  0)	// left   (slope 3 (12/4))
+	mapUv(geometry, 1, 16, 12, 20,  0)	// right  (slope 3 (12/4))
+	mapUv(geometry, 2, 20, 16, 28, 12)	// top    (slope 1/2 (4/8))
+	mapUv(geometry, 3, 28, 16, 32, 12)	// bottom (slope 3 (4/4))
+	mapUv(geometry, 4, 20, 12, 28,  0)	// front  (slope 3 (12/4))
+	mapUv(geometry, 5, 32, 12, 40,  0)	// back   (slope 3 (12/4))
 
 	// build model.armR
 	var geometry	= new THREE.CubeGeometry(sizes.armW, sizes.armH, sizes.armD)
@@ -149,12 +151,12 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	model.armL.position.x	= sizes.bodyW/2 + sizes.armW/2 + xPosi
 	model.armL.position.y	= sizes.legH + sizes.bodyH - sizes.armW/2 + yPosi
         model.armL.position.z   = zPosi
-	mapUv(geometry, 0, 44, 12, 40,  0)	// right
-	mapUv(geometry, 1, 52, 12, 48,  0)	// left
-	mapUv(geometry, 2, 44, 16, 48, 12)	// top
-	mapUv(geometry, 3, 48, 16, 52, 12)	// bottom
-	mapUv(geometry, 4, 48, 12, 44,  0)	// front
-	mapUv(geometry, 5, 56, 12, 52,  0)	// back
+	mapUv(geometry, 0, 44, 12, 40,  0)	// right  (slope 3 (12/4))
+	mapUv(geometry, 1, 52, 12, 48,  0)	// left   (slope 3 (12/4))
+	mapUv(geometry, 2, 44, 16, 48, 12)	// top    (slope 1 (4/4))
+	mapUv(geometry, 3, 48, 16, 52, 12)	// bottom (slope 1 (4/4))
+	mapUv(geometry, 4, 48, 12, 44,  0)	// front  (slope 3 (12/4))
+	mapUv(geometry, 5, 56, 12, 52,  0)	// back   (slope 3 (12/4))
 
 	// build model.legR
 	var geometry	= new THREE.CubeGeometry(sizes.legW, sizes.legH, sizes.legD)
@@ -185,9 +187,32 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var yCoordl = 12;
 	var yCoord2 = yCoordl-yCoordl;
 	
+	// [legs,] 
 	
+	var slope = {
+	   arm: 3
+	   leg: 3
+	   body:
+	   head:	
+	}
 	
-//	slope = y/x
+	var dist = {
+	   arm: 
+	   leg: 4
+	   body:
+	   head:
+	};
+/*	
+	uvPosi = {
+		
+	}
+*/	
+/*
+	3 * 4
+	-----
+	1 * 4
+*/	
+	
 	
 	mapUv(geometry, 0,  xCoordl, yCoordl, xCoord2, yCoord2)	// left   (slope 3 (12/4))
 	mapUv(geometry, 1, 12, 12,  8,  0)	// right  (slope 3 (12/4))
