@@ -199,13 +199,39 @@ next steps:
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
   
-
   
-  var dirtBlock =  new THREEx.TinygigantiumBlock()
+  
+  //////////////////////
+  //	LOAD BLOCK    //
+  //                  //
+  //////////////////////
+  
+
+    
+	
+  var cheesey = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
+  var cheeseyz = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
+
+  var checkers = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
+
+  var dirtBlock =  new THREEx.TinygigantiumBlock(checkers)
   scene.add(dirtBlock.root)  
     dirtBlock.root.position.x = 0;
     dirtBlock.root.position.y = 0;  
     dirtBlock.root.position.z = 0;
+
+
+
+	
+  var x = 0;
+	
+  if(x <= 5){
+    checkers = cheeseyz
+  } else {
+    checkers = cheesey		
+  }    
+    
+    
   
   /*
     // for FPS indicatorz
@@ -506,7 +532,7 @@ function metaKeyUp (event) {
      
    // camera.position.y += cheese; 
     
-    
+      x += 0.01;
  
       character.root.position.x += xMove;
       character.root.position.y += yMove;
