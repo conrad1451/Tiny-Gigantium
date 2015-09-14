@@ -188,20 +188,31 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	var yCoord2 = yCoordl-yCoordl;
 	
 	// [legs,] 
-	
+
+/*	
 	var slope = {
 	   arm: 3
 	   leg: 3
 	   body:
 	   head:	
 	}
-	
+
+
 	var dist = {
 	   arm: 
 	   leg: 4
 	   body:
 	   head:
 	};
+	
+
+var armL = {
+	
+	
+	
+}
+*/	
+	
 /*	
 	uvPosi = {
 		
@@ -211,6 +222,9 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	3 * 4
 	-----
 	1 * 4
+	
+	armL.left.x1
+	
 */	
 	
 	
