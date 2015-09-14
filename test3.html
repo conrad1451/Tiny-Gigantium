@@ -1,17 +1,5 @@
 <!-- 
-PURPOSE: TO SEE if renaming character will affect things, and to make a clone alongside character
-
-STEPS:
-
-1. Rename character to cheeseboy   - worked
-
-2. Add character clone by copying lines 132 - 148, pasting underneath, and changing every character to tinyboy - worked
-
-3. Designate the position.x, y, and z, for character and tinyboy - worked
-
-renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadValue renamed it switchHeadValues
-
-
+PURPOSE: To make a clone alongside character
 -->
 
 <!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
@@ -38,7 +26,7 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
-<!-- <p id="xMoverz"></p> -->
+ <p id="xMoverz">1</p> 
 
   
   <script>
@@ -123,72 +111,75 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
   container.appendChild(renderer.domElement);
   */
   
+  var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
+  var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
   
+  var skinner = [skinSite + choices[0], skinSite + choices[1]];
   
   
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
   
-  var character = new THREEx.TinygigantiumChar()
+  var character = new THREEx.TinygigantiumChar(skinner[0])
   scene.add(character.root)
   
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var tinyboy = new THREEx.TinygigantiumChar()
+  scene.add(tinyboy.root)
+  
+  
+  // init headAnims
+  var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var headAnimsT = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
+  
+    
+  var headMovement = [headAnimsC, headAnimsT];
+  
   updateFcts.push(function(delta, now) {
-    headAnims.update(delta, now)
+    headMovement[0].update(delta, now)
+    headMovement[1].update(delta, now)
   })
-  headAnims.start('still');
-  var switchHeadValuez = function(value) {
-    headAnims.start(value)
+  
+  headAnimsC.start('still');
+  headAnimsT.start('still');
+  
+  var switchHeadValue = function(value) {
+    headMovement[0].start(value)
+    headMovement[1].start(value)
   }
   
+
   // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+
+  var bodyMovement = [bodyAnimsC, bodyAnimsT];
+  
   updateFcts.push(function(delta, now) {
-    bodyAnims.update(delta, now)
+    bodyMovement[0].update(delta, now)
+    bodyMovement[1].update(delta, now)
   })
+  
+  var switchBodyValue = function(value) {
+    bodyMovement[0].start(value)
+    bodyMovement[1].start(value)
+  }
+  
   
     character.root.position.x = -0.5;
     character.root.position.y = 0;  
     character.root.position.z = 0;
-    character.root.rotation.y = 180 * degrees;
-   
-  var switchBodyValuez = function(value) {
-    bodyAnims.start(value)
-  }
-  
+    character.root.rotation.y = 180 * degrees;  
     
-    var tinyboy = new THREEx.TinygigantiumChar()
-  scene.add(tinyboy.root)
-  
-  var headAnims = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
-  updateFcts.push(function(delta, now) {
-    headAnims.update(delta, now)
-  })
-  headAnims.start('still');
-  var switchHeadValues = function(value) {
-    headAnims.start(value)
-  }
-  
-  // init bodyAnims
-  var bodyAnims = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
-  updateFcts.push(function(delta, now) {
-    bodyAnims.update(delta, now)
-  })
-  
     tinyboy.root.position.x = 0.5;
     tinyboy.root.position.y = 0;  
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
   
- var switchBodyValues = function(value) {
-    bodyAnims.start(value)
-  } 
-  
-  
-  
+
+
   /*
-    // for FPS indicator
+    // for FPS indicatorz
   stats = new Stats();
   stats.domElement.style.position = 'absolute';
   stats.domElement.style.top = '0px';
@@ -237,7 +228,8 @@ renamed switchHeadValue for one switchHeadValuez, and for the other switchHeadVa
     
 function jumpParabola() {
 	if(xMoverz >= 0.00001) {
-	bodyAnims.start('jump');
+	bodyMovement[0].start('jump');
+	bodyMovement[1].start('jump');
 	}
 	speedUp = 0.000001;       
         
@@ -252,7 +244,8 @@ function jumpParabola() {
     
 function fallParabola() {
 	if(xMoverz >= 0.00001) {
-	bodyAnims.start('fall');
+	bodyMovement[0].start('fall');
+	bodyMovement[1].start('fall');
 	}
 	speedUp = 0.000001;       
         
@@ -293,40 +286,48 @@ function keyEvent(event) {
       metaChar = false;
     } else {
       if (key == uparrow) {
-         bodyAnims.start('walk');
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          zMove = /*-0.005; */     (Math.cos(character.root.rotation.y)) / 50;
          xMove = /*0*/            (Math.sin(character.root.rotation.y)) / 50;
          // move character forwards
     }
       if (key == downarrow) {
-         bodyAnims.start('walkbackwards');
+         bodyMovement[0].start('walkbackwards');
+         bodyMovement[1].start('walkbackwards');
          zMove = /* 0.005; */  -(Math.cos(character.root.rotation.y)) / 50;
          xMove = /* 0; */      -(Math.sin(character.root.rotation.y)) / 50;
          // move character backwards
       }
       
       if (key == a) {
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          yRoll = 0.5 * degrees;
          // rotate character left
       }
+      
+    
+      
       if (key == d) {
-         bodyAnims.start('walk');
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
          yRoll = -0.5 * degrees;
          // rotate character right
       }
      
       if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = /* -0.005;  */ (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
-            xMove = /*  0; */      (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
+            bodyMovement[0].start('strafeLeft');
+            bodyMovement[1].start('strafeLeft');
+            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
+            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
             // move character left
     }   
       if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = /* 0.005; */  (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
-            xMove = /* 0; */      (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
+            bodyMovement[0].start('strafeRight');
+            bodyMovement[1].start('strafeRight');
+            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
+            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
             // move character right
           }
        
@@ -356,7 +357,8 @@ function keyEvent(event) {
    
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         xMove = 0;
         zMove = 0;
         yRoll = 0;
@@ -364,11 +366,13 @@ function keyEvent(event) {
       }
       
         if(key == a) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         yRoll = 0;
         } 
         if(key == d) {
-        bodyAnims.start('stand');
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
         yRoll = 0;
         } 
         
@@ -389,13 +393,15 @@ function keyEvent(event) {
         */
         
         if (key == spacebar) {
-         bodyAnims.start('stand');
+         bodyMovement[0].start('stand');
+         bodyMovement[1].start('stand');
         /*
          xGraphSqrt = 0;
          speedUp = 0;
         */
          xMoverz += 0;
         }
+        
     }
     /*
     if(key == 40){
@@ -462,6 +468,7 @@ function metaKeyUp (event) {
       tinyboy.root.rotation.x += xRoll;
       tinyboy.root.rotation.y += yRoll;
       tinyboy.root.rotation.z += zRoll;
+
       
  //   character.root.rotation.z += 0.02;
    
