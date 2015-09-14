@@ -14,7 +14,18 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	var cheesey = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
 	var cheeseyz = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
 	
-	skinUrl	= skinUrl || (cheesey)
+	var checkers;
+	
+	var x = 0;
+	x += 0.01;
+	
+	if(x < 5){
+	  checkers = cheeseyz
+	} else {
+	  checkers = cheesey		
+	}
+
+	skinUrl	= skinUrl || (checkers)
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
