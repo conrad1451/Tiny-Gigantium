@@ -10,22 +10,9 @@ THREEx.TinygigantiumBlock	= function(skinUrl){
 	
 //	document.getElementById("xMoverz").innerHTML = character.root.rotation.y;
 	// set default arguments values
-	
-	var cheesey = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
-	var cheeseyz = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
-	
-	var checkers;
-	
-	var x = 0;
-	x += 0.01;
-	
-	if(x < 5){
-	  checkers = cheeseyz
-	} else {
-	  checkers = cheesey		
-	}
 
-	skinUrl	= skinUrl || (checkers)
+
+	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png')
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
