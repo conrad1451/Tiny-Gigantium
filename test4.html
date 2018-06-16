@@ -348,8 +348,8 @@ function keyEvent(event) {
       if (key == downarrow) {
          bodyMovement[0].start('walkbackwards');
          bodyMovement[1].start('walkbackwards');
-         zMove = -(Math.cos(character.root.rotation.y)) / 50;
-         xMove = -(Math.sin(character.root.rotation.y)) / 50;
+         zMove = -(Math.cos(character.root.rotation.y)) / 1; // / 50;
+         xMove = -(Math.sin(character.root.rotation.y)) / 1; // / 50;
          // move character backwards
       }
       
