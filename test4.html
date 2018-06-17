@@ -358,16 +358,16 @@ function keyEvent(event) {
 	 // move character forwards   
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
-         zMove =  (Math.cos(character.root.rotation.y)) * speed / 50;
-         xMove =  (Math.sin(character.root.rotation.y)) * speed / 50;
+         zMove =  (Math.cos(character.root.rotation.y)) * 1 / 50;
+         xMove =  (Math.sin(character.root.rotation.y)) * 1 / 50;
          
     }
       if (key == downarrow) {
 	 // move character backwards
          bodyMovement[0].start('walkbackwards');
          bodyMovement[1].start('walkbackwards');
-         zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
-         xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+         zMove = -(Math.cos(character.root.rotation.y)) * 1 / 50;
+         xMove = -(Math.sin(character.root.rotation.y)) * 1 / 50;
          
       }
       
@@ -375,7 +375,7 @@ function keyEvent(event) {
 	 // rotate character left
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
-         yRoll = speed * 0.5 * degrees;
+         yRoll = 1 * 0.5 * degrees;
          
       }
  
@@ -384,7 +384,7 @@ function keyEvent(event) {
 	 // rotate character right
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
-         yRoll = -1 * speed * 0.5 * degrees;
+         yRoll = -1 * 1 * 0.5 * degrees;
          
       }
      
@@ -392,16 +392,16 @@ function keyEvent(event) {
 	    // move character left
             bodyMovement[0].start('strafeLeft');
             bodyMovement[1].start('strafeLeft');
-            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) * speed / 50;
-            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) * speed / 50;
+            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
             
     }   
       if (key == rightarrow) {
 	    // move character right
             bodyMovement[0].start('strafeRight');
             bodyMovement[1].start('strafeRight');
-            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * speed / 50;
-            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * speed / 50;
+            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
             
           }
        
@@ -501,7 +501,7 @@ function keyEvent(event) {
         // alert(characterHeight);  // works!!
       }
       
-        if(key == a  ||  key == d) {
+        if(key == a) {
         bodyMovement[0].start('stand');
         bodyMovement[1].start('stand');
         yRoll = 0;
