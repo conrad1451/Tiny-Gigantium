@@ -44,7 +44,7 @@ next steps:
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="bro">1</p> 
+ <p id="theDisplay">1</p> 
 
   
   <script>
@@ -340,23 +340,9 @@ function keyEvent(event) {
   }
   if (key != exampleKey) {
     if (metaChar) {
-    	/*
-          if (key == leftarrow) {
-            bodyAnims.start('strafeLeft');
-            zMove = 0;
-            xMove = -0.005;
-            yRoll = 0;
-            // move character left
-    	}   
-          if (key == rightarrow) {
-            bodyAnims.start('strafeRight');
-            zMove = 0;
-            xMove = 0.005;
-            yRoll = 0;
-            // move character right
-        }  
-        */
+
       metaChar = false;
+	    
     } else {
 	    
 	    
