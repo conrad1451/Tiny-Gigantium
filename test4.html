@@ -462,7 +462,7 @@ function keyEvent(event) {
    }
    
 	// for some reason this stopped movement
-	//
+	/*
       onkeydown = function() {
       
 	if (key == 49) {
@@ -496,7 +496,7 @@ function keyEvent(event) {
         }
 
       }
-	//
+	*/
       
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
@@ -507,7 +507,10 @@ function keyEvent(event) {
         yRoll = 0;
         // alert(characterHeight);  // works!!
       }
-      
+      	if (key == 54) {
+      	  speed = 6*2;
+        }
+	      
         if(key == a) {
         bodyMovement[0].start('stand');
         bodyMovement[1].start('stand');
