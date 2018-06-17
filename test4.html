@@ -82,7 +82,7 @@ next steps:
         
         var speedUp = 0;
 	  
-	var speed = 1;
+	//var speed = 1;
         
         var seconds = 60;
         
@@ -327,10 +327,13 @@ function fallParabola() {
         tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
 } 
     
-    
+    var speed = 1;
+	  
 function keyEvent(event) {
   var key = event.keyCode || event.which;
   var keychar = String.fromCharCode(key);
+  
+	
   if (key == exampleKey) {
     metaChar = true;
   }
@@ -354,12 +357,14 @@ function keyEvent(event) {
         */
       metaChar = false;
     } else {
+	    
+	    
       if (key == uparrow) {
 	 // move character forwards   
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
-         zMove =  (Math.cos(character.root.rotation.y)) * 1 / 50;
-         xMove =  (Math.sin(character.root.rotation.y)) * 1 / 50;
+         zMove =  (Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove =  (Math.sin(character.root.rotation.y)) * speed / 50;
          
     }
       if (key == downarrow) {
