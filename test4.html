@@ -142,7 +142,12 @@ next steps:
   
   var skinner = [skinSite + choices[0], skinSite + choices[1]];
   
-  
+  /*
+  choice 0 - conrad w/ purple shirt, jeans 
+  choice 1 - conrad w/ green shirt, jeans
+  */
+	  
+	  
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
@@ -166,8 +171,8 @@ next steps:
     headMovement[1].update(delta, now)
   })
   
-  headAnimsC.start('still');
-  headAnimsT.start('still');
+  headAnimsC.start('still');  // headMovement[0].start('still'); /* could also be headMovement*/  
+  headAnimsT.start('still');  // headMovement[1].start('still'); /* could also be headMovement*/  
   
   var switchHeadValue = function(value) {
     headMovement[0].start(value)
@@ -252,6 +257,13 @@ next steps:
   document.onkeypress = abcmoves
   */
   
+  ////////////////////////////
+  //	  	      	    //
+  //  CODE FOR CHARACTER    //
+  //                 	    //
+  ////////////////////////////
+	  
+	  
     var metaChar = false;
     var exampleKey = 16;
     var leftarrow = 37;
@@ -339,62 +351,86 @@ function keyEvent(event) {
       metaChar = false;
     } else {
       if (key == uparrow) {
+	 // move character forwards   
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          zMove =  (Math.cos(character.root.rotation.y)) / 50;
          xMove =  (Math.sin(character.root.rotation.y)) / 50;
-         // move character forwards
+         
     }
       if (key == downarrow) {
+	 // move character backwards
          bodyMovement[0].start('walkbackwards');
          bodyMovement[1].start('walkbackwards');
          zMove = -(Math.cos(character.root.rotation.y)) / 1; // / 50;
          xMove = -(Math.sin(character.root.rotation.y)) / 1; // / 50;
-         // move character backwards
+         
       }
       
       if (key == a) {
+	 // rotate character left
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          yRoll = 0.5 * degrees;
-         // rotate character left
+         
       }
-      
-      if (key == 90) {
-      	xBlockRoll = 15/50 * degrees;
-      }
-      
-      if (key == 88) {
-      	yBlockRoll = 15/50 * degrees;
-      }
-      
-      if (key == 67) {
-      	zBlockRoll = 15/50 * degrees;
-      }
-    
-      
+ 
+	    
       if (key == d) {
+	 // rotate character right
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          yRoll = -0.5 * degrees;
-         // rotate character right
+         
       }
      
       if (key == leftarrow) {
+	    // move character left
             bodyMovement[0].start('strafeLeft');
             bodyMovement[1].start('strafeLeft');
             zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) / 50;
             xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) / 50;
-            // move character left
+            
     }   
       if (key == rightarrow) {
+	    // move character right
             bodyMovement[0].start('strafeRight');
             bodyMovement[1].start('strafeRight');
             zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) / 50;
             xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) / 50;
-            // move character right
+            
           }
        
+      if (key == spacebar) {
+         jumpParabola();
+       // make character jump
+      }	 
+	    
+	    
+  ////////////////////////
+  //	  	        //
+  //  CODE FOR BLOCK    //
+  //                    //
+  ////////////////////////
+	    
+	    
+// next 3 if statements control the rotation of the cube.    
+	    
+      if (key == 90) { //key z
+      	xBlockRoll = 15/50 * degrees;
+      }
+      
+      if (key == 88) {//key x
+      	yBlockRoll = 15/50 * degrees;
+      }
+      
+      if (key == 67) { //key c
+      	zBlockRoll = 15/50 * degrees;
+      }
+    
+       
+	    
+	    
       /*    
       if(key == f) {
        	xRoll = 0.025;
@@ -410,10 +446,7 @@ function keyEvent(event) {
        }       
        */
        
-      if (key == spacebar) {
-         jumpParabola();
-       // make character jump
-      }
+
       
     }
    }
@@ -429,17 +462,19 @@ function keyEvent(event) {
         // alert(characterHeight);  // works!!
       }
       
-        if(key == a) {
+        if(key == a) { //||  key == d) {
         bodyMovement[0].start('stand');
         bodyMovement[1].start('stand');
         yRoll = 0;
         } 
+	      /*
         if(key == d) {
         bodyMovement[0].start('stand');
         bodyMovement[1].start('stand');
         yRoll = 0;
         } 
-        
+        */
+	      
         /*
         if(key == f) {
          character.root.rotation.x = 0;
@@ -533,17 +568,21 @@ function metaKeyUp (event) {
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
+
       character.root.rotation.x += xRoll;
       character.root.rotation.y += yRoll;
       character.root.rotation.z += zRoll;
       
+	  
       tinyboy.root.position.x += xMove;
       tinyboy.root.position.y += yMove;
       tinyboy.root.position.z += zMove;
+	  
       tinyboy.root.rotation.x += xRoll;
       tinyboy.root.rotation.y += yRoll;
       tinyboy.root.rotation.z += zRoll;
       
+	  
       dirtBlock.root.rotation.x += xBlockRoll;
       dirtBlock.root.rotation.y += yBlockRoll;
       dirtBlock.root.rotation.z += zBlockRoll;
