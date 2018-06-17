@@ -268,42 +268,43 @@ next steps:
 	  
     var metaChar = false;
     var exampleKey = 16;
+	  
     var leftarrow = 37;
     var uparrow = 38;
     var rightarrow = 39;
     var downarrow = 40;
     var shift = 16;
     var spacebar = 32;
+	  
     var a = 65;
     var d = 68;
     var s = 83;
     var f = 70;
     var l = 76;
     
-	  
-	  
-     
+  
     /*
     
-    a = 65, not 97
-    z = 90
+    A = 65, a = 97
+    Z = 90
     0 = 48
     9 = 57
     
     */
     
 function jumpParabola() {
-	if(xMoverz >= 0.00001) {
-	bodyMovement[0].start('jump');
-	bodyMovement[1].start('jump');
-	}
-	speedUp = 0.000001;       
-        
-        if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-        } else {
-          xMoverz += 0.01;	
-        }
+    if(xMoverz >= 0.00001) {
+        bodyMovement[0].start('jump');
+        bodyMovement[1].start('jump');
+    }
+	
+    speedUp = 0.000001;       
+
+    if(xMoverz < 0.00001) {
+        xMoverz += speedUp;	
+    } else {
+        xMoverz += 0.01;	
+    }
          
         character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
         tinyboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
@@ -311,17 +312,17 @@ function jumpParabola() {
 }    
     
 function fallParabola() {
-	if(xMoverz >= 0.00001) {
-	bodyMovement[0].start('fall');
-	bodyMovement[1].start('fall');
-	}
+    if(xMoverz >= 0.00001) {
+        bodyMovement[0].start('fall');
+        bodyMovement[1].start('fall');
+    }
 	speedUp = 0.000001;       
         
-        if(xMoverz < 0.00001) {
-          xMoverz += speedUp;	
-        } else {
-          xMoverz += 0.01;	
-        }
+    if(xMoverz < 0.00001) {
+        xMoverz += speedUp;	
+     } else {
+         xMoverz += 0.01;	
+     }
          
         character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
         tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
@@ -461,7 +462,7 @@ function keyEvent(event) {
    }
    
 	// for some reason this stopped movement
-	/*
+	//
       onkeydown = function() {
       
 	if (key == 49) {
@@ -495,7 +496,8 @@ function keyEvent(event) {
         }
 
       }
-	*/
+	//
+      
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
         bodyMovement[0].start('stand');
