@@ -358,8 +358,8 @@ function keyEvent(event) {
 	 // move character backwards
          bodyMovement[0].start('walkbackwards');
          bodyMovement[1].start('walkbackwards');
-         zMove = -(Math.cos(character.root.rotation.y)) * 1 / 50;
-         xMove = -(Math.sin(character.root.rotation.y)) * 1 / 50;
+         zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
          
       }
       
@@ -368,7 +368,15 @@ function keyEvent(event) {
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          yRoll = 1 * 0.5 * degrees;
+            if (key == downarrow) {
+	       // move character backwards
+               bodyMovement[0].start('walkbackwards');
+               bodyMovement[1].start('walkbackwards');
+               zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+               xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
          
+             }
+               
       }
  
 	    
@@ -376,7 +384,7 @@ function keyEvent(event) {
 	 // rotate character right
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
-         yRoll = -1 * 1 * 0.5 * degrees;
+         yRoll = -1 * 0.5 * degrees;
          
       }
      
