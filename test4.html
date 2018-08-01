@@ -44,9 +44,9 @@ next steps:
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="theDisplay">1</p>
- <p id="theDisplay">1</p>
- <p id="theDisplay">tinyboy.root.position.z</p>
+ <p id="theDisplay"></p>
+ <p id="theDisplay2">1</p>
+ <p id="theDisplay3">1</p>
 
   
   <script>
@@ -89,7 +89,11 @@ next steps:
         var seconds = 60;
         
         var characterHeight = 33 * (1/32);
-     
+     	
+	document.getElementById("theDisplay").innerHTML = key; 
+
+	  
+	  
   /*
     function valuedisplayer () {
   //	var variablenamez = avalue;
