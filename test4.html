@@ -18,7 +18,7 @@ next steps:
 
 -->
 
-<!--http://jeromeetienne.github.io/threex/src/threex.Tinygigantium/examples/animation.html-->
+<!--http://jeromeetienne.github.io/threex/src/threex-->
 
 
 <script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
@@ -44,7 +44,9 @@ next steps:
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="theDisplay">1</p> 
+ <p id="theDisplay">1</p>
+ <p id="theDisplay">1</p>
+ <p id="theDisplay">1</p>
 
   
   <script>
@@ -331,10 +333,11 @@ function fallParabola() {
     var speed = 1;
 	  
 function keyEvent(event) {
-  var key = event.keyCode || event.which;
-	
+  var key = event.keyCode || event.which;	
   var keychar = String.fromCharCode(key);
-  
+	
+  var key2 = event.keyCode || event.which;	
+  var keychar2 = String.fromCharCode(key2);
 	
   if (key == exampleKey) {
     metaChar = true;
