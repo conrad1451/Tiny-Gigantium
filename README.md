@@ -1,2 +1,2 @@
 # Tiny-Gigantium
-My website for Yale SCHOLARS coding class
+Originally a project for a science summer camp, I've expanded it to add some new features and functionality.
