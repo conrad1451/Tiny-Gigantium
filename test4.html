@@ -424,12 +424,21 @@ function keyEvent(event) {
          jumpParabola();
        // make character jump
       }	 
-	  
+	  /*
+	  trying to use a loop to control speed keys failed
 	for (i = 49, i < 57, i++) {
 		if (key2 == i) {
 			speed = (i - 48) * 2;
 	    }
 	}
+	    
+	    */
+	    
+		if (key2 >= 49 && key2 <=56) {
+			speed = (key2 - 48) * 2;
+	    }
+	
+	    
 	    /*
 	if (key2 == 49) {
       	  speed = 1*2;
