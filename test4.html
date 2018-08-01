@@ -372,6 +372,8 @@ function keyEvent(event) {
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          yRoll = 1 * 0.5 * degrees;
+	      
+	      /* because the key will never be two values at a single time, this statement is useless here
             if (key == downarrow) {
 	       // move character backwards
                bodyMovement[0].start('walkbackwards');
@@ -380,7 +382,7 @@ function keyEvent(event) {
                xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
          
              }
-               
+               */
       }
  
 	    
