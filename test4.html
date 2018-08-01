@@ -46,7 +46,7 @@ next steps:
   
  <p id="theDisplay">1</p>
  <p id="theDisplay">1</p>
- <p id="theDisplay">1</p>
+ <p id="theDisplay">tinyboy.root.position.z</p>
 
   
   <script>
@@ -334,9 +334,15 @@ function fallParabola() {
 function keyEvent(event) {
   var key = event.keyCode || event.which;	
   var keychar = String.fromCharCode(key);
+
+	//Option 1: The mapping of keys to different key events worked, each key event worked independently 
+	//and they worked together. They just didn't fulfill the purpose. 
 	
-  var key2 = event.keyCode || event.which;	
-  var keychar2 = String.fromCharCode(key2);
+	/*  
+	var key2 = event.keyCode || event.which;	
+ 	var keychar2 = String.fromCharCode(key2);
+	*/
+
 	
   if (key == exampleKey) {
     metaChar = true;
