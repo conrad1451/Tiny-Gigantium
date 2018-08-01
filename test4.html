@@ -420,7 +420,37 @@ function keyEvent(event) {
          jumpParabola();
        // make character jump
       }	 
-	    
+	  
+	      
+	if (key2 == 49) {
+      	  speed = 1*2;
+        }
+
+	if (key2 == 50) {
+      	  speed = 2*2;
+        }
+
+	if (key2 == 51) {
+      	  speed = 3*2;
+        }
+
+	if (key2 == 52) {
+      	  speed = 4*2;
+        }
+	if (key2 == 53) {
+      	  speed = 5*2;
+        }
+
+	if (key2 == 54) {
+      	  speed = 6*2;
+        }
+	if (key2 == 55) {
+      	  speed = 7*2;
+        }
+
+	if (key2 == 56) {
+      	  speed = 8*2*4;
+        }
 	    
   ////////////////////////
   //	  	        //
@@ -465,44 +495,7 @@ function keyEvent(event) {
       
     }
    }
-   
-	// for some reason this stopped movement
-	
-      onkeydown = function() {
-      
-	if (key2 == 49) {
-      	  speed = 1*2;
-        }
-
-	if (key2 == 50) {
-      	  speed = 2*2;
-        }
-
-	if (key2 == 51) {
-      	  speed = 3*2;
-        }
-
-	if (key2 == 52) {
-      	  speed = 4*2;
-        }
-	if (key2 == 53) {
-      	  speed = 5*2;
-        }
-
-	if (key2 == 54) {
-      	  speed = 6*2;
-        }
-	if (key2 == 55) {
-      	  speed = 7*2;
-        }
-
-	if (key2 == 56) {
-      	  speed = 8*2*4;
-        }
-
-      }
-	
-      
+     
       onkeyup = function() {
         if(key >= leftarrow && key <= downarrow) {
         bodyMovement[0].start('stand');
