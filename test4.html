@@ -44,7 +44,7 @@ next steps:
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="theDisplay"></p>
+ <p id="theDisplay"> </p>
  <p id="theDisplay2">1</p>
  <p id="theDisplay3">1</p>
 
@@ -425,7 +425,12 @@ function keyEvent(event) {
        // make character jump
       }	 
 	  
-	      
+	for (i = 49, i < 57, i++) {
+		if (key2 == i) {
+			speed = (i - 48) * 2;
+	    }
+	}
+	    /*
 	if (key2 == 49) {
       	  speed = 1*2;
         }
@@ -455,7 +460,7 @@ function keyEvent(event) {
 	if (key2 == 56) {
       	  speed = 8*2*4;
         }
-	    
+	    */
   ////////////////////////
   //	  	        //
   //  CODE FOR BLOCK    //
