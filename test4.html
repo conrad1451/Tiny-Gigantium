@@ -18,6 +18,10 @@ next steps:
 
 -->
 
+<!-- for future reference, if want to make the walking or running so the bottom of the 
+shoes do not go below the floor, make it so the y posi of the characters takes into account
+the current angle that the legs are positioned-->
+
 <!--http://jeromeetienne.github.io/threex/src/threex-->
 
 
@@ -94,16 +98,17 @@ next steps:
 
 	  
 	  
-  /*
+  
     function valuedisplayer () {
   //	var variablenamez = avalue;
   	var suffixer1 = xMoverz + " is value of xMovers";
-  	document.getElementById("xMoverz").innerHTML = suffixer1;
+		var sss = speed;
+  	document.getElementById("xMoverz").innerHTML = sss;
   
   }
   
     setInterval(valuedisplayer, 1);
-*/  
+
   
   
   var renderer = new THREE.WebGLRenderer();
@@ -199,6 +204,8 @@ next steps:
     bodyMovement[1].update(delta, now)
   })
   
+//	updateFcts.push(document.getElementById("theDisplay").innerHTML = xMove;)
+	  
   var switchBodyValue = function(value) {
     bodyMovement[0].start(value)
     bodyMovement[1].start(value)
@@ -221,12 +228,8 @@ next steps:
   //	LOAD BLOCK    //
   //                  //
   //////////////////////
-  
-
-    
-	
+  	
   var blockSkin1 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
-
   var blockSkin2 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
 
   var dirtBlock =  new THREEx.TinygigantiumBlock(blockSkin2)
@@ -235,11 +238,6 @@ next steps:
     dirtBlock.root.position.y = 0;  
     dirtBlock.root.position.z = 0;
 
-
-
-
-    
-  
   /*
     // for FPS indicatorz
   stats = new Stats();
@@ -286,16 +284,8 @@ next steps:
     var s = 83;
     var f = 70;
     var l = 76;
-    
-  
-    /*
-    
-    A = 65, a = 97
-    Z = 90
-    0 = 48
-    9 = 57
-    
-    */
+   
+    //A = 65, a = 97, Z = 90, 0 = 48, 9 = 57
     
 function jumpParabola() {
     if(xMoverz >= 0.00001) {
@@ -439,39 +429,9 @@ function keyEvent(event) {
 	    }
 	
 	    
-	    /*
-	if (key2 == 49) {
-      	  speed = 1*2;
-        }
-
-	if (key2 == 50) {
-      	  speed = 2*2;
-        }
-
-	if (key2 == 51) {
-      	  speed = 3*2;
-        }
-
-	if (key2 == 52) {
-      	  speed = 4*2;
-        }
-	if (key2 == 53) {
-      	  speed = 5*2;
-        }
-
-	if (key2 == 54) {
-      	  speed = 6*2;
-        }
-	if (key2 == 55) {
-      	  speed = 7*2;
-        }
-
-	if (key2 == 56) {
-      	  speed = 8*2*4;
-        }
-	    */
+ 
   ////////////////////////
-  //	  	        //
+  //	  	            //
   //  CODE FOR BLOCK    //
   //                    //
   ////////////////////////
@@ -581,7 +541,7 @@ function keyEvent(event) {
       	  zBlockRoll = 0;
         }
 	      
-	document.getElementById("theDisplay").innerHTML = xMove;
+
         
     }
     /*
