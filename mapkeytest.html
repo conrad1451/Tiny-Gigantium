@@ -1,0 +1,623 @@
+<!-- 
+PURPOSE: testing the ability to map boolean logic to each key in TInyGigantium game
+
+<script src='http://conrad1451.github.io/Tiny-Gigantium/build.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/character.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/block.js'></script>
+
+
+<!-- include animation -->
+<script src='http://conrad1451.github.io/Tiny-Gigantium/animation.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/animations.js'></script>
+
+<!-- Headmove and bodymove -->
+<script src='http://conrad1451.github.io/Tiny-Gigantium/headmove.js'></script>
+<script src='http://conrad1451.github.io/Tiny-Gigantium/bodymove.js'></script>
+
+<!--<script src="http://threejs.org/examples/js/libs/stats.min.js"></script>-->
+
+
+
+<!-- ================= -->
+
+<!--<body style='margin: 0px; background-color: #bbbbbb; overflow: hidden;'> -->
+<body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
+<!--- <div id="container"></div> -->
+  
+ <p id="display1"> </p>
+ <p id="display2"> </p> 
+ <!--    <p id="theDisplay3">1</p> -->
+
+  
+  <script>
+  
+
+        
+        /*
+        function sq (aNumber) {
+          aNumber * aNumber;
+        }	
+        */
+ 
+  	var degrees = Math.PI/180;
+        var cheese = 0.00;
+        var xMove = 0;
+        var yMove = 0;
+        var zMove = 0;
+        var xRoll = 0;
+        var yRoll = 0;
+        var zRoll = 0;
+  
+        var xBlockRoll = 0;
+        var yBlockRoll = 0;
+        var zBlockRoll = 0;
+  
+	var xPosi = 0;
+	var yPosi = 0;
+	var zPosi = 0;
+	
+	var xMoverz = 0;
+        var aGraphP = 16;
+        var aGraphSqrt = 0.01;
+        var bGraphSqrt = 0.6;
+        var xGraphSqrt = 0;
+        
+        var speedUp = 0;
+	  
+	//var speed = 1;
+        
+        var seconds = 60;
+        
+        var characterHeight = 33 * (1/32);
+     	
+ 
+
+	  
+	//  var map = {}; // You could also use an array
+  	var testing = ["speed: " + speed, "degrees: " + degrees];
+    function valuedisplayer () {
+  //	var variablenamez = avalue;
+ // 	var suffixer1 = xMoverz + " is value of xMovers";
+	var sss = "speed: " + speed;
+  	document.getElementById("display1").innerHTML = sss;
+	    var mm = testing;
+	//document.getElementById("display2").innerHTML = mm;
+  
+  }
+  
+  //  setInterval(valuedisplayer, 1);
+
+  
+  
+  var renderer = new THREE.WebGLRenderer();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  document.body.appendChild(renderer.domElement);
+  
+  var updateFcts = [];
+  var scene = new THREE.Scene();
+  
+  /*
+  //controls fog
+  scene.fog = new THREE.FogExp2(0xcccccc, 0.002);
+  */
+  
+  var camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.01, 100);
+  camera.position.y = 0.5;
+  camera.position.z = 5;
+  /*
+  // lights
+
+  light = new THREE.DirectionalLight(0xffffff);
+  light.position.set(1, 1, 1);
+  scene.add(light);
+
+  light = new THREE.DirectionalLight(0x002288);
+  light.position.set(-1, -1, -1);
+  scene.add(light);
+
+  light = new THREE.AmbientLight(0x222222);
+  scene.add(light);
+
+  // controls fog
+  renderer.setClearColor(scene.fog.color);
+
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.setSize(window.innerWidth, window.innerHeight);
+
+  container = document.getElementById('container');
+  container.appendChild(renderer.domElement);
+  */
+  
+  var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
+  var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
+  
+  var skinner = [skinSite + choices[0], skinSite + choices[1]];
+  
+  /*
+  choice 0 - conrad w/ purple shirt, jeans 
+  choice 1 - conrad w/ green shirt, jeans
+  */
+	  
+	  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		load Character							//
+  //////////////////////////////////////////////////////////////////////////////////
+  
+  var character = new THREEx.TinygigantiumChar(skinner[0])
+  scene.add(character.root)
+  
+  var tinyboy = new THREEx.TinygigantiumChar()
+  scene.add(tinyboy.root)
+  
+  
+  // init headAnims
+  var headAnimsC = new THREEx.TinygigantiumCharHeadAnimations(character);
+  var headAnimsT = new THREEx.TinygigantiumCharHeadAnimations(tinyboy);
+  
+    
+  var headMovement = [headAnimsC, headAnimsT];
+  
+  updateFcts.push(function(delta, now) {
+    headMovement[0].update(delta, now)
+    headMovement[1].update(delta, now)
+  })
+  
+  headAnimsC.start('still');  // headMovement[0].start('still'); /* could also be headMovement*/  
+  headAnimsT.start('still');  // headMovement[1].start('still'); /* could also be headMovement*/  
+  
+  var switchHeadValue = function(value) {
+    headMovement[0].start(value)
+    headMovement[1].start(value)
+  }
+  
+
+  // init bodyAnims
+  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
+  var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
+
+  var bodyMovement = [bodyAnimsC, bodyAnimsT];
+  
+  updateFcts.push(function(delta, now) {
+    bodyMovement[0].update(delta, now)
+    bodyMovement[1].update(delta, now)
+  })
+	  
+  var switchBodyValue = function(value) {
+    bodyMovement[0].start(value)
+    bodyMovement[1].start(value)
+  }
+  
+  
+    character.root.position.x = -0.5;
+    character.root.position.y = 0;  
+    character.root.position.z = 0;
+    character.root.rotation.y = 180 * degrees;  
+    
+    tinyboy.root.position.x = 0.5;
+    tinyboy.root.position.y = 0;  
+    tinyboy.root.position.z = 0;
+    tinyboy.root.rotation.y = 180 * degrees;
+  
+  
+  
+  //////////////////////
+  //	LOAD BLOCK    //
+  //                  //
+  //////////////////////
+  	
+  var blockSkin1 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
+  var blockSkin2 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
+
+  var dirtBlock =  new THREEx.TinygigantiumBlock(blockSkin2)
+  scene.add(dirtBlock.root)  
+    dirtBlock.root.position.x = 0;
+    dirtBlock.root.position.y = 0;  
+    dirtBlock.root.position.z = 0;
+
+  /*
+    // for FPS indicatorz
+  stats = new Stats();
+  stats.domElement.style.position = 'absolute';
+  stats.domElement.style.top = '0px';
+  stats.domElement.style.zIndex = 100;
+  container.appendChild(stats.domElement);
+// End of fps indicator
+  */
+  
+  /*
+  function abcmoves(e) {
+    var evtobj = window.event ? event : e //distinguish between IE's explicit event object (window.event) and Firefox's implicit.
+    var unicode = evtobj.charCode ? evtobj.charCode : evtobj.keyCode
+  
+    // Use to make it based on alphabet characters 
+    
+    var actualkey = String.fromCharCode(unicode)
+  
+  //  alert(actualkey);
+  }
+  document.onkeypress = abcmoves
+  */
+  
+  ////////////////////////////
+  //	  	      	    //
+  //  CODE FOR CHARACTER    //
+  //                 	    //
+  ////////////////////////////
+	  
+	  
+    var metaChar = false;
+    var exampleKey = 16;
+	  
+    var leftarrow = 37;
+    var uparrow = 38;
+    var rightarrow = 39;
+    var downarrow = 40;
+    var shift = 16;
+    var spacebar = 32;
+	  
+    var a = 65;
+    var d = 68;
+    var s = 83;
+    var f = 70;
+    var l = 76;
+   
+    //A = 65, a = 97, Z = 90, 0 = 48, 9 = 57
+    
+function jumpParabola() {
+    if(xMoverz >= 0.00001) {
+        bodyMovement[0].start('jump');
+        bodyMovement[1].start('jump');
+    }
+	
+    speedUp = 0.000001;       
+
+    if(xMoverz < 0.00001) {
+        xMoverz += speedUp;	
+    } else {
+        xMoverz += 0.01;	
+    }
+         
+        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+        tinyboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
+	
+}    
+    
+function fallParabola() {
+    if(xMoverz >= 0.00001) {
+        bodyMovement[0].start('fall');
+        bodyMovement[1].start('fall');
+    }
+	speedUp = 0.000001;       
+        
+    if(xMoverz < 0.00001) {
+        xMoverz += speedUp;	
+     } else {
+         xMoverz += 0.01;	
+     }
+         
+        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+        tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
+} 
+    
+    var speed = 1;
+
+function keyEvent(event) {
+//  onkeydown = onkeyup = function(event){
+  var key = event.keyCode || event.which;	
+  var keychar = String.fromCharCode(key);
+ // map[key] = event.type == 'keydown';
+	  
+	//Option 1: The mapping of keys to different key events worked, each key event worked independently 
+	//and they worked together. They just didn't fulfill the purpose. 
+	
+	
+	var key2 = event.keyCode || event.which;	
+ 	var keychar2 = String.fromCharCode(key2);
+	
+
+	
+  if (key == exampleKey) {
+    metaChar = true;
+  }
+  if (key != exampleKey) {
+    if (metaChar) {
+
+      metaChar = false;
+	    
+    } else {
+	    
+	    
+      if (key == uparrow) {
+	 // move character forwards   
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         zMove =  (Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove =  (Math.sin(character.root.rotation.y)) * speed / 50;
+         
+    }
+      if (key == downarrow) {
+	 // move character backwards
+         bodyMovement[0].start('walkbackwards');
+         bodyMovement[1].start('walkbackwards');
+         zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+         
+      }
+      
+      if (key == a) {
+	 // rotate character left
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         yRoll = 1 * 0.5  * speed * degrees;
+	      
+	      /* because the key will never be two values at a single time, this statement is useless here
+            if (key == downarrow) {
+	       // move character backwards
+               bodyMovement[0].start('walkbackwards');
+               bodyMovement[1].start('walkbackwards');
+               zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+               xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+         
+             }
+               */
+      }
+ 
+	    
+      if (key == d) {
+	 // rotate character right
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         yRoll = -1 * 0.5 * speed * degrees;
+         
+      }
+     
+      if (key == leftarrow) {
+	    // move character left
+            bodyMovement[0].start('strafeLeft');
+            bodyMovement[1].start('strafeLeft');
+            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
+            
+    }   
+      if (key == rightarrow) {
+	    // move character right
+            bodyMovement[0].start('strafeRight');
+            bodyMovement[1].start('strafeRight');
+            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
+            
+          }
+       
+      if (key == spacebar) {
+         jumpParabola();
+       // make character jump
+      }	 
+	  /*
+	  trying to use a loop to control speed keys failed
+	for (i = 49, i < 57, i++) {
+		if (key2 == i) {
+			speed = (i - 48) * 2;
+	    }
+	}
+	    
+	    */
+	    
+		if (key2 >= 49 && key2 <=56) {
+			speed = (key2 - 48) * 2;
+	    }
+	
+	    
+ 
+  ////////////////////////
+  //	  	            //
+  //  CODE FOR BLOCK    //
+  //                    //
+  ////////////////////////
+	    
+	    
+// next 3 if statements control the rotation of the cube.    
+	    
+      if (key == 90) { //key z
+      	xBlockRoll = 15/50 * degrees;
+      }
+      
+      if (key == 88) {//key x
+      	yBlockRoll = 15/50 * degrees;
+      }
+      
+      if (key == 67) { //key c
+      	zBlockRoll = 15/50 * degrees;
+      }
+    
+       
+	    
+	    
+      /*    
+      if(key == f) {
+       	xRoll = 0.025;
+       	if (character.root.rotation.x >= 90 * degrees) {
+       		xRoll = 0;
+       	}
+       }
+      if(key == s) {
+       	character.root.rotation.x = 79 * degrees;
+       }
+      if(key == l) {
+       	xRoll = 0.25;
+       }       
+       */
+       
+
+      
+    }
+   }
+     
+      onkeyup = function() {
+        if(key >= leftarrow && key <= downarrow) {
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
+        xMove = 0;
+        zMove = 0;
+        yRoll = 0;
+        // alert(characterHeight);  // works!!
+      }
+      	if (key == 54) {
+      	  speed = 6*2;
+        }
+	      
+        if(key == a || key == d) {
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
+        yRoll = 0;
+        xMove = 0;
+        zMove = 0;
+		
+        } 
+	      /*
+        if(key == d) {
+        bodyMovement[0].start('stand');
+        bodyMovement[1].start('stand');
+        yRoll = 0;
+        } 
+        */
+	      
+        /*
+        if(key == f) {
+         character.root.rotation.x = 0;
+         xRoll = 0;
+        }
+        if(key == s) {
+         character.root.rotation.x = 0;
+         xRoll = 0;       	
+        }
+        if(key == l) {
+        yMove = Math.cos(character.root.rotation.x);
+        zMove = Math.sin(character.root.rotation.x);
+        xRoll = 0;
+        }
+        */
+        
+        if (key == spacebar) {
+         bodyMovement[0].start('stand');
+         bodyMovement[1].start('stand');
+        /*
+         xGraphSqrt = 0;
+         speedUp = 0;
+        */
+         xMoverz += 0;
+        }
+        
+        if (key == 90) {
+          xBlockRoll = 0;
+        }
+      
+        if (key == 88) {
+      	  yBlockRoll = 0;
+        }
+      
+        if (key == 67) {
+      	  zBlockRoll = 0;
+        }
+	      
+
+        
+    }
+    /*
+    if(key == 40){
+      alert(1);  // works!!
+    }
+    */
+}
+onkeydown = function() {
+
+	keyEvent(event);
+}
+
+function metaKeyUp (event) {
+  var key = event.keyCode || event.which;
+  if (key == exampleKey) {
+    metaChar = false;
+  }
+}
+  
+
+ 
+
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		Camera Controls							//
+  //////////////////////////////////////////////////////////////////////////////////
+  var mouse = {
+    x: 0,
+    y: 0
+  }
+  document.addEventListener('mousemove', function(event) {
+    mouse.x = (event.clientX / window.innerWidth) - 0.5
+    mouse.y = (event.clientY / window.innerHeight) - 0.5
+  }, false)
+  updateFcts.push(function(delta, now) {
+    //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+    // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+    // camera.lookAt makes camera focus move along with character 
+    //	 camera.lookAt( scene.position )
+  })
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		render the scene						//
+  //////////////////////////////////////////////////////////////////////////////////
+  updateFcts.push(function() {
+    renderer.render(scene, camera);
+  
+    /* 
+    code I added to test flexibilty of program (IT WORKS!)
+    */
+     
+   // camera.position.y += cheese; 
+    
+      character.root.position.x += xMove;
+      character.root.position.y += yMove;
+      character.root.position.z += zMove;
+
+      character.root.rotation.x += xRoll;
+      character.root.rotation.y += yRoll;
+      character.root.rotation.z += zRoll;
+      
+	  
+      tinyboy.root.position.x += xMove;
+      tinyboy.root.position.y += yMove;
+      tinyboy.root.position.z += zMove;
+	  
+      tinyboy.root.rotation.x += xRoll;
+      tinyboy.root.rotation.y += yRoll;
+      tinyboy.root.rotation.z += zRoll;
+      
+	  
+      dirtBlock.root.rotation.x += xBlockRoll;
+      dirtBlock.root.rotation.y += yBlockRoll;
+      dirtBlock.root.rotation.z += zBlockRoll;
+      
+ //   character.root.rotation.z += 0.02; // this is to test the update (which works)
+   
+    
+  })
+  
+  //////////////////////////////////////////////////////////////////////////////////
+  //		loop runner							//
+  //////////////////////////////////////////////////////////////////////////////////
+  var lastTimeMsec = null
+  requestAnimationFrame(function animate(nowMsec) {
+    // keep looping
+    requestAnimationFrame(animate);
+    // measure time
+    lastTimeMsec = lastTimeMsec || nowMsec - 1000 / 60
+    var deltaMsec = Math.min(200, nowMsec - lastTimeMsec)
+    lastTimeMsec = nowMsec
+      // call each update function
+    updateFcts.forEach(function(updateFn) {
+      updateFn(deltaMsec / 1000, nowMsec / 1000)
+    })
+  })
+  </script>
+
+
+</body>
