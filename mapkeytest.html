@@ -74,7 +74,7 @@ PURPOSE: testing the ability to map boolean logic to each key in TInyGigantium g
 
 	  
 	//  var map = {}; // You could also use an array
-  	var testing = ["speed: " + speed, "degrees: " + degrees];
+  	var testing = ["speed: " + 1, "degrees: " + 2];
     function valuedisplayer () {
   //	var variablenamez = avalue;
  // 	var suffixer1 = xMoverz + " is value of xMovers";
@@ -392,15 +392,6 @@ function keyEvent(event) {
          jumpParabola();
        // make character jump
       }	 
-	  /*
-	  trying to use a loop to control speed keys failed
-	for (i = 49, i < 57, i++) {
-		if (key2 == i) {
-			speed = (i - 48) * 2;
-	    }
-	}
-	    
-	    */
 	    
 		if (key2 >= 49 && key2 <=56) {
 			speed = (key2 - 48) * 2;
@@ -429,25 +420,7 @@ function keyEvent(event) {
       	zBlockRoll = 15/50 * degrees;
       }
     
-       
-	    
-	    
-      /*    
-      if(key == f) {
-       	xRoll = 0.025;
-       	if (character.root.rotation.x >= 90 * degrees) {
-       		xRoll = 0;
-       	}
-       }
-      if(key == s) {
-       	character.root.rotation.x = 79 * degrees;
-       }
-      if(key == l) {
-       	xRoll = 0.25;
-       }       
-       */
-       
-
+     
       
     }
    }
@@ -473,30 +446,7 @@ function keyEvent(event) {
         zMove = 0;
 		
         } 
-	      /*
-        if(key == d) {
-        bodyMovement[0].start('stand');
-        bodyMovement[1].start('stand');
-        yRoll = 0;
-        } 
-        */
-	      
-        /*
-        if(key == f) {
-         character.root.rotation.x = 0;
-         xRoll = 0;
-        }
-        if(key == s) {
-         character.root.rotation.x = 0;
-         xRoll = 0;       	
-        }
-        if(key == l) {
-        yMove = Math.cos(character.root.rotation.x);
-        zMove = Math.sin(character.root.rotation.x);
-        xRoll = 0;
-        }
-        */
-        
+	     
         if (key == spacebar) {
          bodyMovement[0].start('stand');
          bodyMovement[1].start('stand');
