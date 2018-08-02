@@ -48,9 +48,9 @@ the current angle that the legs are positioned-->
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="theDisplay"> </p>
-<!-- <p id="theDisplay2">1</p> 
-    <p id="theDisplay3">1</p> -->
+ <p id="display1"> </p>
+ <p id="display2"> </p> 
+ <!--    <p id="theDisplay3">1</p> -->
 
   
   <script>
@@ -97,13 +97,15 @@ the current angle that the legs are positioned-->
  
 
 	  
-	  
+	  var map = {}; // You could also use an array
   
     function valuedisplayer () {
   //	var variablenamez = avalue;
  // 	var suffixer1 = xMoverz + " is value of xMovers";
 	var sss = "speed: " + speed;
-  	document.getElementById("theDisplay").innerHTML = sss;
+  	document.getElementById("display1").innerHTML = sss;
+	    var mm = map
+	document.getElementById("display2").innerHTML = mm;
   
   }
   
@@ -203,8 +205,6 @@ the current angle that the legs are positioned-->
     bodyMovement[0].update(delta, now)
     bodyMovement[1].update(delta, now)
   })
-  
-//	updateFcts.push(document.getElementById("theDisplay").innerHTML = xMove;)
 	  
   var switchBodyValue = function(value) {
     bodyMovement[0].start(value)
@@ -324,11 +324,13 @@ function fallParabola() {
 } 
     
     var speed = 1;
-	  
-function keyEvent(event) {
+
+//function keyEvent(event) {
+  onkeydown = onkeyup = function(event){
   var key = event.keyCode || event.which;	
   var keychar = String.fromCharCode(key);
-
+  map[key] = event.type == 'keydown';
+	  
 	//Option 1: The mapping of keys to different key events worked, each key event worked independently 
 	//and they worked together. They just didn't fulfill the purpose. 
 	
@@ -618,7 +620,7 @@ function metaKeyUp (event) {
       dirtBlock.root.rotation.y += yBlockRoll;
       dirtBlock.root.rotation.z += zBlockRoll;
       
- //   character.root.rotation.z += 0.02;
+ //   character.root.rotation.z += 0.02; // this is to test the update (which works)
    
     
   })
