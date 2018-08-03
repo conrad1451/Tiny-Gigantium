@@ -252,15 +252,7 @@ PURPOSE: testing the ability to map boolean logic to each key in TInyGigantium g
   //  var speed = 1;
  	//  var map = {}; // You could also use an array
   	
-    function valuedisplayer () {
-  	var testingz = ["speed: " + speed + " ", "zMove: " + "filler" + " ", "zMovers: " + "filler" + " "];
-	var sss = "speed: " + speed;
-  	//document.getElementById("display1").innerHTML = sss;
-	    var mm = testingz;
-	document.getElementById("display2").innerHTML = mm
-  }
-  
-    setInterval(valuedisplayer, 1);
+
 	  
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
@@ -451,7 +443,15 @@ function metaKeyUp (event) {
   }
 }
   
-
+    function valuedisplayer () {
+  	var testingz = ["speed: " + speed + " ", "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
+	var sss = "speed: " + speed;
+  	//document.getElementById("display1").innerHTML = sss;
+	    var mm = testingz;
+	document.getElementById("display2").innerHTML = mm
+  }
+  
+    setInterval(valuedisplayer, 1);
  
 
   
