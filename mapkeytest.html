@@ -346,7 +346,10 @@ function keyEvent(event) {
        // make character jump
       }	 
 	    
-		if (key2 >= 49 && key2 <=56) {
+	    if (key2 == 49) {
+			speed = (1/2) * 2;
+		}
+		else if (key2 >= 50 && key2 <=56) {
 			speed = (key2 - 48) * 2;
 	    }
 	
