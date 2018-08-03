@@ -94,25 +94,6 @@ the current angle that the legs are positioned-->
         
         var characterHeight = 33 * (1/32);
      	
- 
-
-	  
-	//  var map = {}; // You could also use an array
-  	var testing = ["speed: " + speed, "degrees: " + degrees];
-    function valuedisplayer () {
-  //	var variablenamez = avalue;
- // 	var suffixer1 = xMoverz + " is value of xMovers";
-	var sss = "speed: " + speed;
-  	document.getElementById("display1").innerHTML = sss;
-	    var mm = testing;
-	//document.getElementById("display2").innerHTML = mm;
-  
-  }
-  
-  //  setInterval(valuedisplayer, 1);
-
-  
-  
   var renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement);
@@ -323,7 +304,7 @@ function fallParabola() {
         tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
 } 
     
-    var speed = 1;
+//    var speed = 1;
 
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
@@ -564,7 +545,15 @@ function metaKeyUp (event) {
   }
 }
   
-
+    function valuedisplayer () {
+  	var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
+	var sss = "speed: " + speed;
+  	//document.getElementById("display1").innerHTML = sss;
+	    var mm = testingz;
+	document.getElementById("display2").innerHTML = mm
+  }
+  
+    setInterval(valuedisplayer, 1);
  
 
   
