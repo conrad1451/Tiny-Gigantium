@@ -74,18 +74,18 @@ PURPOSE: testing the ability to map boolean logic to each key in TInyGigantium g
 
 	  
 	//  var map = {}; // You could also use an array
-  	var testing = ["speed: " + 1, "degrees: " + 2];
+  	var testingz = ["speed: " + 1, "degrees: " + 2];
     function valuedisplayer () {
   //	var variablenamez = avalue;
  // 	var suffixer1 = xMoverz + " is value of xMovers";
 	var sss = "speed: " + speed;
-  	document.getElementById("display1").innerHTML = sss;
-	    var mm = testing;
-	//document.getElementById("display2").innerHTML = mm;
+  	//document.getElementById("display1").innerHTML = sss;
+	    var mm = testingz;
+	document.getElementById("display2").innerHTML = mm;
   
   }
   
-  //  setInterval(valuedisplayer, 1);
+    setInterval(valuedisplayer, 1);
 
   
   
@@ -262,42 +262,8 @@ PURPOSE: testing the ability to map boolean logic to each key in TInyGigantium g
     var l = 76;
    
     //A = 65, a = 97, Z = 90, 0 = 48, 9 = 57
-    
-function jumpParabola() {
-    if(xMoverz >= 0.00001) {
-        bodyMovement[0].start('jump');
-        bodyMovement[1].start('jump');
-    }
-	
-    speedUp = 0.000001;       
-
-    if(xMoverz < 0.00001) {
-        xMoverz += speedUp;	
-    } else {
-        xMoverz += 0.01;	
-    }
-         
-        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-        tinyboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-	
-}    
-    
-function fallParabola() {
-    if(xMoverz >= 0.00001) {
-        bodyMovement[0].start('fall');
-        bodyMovement[1].start('fall');
-    }
-	speedUp = 0.000001;       
-        
-    if(xMoverz < 0.00001) {
-        xMoverz += speedUp;	
-     } else {
-         xMoverz += 0.01;	
-     }
-         
-        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
-        tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
-} 
+     
+     
     
     var speed = 1;
 
