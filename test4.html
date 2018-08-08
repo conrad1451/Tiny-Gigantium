@@ -1,24 +1,15 @@
 <!-- 
 PURPOSE: To make the game
-
 next steps:
-
 - create and upload dirt and transparent skins to photobucket 
 - skin blocks:
-
   - take snapshot of top, bottom, left, right, front, and back of character,
   - label each face with Uv coordinates
   - find way to make for larger cube
-
-
 because of the sizing in block js, the length, width, and height of each block is 0.5
-
 (to fix problem of stretched pixels on cube)  
-
-
 - add block logic
 - add array of dirt blocks to stand on 
-
 -->
 
 <!-- for future reference, if want to make the walking or running so the bottom of the 
@@ -58,7 +49,6 @@ the current angle that the legs are positioned-->
   
   <script>
   
-
         
         /*
         function sq (aNumber) {
@@ -114,30 +104,21 @@ the current angle that the legs are positioned-->
   camera.position.z = 5;
   /*
   // lights
-
   light = new THREE.DirectionalLight(0xffffff);
   light.position.set(1, 1, 1);
   scene.add(light);
-
   light = new THREE.DirectionalLight(0x002288);
   light.position.set(-1, -1, -1);
   scene.add(light);
-
   light = new THREE.AmbientLight(0x222222);
   scene.add(light);
-
   // controls fog
   renderer.setClearColor(scene.fog.color);
-
   renderer.setPixelRatio(window.devicePixelRatio);
   renderer.setSize(window.innerWidth, window.innerHeight);
-
   container = document.getElementById('container');
   container.appendChild(renderer.domElement);
   */
-	  
- var cameraTilt = 0;
-	  
   
   var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
   var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
@@ -181,11 +162,9 @@ the current angle that the legs are positioned-->
     headMovement[1].start(value)
   }
   
-
   // init bodyAnims
   var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
   var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
-
   var bodyMovement = [bodyAnimsC, bodyAnimsT];
   
   updateFcts.push(function(delta, now) {
@@ -209,7 +188,7 @@ the current angle that the legs are positioned-->
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
   
-
+  
   
   //////////////////////
   //	LOAD BLOCK    //
@@ -218,7 +197,6 @@ the current angle that the legs are positioned-->
   	
   var blockSkin1 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
   var blockSkin2 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
-
   var dirtBlock1 =  new THREEx.TinygigantiumBlock(blockSkin2);
   var dirtBlock2 =  new THREEx.TinygigantiumBlock(blockSkin2);
   var dirtBlock3 =  new THREEx.TinygigantiumBlock(blockSkin2);
@@ -346,7 +324,6 @@ the current angle that the legs are positioned-->
      dirtBlock1.root.rotation.x = 90 * degrees;
     dirtBlock1.root.rotation.y = 0 * degrees;
     dirtBlock1.root.rotation.z = 0 * degrees;	  
-
      dirtBlock2.root.rotation.x = 90 * degrees;
     dirtBlock2.root.rotation.y = 0 * degrees;
     dirtBlock2.root.rotation.z = 0 * degrees;	
@@ -431,7 +408,6 @@ function jumpParabola() {
     }
 	
     speedUp = 0.000001;       
-
     if(xMoverz < 0.00001) {
         xMoverz += speedUp;	
     } else {
@@ -461,7 +437,6 @@ function fallParabola() {
 } 
     
 //    var speed = 1;
-
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
   var key = event.keyCode || event.which;	
@@ -475,14 +450,12 @@ function keyEvent(event) {
 	var key2 = event.keyCode || event.which;	
  	var keychar2 = String.fromCharCode(key2);
 	
-
 	
   if (key == exampleKey) {
     metaChar = true;
   }
   if (key != exampleKey) {
     if (metaChar) {
-
       metaChar = false;
 	    
     } else {
@@ -591,14 +564,8 @@ function keyEvent(event) {
       if (key == 67) { //rotation along z axis, key c
       	zBlockRoll = 15/50 * speed * degrees;
       }
-            ////////////////
-	    // Camera Code //
-	    //////////////// 
+    
        
-     if (key == 73) {//rotation along y axis, key x
-      	cameraTilt = 0.02;
-      }  
-	    
 	    
 	    
       /*    
@@ -616,7 +583,6 @@ function keyEvent(event) {
        }       
        */
        
-
       
     }
    }
@@ -685,7 +651,6 @@ function keyEvent(event) {
       	  zBlockRoll = 0;
         }
 	      
-
         
     }
     /*
@@ -697,7 +662,6 @@ function keyEvent(event) {
 	  
 /*	  
 onkeydown = function() {
-
 	keyEvent(event);
 }
 */
@@ -720,7 +684,6 @@ function metaKeyUp (event) {
   
     setInterval(valuedisplayer, 1);
  
-
   
   //////////////////////////////////////////////////////////////////////////////////
   //		Camera Controls							//
@@ -734,10 +697,10 @@ function metaKeyUp (event) {
     mouse.y = (event.clientY / window.innerHeight) - 0.5
   }, false)
   updateFcts.push(function(delta, now) {
-    //camera.position.x += (cameraTilt /*mouse.x*5*/ - camera.position.x) * (delta*3)
-    //camera.position.y += (cameraTilt /*mouse.y*5*/ - camera.position.y) * (delta*3)
-    //camera.lookAt makes camera focus move along with character 
-    //camera.lookAt( scene.position )
+    camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+    camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+    camera.lookAt makes camera focus move along with character 
+    camera.lookAt( scene.position )
   })
   
   //////////////////////////////////////////////////////////////////////////////////
@@ -755,7 +718,6 @@ function metaKeyUp (event) {
       character.root.position.x += xMove;
       character.root.position.y += yMove;
       character.root.position.z += zMove;
-
       character.root.rotation.x += xRoll;
       character.root.rotation.y += yRoll;
       character.root.rotation.z += zRoll;
