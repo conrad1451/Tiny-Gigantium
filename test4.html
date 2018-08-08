@@ -135,6 +135,9 @@ the current angle that the legs are positioned-->
   container = document.getElementById('container');
   container.appendChild(renderer.domElement);
   */
+	  
+  
+	  
   
   var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
   var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
@@ -588,8 +591,14 @@ function keyEvent(event) {
       if (key == 67) { //rotation along z axis, key c
       	zBlockRoll = 15/50 * speed * degrees;
       }
-    
+            ////////////////
+	    // Camera Code //
+	    //////////////// 
        
+     if (key == 73) {//rotation along y axis, key x
+      	camera tilt = 0.02
+      }  
+	    
 	    
 	    
       /*    
@@ -725,8 +734,8 @@ function metaKeyUp (event) {
     mouse.y = (event.clientY / window.innerHeight) - 0.5
   }, false)
   updateFcts.push(function(delta, now) {
-    camera.position.x += (0.02 /*mouse.x*5*/ - camera.position.x) * (delta*3)
-    camera.position.y += (0.02 /*mouse.y*5*/ - camera.position.y) * (delta*3)
+    //camera.position.x += (0.02 /*mouse.x*5*/ - camera.position.x) * (delta*3)
+    //camera.position.y += (0.02 /*mouse.y*5*/ - camera.position.y) * (delta*3)
     //camera.lookAt makes camera focus move along with character 
     //camera.lookAt( scene.position )
   })
