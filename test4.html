@@ -428,15 +428,15 @@ function keyEvent(event) {
 // next 3 if statements control the rotation of the cube.    
 	    
       if (key == 90) { //rotation along x axis, key z
-      	xBlockRoll = 15/50 * degrees;
+      	xBlockRoll = 15/50 * speed * degrees;
       }
       
       if (key == 88) {//rotation along y axis, key x
-      	yBlockRoll = 15/50 * degrees;
+      	yBlockRoll = 15/50 * speed * degrees;
       }
       
       if (key == 67) { //rotation along z axis, key c
-      	zBlockRoll = 15/50 * degrees;
+      	zBlockRoll = 15/50 * speed * degrees;
       }
     
        
