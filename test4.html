@@ -9,7 +9,10 @@ next steps:
   - take snapshot of top, bottom, left, right, front, and back of character,
   - label each face with Uv coordinates
   - find way to make for larger cube
- 
+
+
+because of the sizing in block js, the length, width, and height of each block is 0.5
+
 (to fix problem of stretched pixels on cube)  
 
 
@@ -88,7 +91,7 @@ the current angle that the legs are positioned-->
         
         var speedUp = 0;
 	  
-	var speed = 1;
+		var speed = 1;
         
         var seconds = 60;
         
@@ -242,10 +245,10 @@ the current angle that the legs are positioned-->
   scene.add(dirtBlock2.root);	  
   scene.add(dirtBlock3.root);	  
   scene.add(dirtBlock4.root);	  
-  //scene.add(dirtBlock5.root);	  
-  //scene.add(dirtBlock6.root);
-  //scene.add(dirtBlock7.root);
-  //scene.add(dirtBlock8.root);
+  scene.add(dirtBlock5.root);	  
+  scene.add(dirtBlock6.root);
+  scene.add(dirtBlock7.root);
+  scene.add(dirtBlock8.root);
 	/**/  
 	  /*
   for(p = 0, p < landscape.length, p++) {
@@ -275,29 +278,54 @@ the current angle that the legs are positioned-->
     dirtBlock1.root.rotation.y = 0 * degrees;
     dirtBlock1.root.rotation.z = 0 * degrees;	  
 	  
-    dirtBlock2.root.position.x = 1;
+    dirtBlock2.root.position.x = 0.5;
     dirtBlock2.root.position.y = 0;  
     dirtBlock2.root.position.z = 0;
     dirtBlock2.root.rotation.x = 90 * degrees;
     dirtBlock2.root.rotation.y = 0 * degrees;
     dirtBlock2.root.rotation.z = 0 * degrees;	
-	  
-	  
-    dirtBlock3.root.position.x = 2;
+	 
+    dirtBlock3.root.position.x = 1;
     dirtBlock3.root.position.y = 0;  
     dirtBlock3.root.position.z = 0;
     dirtBlock3.root.rotation.x = 90 * degrees;
     dirtBlock3.root.rotation.y = 0 * degrees;
     dirtBlock3.root.rotation.z = 0 * degrees;	
 	  
-	  
-    dirtBlock4.root.position.x = 3;
+    dirtBlock4.root.position.x = 1.5;
     dirtBlock4.root.position.y = 0;  
     dirtBlock4.root.position.z = 0;
     dirtBlock4.root.rotation.x = 90 * degrees;
     dirtBlock4.root.rotation.y = 0 * degrees;
     dirtBlock4.root.rotation.z = 0 * degrees;	
 	  
+    dirtBlock5.root.position.x = 2;
+    dirtBlock5.root.position.y = 0;  
+    dirtBlock5.root.position.z = 0;
+    dirtBlock5.root.rotation.x = 90 * degrees;
+    dirtBlock5.root.rotation.y = 0 * degrees;
+    dirtBlock5.root.rotation.z = 0 * degrees;
+	  
+    dirtBlock6.root.position.x = 2.5;
+    dirtBlock6.root.position.y = 0;  
+    dirtBlock6.root.position.z = 0;
+    dirtBlock6.root.rotation.x = 90 * degrees;
+    dirtBlock6.root.rotation.y = 0 * degrees;
+    dirtBlock6.root.rotation.z = 0 * degrees;
+	  
+    dirtBlock7.root.position.x = 3;
+    dirtBlock7.root.position.y = 0;  
+    dirtBlock7.root.position.z = 0;
+    dirtBlock7.root.rotation.x = 90 * degrees;
+    dirtBlock7.root.rotation.y = 0 * degrees;
+    dirtBlock7.root.rotation.z = 0 * degrees;
+	  
+    dirtBlock8.root.position.x = 3.5;
+    dirtBlock8.root.position.y = 0;  
+    dirtBlock8.root.position.z = 0;
+    dirtBlock8.root.rotation.x = 90 * degrees;
+    dirtBlock8.root.rotation.y = 0 * degrees;
+    dirtBlock8.root.rotation.z = 0 * degrees;	  
 	  
   /*
     // for FPS indicatorz
