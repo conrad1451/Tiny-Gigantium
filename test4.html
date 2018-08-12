@@ -596,6 +596,9 @@ function keyEvent(event) {
         yRoll = 0;
         // alert(characterHeight);  // works!!
       }
+      	if (key == 54) {
+      	  speed = 6*2;
+        }
 	      
         if(key == a || key == d) {
         bodyMovement[0].start('stand');
@@ -659,14 +662,9 @@ function keyEvent(event) {
     }
     */
 }
-	  
-/*	  
 onkeydown = function() {
 	keyEvent(event);
 }
-*/
-	
-	  
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
   if (key == exampleKey) {
@@ -693,14 +691,14 @@ function metaKeyUp (event) {
     y: 0
   }
   document.addEventListener('mousemove', function(event) {
-//    mouse.x = (event.clientX / window.innerWidth) - 0.5
-//    mouse.y = (event.clientY / window.innerHeight) - 0.5
+    mouse.x = (event.clientX / window.innerWidth) - 0.5
+    mouse.y = (event.clientY / window.innerHeight) - 0.5
   }, false)
   updateFcts.push(function(delta, now) {
-  //  camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
-    //camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
-  //  camera.lookAt makes camera focus move along with character 
-    //camera.lookAt( scene.position )
+    //		 camera.position.x += (mouse.x*5 - camera.position.x) * (delta*3)
+    // camera.position.y += (mouse.y*5 - camera.position.y) * (delta*3)
+    // camera.lookAt makes camera focus move along with character 
+    //	 camera.lookAt( scene.position )
   })
   
   //////////////////////////////////////////////////////////////////////////////////
