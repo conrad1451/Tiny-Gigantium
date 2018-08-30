@@ -700,10 +700,12 @@ function metaKeyUp (event) {
     function valuedisplayer () {
   	var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
 	var sss = "speed: " + speed;
-  	//document.getElementById("display1").innerHTML = sss;
-        var ttt = character.root.position.y;
-	    var mm = testingz;
+        var ttt = "characterheight: " + character.root.position.y;
+	var mm = testingz;
+	    
+  	document.getElementById("display1").innerHTML = sss;	    
 	document.getElementById("display2").innerHTML = ttt;
+	document.getElementById("display3").innerHTML = mm;   
   }
   
     setInterval(valuedisplayer, 1);
