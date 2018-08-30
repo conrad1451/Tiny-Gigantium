@@ -673,17 +673,6 @@ function metaKeyUp (event) {
   }
 }
   
-    function valuedisplayer () {
-  	var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
-	var sss = "speed: " + speed;
-  	//document.getElementById("display1").innerHTML = sss;
-        var ttt = character.root.position.y;
-	    var mm = testingz;
-	document.getElementById("display2").innerHTML = ttt
-  }
-  
-    setInterval(valuedisplayer, 1);
- 
   
   //////////////////////////////////////////////////////////////////////////////////
   //		Camera Controls							//
@@ -703,6 +692,24 @@ function metaKeyUp (event) {
     //	 camera.lookAt( scene.position )
   })
   
+	  
+	  /////////////////////
+	  //  Display Values //
+	  /////////////////////
+	  
+    function valuedisplayer () {
+  	var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
+	var sss = "speed: " + speed;
+  	//document.getElementById("display1").innerHTML = sss;
+        var ttt = character.root.position.y;
+	    var mm = testingz;
+	document.getElementById("display2").innerHTML = ttt;
+  }
+  
+    setInterval(valuedisplayer, 1);
+ 
+	  
+	  
   //////////////////////////////////////////////////////////////////////////////////
   //		render the scene						//
   //////////////////////////////////////////////////////////////////////////////////
