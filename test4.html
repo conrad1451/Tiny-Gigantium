@@ -42,8 +42,8 @@ the current angle that the legs are positioned-->
 <body style='margin: 0px; background-color: #99FFFF; overflow: hidden;'>
 <!--- <div id="container"></div> -->
   
- <p id="display1"> 3 </p>
- <p id="display2"> </p> 
+ <p id="display1">  </p>
+ <p id="display2"> 2 </p> 
  <p id="display3"> 2 </p> 	
  <!--    <p id="theDisplay3">1</p> -->
 
@@ -702,6 +702,8 @@ function metaKeyUp (event) {
   	//var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
 	var sss = speed;
         var hh = character.root.position.y;
+	    
+	var characterSpeed = sss.toString();
 	//float hhhh = hh;    // doesn't work, dont know why
 	    
 	//var mouseXY = "mouseX: " + mouse.x + "mouseY: " + mouse.y; 
@@ -713,11 +715,11 @@ function metaKeyUp (event) {
 	    
 	    
 	//var mm = testingz[0];
-	var speedLabel = "speed: " + sss.substring(0, 4);
-	var heightLabel = /*"characterheight: " + */hh.substring(0, 4);    
+	var speedLabel = "speed: " + characterSpeed.substring(0, 4);
+	//var heightLabel = /*"characterheight: " + */hh.substring(0, 4);    
 	//var mouseXYLabel = mouseXY.substring(0, 4);
 	    
-  	document.getElementById("display1").innerHTML = sss; //    speedLabel;//
+  	document.getElementById("display1").innerHTML =  speedLabel;  // sss
 	//document.getElementById("display2").innerHTML =  heightLabel; //hhh;//
 	//document.getElementById("display3").innerHTML = "mouseX: " + mX + " mouseY: " + mY;  //mouseXY // 
   }
