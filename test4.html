@@ -43,8 +43,8 @@ the current angle that the legs are positioned-->
 <!--- <div id="container"></div> -->
   
  <p id="display1"> </p>
- <p id="display2"> </p> 
- <p id="display3"> </p> 	
+ <p id="display2"> 0 </p> 
+ <p id="display3"> 1 </p> 	
  <!--    <p id="theDisplay3">1</p> -->
 
   
@@ -701,13 +701,13 @@ function metaKeyUp (event) {
     function valuedisplayer () {
   	//var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
 	var sss = speed;
-        var hhh = character.root.position.y;
+        //var hhh = character.root.position.y;
 	//var mouseXY = "mouseX: " + mouse.x + "mouseY: " + mouse.y; 
-	var mouseX = mouse.x;
-	var mouseY = mouse.y;
+	//var mouseX = mouse.x;
+	//var mouseY = mouse.y;
 	
-	var mX = mouseX.substring(0, 4);
-	var mY = mouseY.substring(0, 4);
+	//var mX = mouseX.substring(0, 4);
+	//var mY = mouseY.substring(0, 4);
 	    
 	    
 	//var mm = testingz[0];
@@ -715,8 +715,8 @@ function metaKeyUp (event) {
 	//var heightLabel = "characterheight: " + hhh.substring(0, 4);    
 	//var mouseXYLabel = mouseXY.substring(0, 4);
 	    
-  	document.getElementById("display1").innerHTML = 	sss; //    speedLabel;//
-	document.getElementById("display2").innerHTML =  hhh; //heightLabel;//
+  	document.getElementById("display1").innerHTML = sss; //    speedLabel;//
+	//document.getElementById("display2").innerHTML = hhh; //heightLabel;//
 	//document.getElementById("display3").innerHTML = "mouseX: " + mX + " mouseY: " + mY;  //mouseXY // 
   }
   
