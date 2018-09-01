@@ -711,13 +711,13 @@ function metaKeyUp (event) {
 	    
 	    
 	//var mm = testingz[0];
-	var speedLabel = sss.substring(0, 4);
-	var heightLabel = hhh.substring(0, 4);    
+	var speedLabel = "speed: " + sss.substring(0, 4);
+	var heightLabel = "characterheight: " + hhh.substring(0, 4);    
 	//var mouseXYLabel = mouseXY.substring(0, 4);
 	    
-  	document.getElementById("display1").innerHTML = "speed: " + speedLabel;	//sss; //    
-	document.getElementById("display2").innerHTML = "characterheight: " + heightLabel; //hhh; //
-	document.getElementById("display3").innerHTML = "mouseX: " + mX + " mouseY: " + mY;  //mouseXY // 
+  	document.getElementById("display1").innerHTML = speedLabel;	//sss; //    
+	document.getElementById("display2").innerHTML = heightLabel; //hhh; //
+	//document.getElementById("display3").innerHTML = "mouseX: " + mX + " mouseY: " + mY;  //mouseXY // 
   }
   
     setInterval(valuedisplayer, 1);
