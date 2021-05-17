@@ -465,11 +465,18 @@ function forwardBackwardControl(thePlayer, theSelectedKey, curSpeed, theUpArrow)
 //  bodyMovement[0].start(playerDirection);
 //  bodyMovement[1].start(playerDirection); 
   
-  var forwardBackwardVals = 
+  /*var forwardBackwardVals = 
       {
         theDirection: playerDirection,
         theZMove: directionSign * (Math.cos(thePlayer.root.rotation.y)) * curSpeed / 50,
         theXMove: directionSign * (Math.sin(thePlayer.root.rotation.y)) * curSpeed / 50
+  }*/
+  
+  var forwardBackwardVals = 
+      {
+        theDirection: playerDirection,
+        theZMove: directionSign * (Math.cos(0)) * curSpeed / 50,
+        theXMove: directionSign * (Math.sin(0)) * curSpeed / 50
   }
   
   return forwardBackwardVals;
@@ -584,7 +591,7 @@ function keyEvent(event) {
         }
       
       
-	    playerControl(); 
+	    // playerControl(); 
        
 
 	  /*
