@@ -581,13 +581,45 @@ function keyEvent(event) {
     {
         if (key == uparrow || key == downarrow)
         { 
+          
+          /*
           var forwardBackVals = forwardBackwardControl(character, key, speed, uparrow);
           
           bodyMovement[0].start(forwardBackVals[theDirection]);
           bodyMovement[1].start(playerDirection[theDirection]); 
 
           zMove = forwardBackVals[theZMove];
-          xMove = forwardBackVals[theXMove];  
+          xMove = forwardBackVals[theXMove];
+          */
+          
+          
+          var playerDirection = "no"
+          var directionSign = 1;
+          
+          if (theSelectedKey == theUpArrow) 
+          {
+            // move character forwards
+            playerDirection = 'walk';
+          }
+          else
+          {
+            // move character backwards
+            playerDirection = 'walkbackwards';
+            directionSign = -1;
+          }
+          
+          var forwardBackwardVals =
+              {
+                theDirection: playerDirection,
+                theZMove: directionSign * (Math.cos(0)) * curSpeed / 50,
+                theXMove: directionSign * (Math.sin(0)) * curSpeed / 50
+              }
+          
+          bodyMovement[0].start(forwardBackwardVals[theDirection]);
+          bodyMovement[1].start(playerDirection[theDirection]); 
+
+          zMove = forwardBackwardVals[theZMove];
+          xMove = forwardBackwardVals[theXMove];
         }
       
       
