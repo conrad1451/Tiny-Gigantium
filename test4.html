@@ -69,10 +69,7 @@ the current angle that the legs are positioned-->
         var xBlockRoll = 0;
         var yBlockRoll = 0;
         var zBlockRoll = 0;
-		
-				var cameraPanFollowMouse = false;
   
-
 	var xPosi = 0;
 	var yPosi = 0;
 	var zPosi = 0;
@@ -194,10 +191,10 @@ the current angle that the legs are positioned-->
   
   
   
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //																						  	LOAD BLOCK		    																	 	//
-  //                													  																										      //
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////
+  //////////////////////
+  //	LOAD BLOCK    //
+  //                  //
+  //////////////////////
   	
   var blockSkin1 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
   var blockSkin2 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
@@ -380,11 +377,12 @@ the current angle that the legs are positioned-->
   }
   document.onkeypress = abcmoves
   */
-		
-	//////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //																							 CODE FOR CHARACTER	 											            	//
-  //                													  																										      //
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////
+  
+  ////////////////////////////
+  //	  	      	    //
+  //  CODE FOR CHARACTER    //
+  //                 	    //
+  ////////////////////////////
 	  
 	  
     var metaChar = false;
@@ -402,7 +400,6 @@ the current angle that the legs are positioned-->
     var s = 83;
     var f = 70;
     var l = 76;
-		var poundSymbol = 35;
    
     //A = 65, a = 97, Z = 90, 0 = 48, 9 = 57
     
@@ -441,121 +438,6 @@ function fallParabola() {
         tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
 } 
     
-		
-function forwardBackwardControl(thePlayer, theSelectedKey, curSpeed, theUpArrow)
-{ 
-  var playerDirection = "no"
-  var directionSign = 1;
-
-  if (theSelectedKey == theUpArrow) 
-  {
-    // move character forwards
-    playerDirection = 'walk';
-  }
-  else
-  {
-    // move character backwards
-    playerDirection = 'walkbackwards';
-    directionSign = -1;
-  }
-
-  /* TODO: I might have to figure out how to have function change
-    these values (via chaining) or to have them as inputs, edit the 
-    input (copies) and output those for further use*/
-//  bodyMovement[0].start(playerDirection);
-//  bodyMovement[1].start(playerDirection); 
-  
-  /*var forwardBackwardVals = 
-      {
-        theDirection: playerDirection,
-        theZMove: directionSign * (Math.cos(thePlayer.root.rotation.y)) * curSpeed / 50,
-        theXMove: directionSign * (Math.sin(thePlayer.root.rotation.y)) * curSpeed / 50
-  }*/
-  
-  var forwardBackwardVals = 
-      {
-        theDirection: playerDirection,
-        theZMove: directionSign * (Math.cos(0)) * curSpeed / 50,
-        theXMove: directionSign * (Math.sin(0)) * curSpeed / 50
-  }
-  
-  return forwardBackwardVals;
-}
-
-function rotateBodyControl(theSelectedKey, curSpeed, theDegrees)
-{
-  var directionSign = 1;
-
-  if (theSelectedKey == a) 
-  {
-    /* because the key will never be two values at a single time, this statement is useless here
-            if (key == downarrow) {
-	       // move character backwards
-               bodyMovement[0].start('walkbackwards');
-               bodyMovement[1].start('walkbackwards');
-               zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
-               xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
-             }
-             */
-  }
-  if (theSelectedKey == d) 
-  {
-    directionSign = -1;
-  }
-  
-  bodyMovement[0].start('walk');
-  bodyMovement[1].start('walk');
-  yRoll = directionSign * 0.5 * curSpeed * theDegrees;
-  
-  /* TODO: I might have to figure out how to have function change
-    these values (via chaining) or to have them as inputs, edit the 
-    input (copies) and output those for further use*/
-}
-
-function moveLeftRightControl(theSelectedKey, theDegrees) 
-{
-    var playerDirection = "none";
-    var directionSign = 1;
-  
-  if (theSelectedKey == theLeftArrow) 
-  {
-    // move character leftwards
-    playerDirection = 'strafeLeft';
-  }
-  else
-  {
-    // move character rightwards
-    playerDirection = 'strafeRight';
-    directionSign = -1;
-  }
-
-  // move character left
-  bodyMovement[0].start(playerDirection);
-  bodyMovement[1].start(playerDirection);
-  zMove = (Math.cos(character.root.rotation.y + directionSign * (90 * theDegrees) )) * 1 / 50;
-  xMove = (Math.sin(character.root.rotation.y + directionSign * (90 * theDegrees) )) * 1 / 50;
-}   
-
-
-
-function playerControl(upwardArrow, downWordArrow)
-{/*
-  if (key == uparrow || key == downarrow)
-  { forwardBackwardControl(key, speed, uparrow); }*/
-  
-  if (key == a || key == d)
-  { rotateBodyControl(key, speed, degrees); }
-  
-  if (key == leftarrow || key == rightarrow)
-  { moveLeftRightControl(theSelectedKey, theDegrees); }
-  
-  if (key == spacebar) 
-  {
-    jumpParabola();
-       // make character jump
-  }
-}
-		
 //    var speed = 1;
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
@@ -575,57 +457,77 @@ function keyEvent(event) {
     metaChar = true;
   }
   if (key != exampleKey) {
-    if (metaChar) 
-    { metaChar = false; } 
-    else 
-    {
-        if (key == uparrow || key == downarrow)
-        { 
-          
-          /*
-          var forwardBackVals = forwardBackwardControl(character, key, speed, uparrow);
-          
-          bodyMovement[0].start(forwardBackVals[theDirection]);
-          bodyMovement[1].start(playerDirection[theDirection]); 
-
-          zMove = forwardBackVals[theZMove];
-          xMove = forwardBackVals[theXMove];
-          */
-          
-          
-          var playerDirection = "no"
-          var directionSign = 1;
-          
-          if (theSelectedKey == theUpArrow) 
-          {
-            // move character forwards
-            playerDirection = 'walk';
-          }
-          else
-          {
-            // move character backwards
-            playerDirection = 'walkbackwards';
-            directionSign = -1;
-          }
-          
-          var forwardBackwardVals =
-              {
-                theDirection: playerDirection,
-                theZMove: directionSign * (Math.cos(0)) * speed / 50,
-                theXMove: directionSign * (Math.sin(0)) * speed / 50
-              }
-          
-          bodyMovement[0].start(playerDirection);
-          bodyMovement[1].start(playerDirection);
-
-          zMove = directionSign * (Math.cos(character.root.rotation.y)) * speed / 50,
-          xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50,
-        }
+    if (metaChar) {
+      metaChar = false;
+	    
+    } else {
+	    
+	    
+      if (key == uparrow) {
+	 // move character forwards   
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         zMove =  (Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove =  (Math.sin(character.root.rotation.y)) * speed / 50;
+         
+    }
+      if (key == downarrow) {
+	 // move character backwards
+         bodyMovement[0].start('walkbackwards');
+         bodyMovement[1].start('walkbackwards');
+         zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+         xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+         
+      }
       
-      
-	    // playerControl(); 
+      if (key == a) {
+	 // rotate character left
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         yRoll = 1 * 0.5  * speed * degrees;
+	      
+	      /* because the key will never be two values at a single time, this statement is useless here
+            if (key == downarrow) {
+	       // move character backwards
+               bodyMovement[0].start('walkbackwards');
+               bodyMovement[1].start('walkbackwards');
+               zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+               xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+         
+             }
+               */
+      }
+ 
+	    
+      if (key == d) {
+	 // rotate character right
+         bodyMovement[0].start('walk');
+         bodyMovement[1].start('walk');
+         yRoll = -1 * 0.5 * speed * degrees;
+         
+      }
+     
+      if (key == leftarrow) {
+	    // move character left
+            bodyMovement[0].start('strafeLeft');
+            bodyMovement[1].start('strafeLeft');
+            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
+            
+    }   
+      if (key == rightarrow) {
+	    // move character right
+            bodyMovement[0].start('strafeRight');
+            bodyMovement[1].start('strafeRight');
+            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
+            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
+            
+          }
        
-
+      if (key == spacebar) {
+         jumpParabola();
+       // make character jump
+      }	 
 	  /*
 	  trying to use a loop to control speed keys failed
 	for (i = 49, i < 57, i++) {
@@ -635,19 +537,21 @@ function keyEvent(event) {
 	}
 	    
 	    */
-
-      // speed modification
-      if (key2 == 49) 
-      { speed = (1/2) * 2; }
-      
-      else if (key2 >= 50 && key2 <=56) 
-      { speed = (key2 - 48) * 2; }
+	    if (key2 == 49) {
+			speed = (1/2) * 2;
+		}
+		else if (key2 >= 50 && key2 <=56) {
+			speed = (key2 - 48) * 2;
+	    }
 	
-	 //////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //																						  	CODE FOR BLOCK 		    																	 	//
-  //                													  																										      //
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////
+	    
  
+  ////////////////////////
+  //	  	            //
+  //  CODE FOR BLOCK    //
+  //                    //
+  ////////////////////////
+	    
 	    
 // next 3 if statements control the rotation of the cube.    
 	    
@@ -661,7 +565,11 @@ function keyEvent(event) {
       
       if (key == 67) { //rotation along z axis, key c
       	zBlockRoll = 15/50 * speed * degrees;
-      } 
+      }
+    
+       
+	    
+	    
       /*    
       if(key == f) {
        	xRoll = 0.025;
@@ -675,7 +583,9 @@ function keyEvent(event) {
       if(key == l) {
        	xRoll = 0.25;
        }       
-       */ 
+       */
+       
+      
     }
    }
      
@@ -754,10 +664,6 @@ function keyEvent(event) {
     }
     */
 }
-		
-		
-		
-		
 onkeydown = function() {
 	keyEvent(event);
 }
