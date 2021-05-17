@@ -615,11 +615,11 @@ function keyEvent(event) {
                 theXMove: directionSign * (Math.sin(0)) * curSpeed / 50
               }
           
-          bodyMovement[0].start(forwardBackwardVals[theDirection]);
-          bodyMovement[1].start(playerDirection[theDirection]); 
+          bodyMovement[0].start(playerDirection);
+          bodyMovement[1].start(playerDirection);
 
-          zMove = forwardBackwardVals[theZMove];
-          xMove = forwardBackwardVals[theXMove];
+          zMove = directionSign * (Math.cos(character.root.rotation.y)) * curSpeed / 50,
+          xMove = directionSign * (Math.sin(character.root.rotation.y)) * curSpeed / 50,
         }
       
       
