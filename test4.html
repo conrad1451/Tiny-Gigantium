@@ -463,22 +463,26 @@ function keyEvent(event) {
     } else {
 	    
 	    
-      if (key == uparrow) {
-	 // move character forwards   
-         bodyMovement[0].start('walk');
-         bodyMovement[1].start('walk');
-         zMove =  (Math.cos(character.root.rotation.y)) * speed / 50;
-         xMove =  (Math.sin(character.root.rotation.y)) * speed / 50;
-         
-    }
-      if (key == downarrow) {
-	 // move character backwards
-         bodyMovement[0].start('walkbackwards');
-         bodyMovement[1].start('walkbackwards');
-         zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
-         xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
-         
-      }
+  var playerDirection = "no"
+  var directionSign = 1;
+
+  if (theSelectedKey == theUpArrow) 
+  {
+    // move character forwards
+    playerDirection = 'walk';
+  }
+  else
+  {
+    // move character backwards
+    playerDirection = 'walkbackwards';
+    directionSign = -1;
+  }
+
+  /* TODO: I might have to figure out how to have function change
+    these values (via chaining) or to have them as inputs, edit the 
+    input (copies) and output those for further use*/
+  bodyMovement[0].start(playerDirection);
+  bodyMovement[1].start(playerDirection); 
       
       if (key == a) {
 	 // rotate character left
