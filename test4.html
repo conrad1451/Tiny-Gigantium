@@ -442,8 +442,8 @@ function fallParabola() {
 } 
     
 		
-function forwardBackwardControl(theSelectedKey, curSpeed, theUpArrow)
-{
+function forwardBackwardControl(thePlayer, theSelectedKey, curSpeed, theUpArrow)
+{ 
   var playerDirection = "no"
   var directionSign = 1;
 
@@ -462,10 +462,17 @@ function forwardBackwardControl(theSelectedKey, curSpeed, theUpArrow)
   /* TODO: I might have to figure out how to have function change
     these values (via chaining) or to have them as inputs, edit the 
     input (copies) and output those for further use*/
-  bodyMovement[0].start(playerDirection);
-  bodyMovement[1].start(playerDirection);
-  zMove =  directionSign * (Math.cos(character.root.rotation.y)) * curSpeed / 50;
-  xMove =  directionSign * (Math.sin(character.root.rotation.y)) * curSpeed / 50;
+//  bodyMovement[0].start(playerDirection);
+//  bodyMovement[1].start(playerDirection); 
+  
+  var forwardBackwardVals = 
+      {
+        theDirection: playerDirection,
+        theZMove: directionSign * (Math.cos(thePlayer.root.rotation.y)) * curSpeed / 50,
+        theXMove: directionSign * (Math.sin(thePlayer.root.rotation.y)) * curSpeed / 50
+  }
+  
+  return forwardBackwardVals;
 }
 
 function rotateBodyControl(theSelectedKey, curSpeed, theDegrees)
@@ -525,9 +532,9 @@ function moveLeftRightControl(theSelectedKey, theDegrees)
 
 
 function playerControl(upwardArrow, downWordArrow)
-{
+{/*
   if (key == uparrow || key == downarrow)
-  { forwardBackwardControl(key, speed, uparrow); }
+  { forwardBackwardControl(key, speed, uparrow); }*/
   
   if (key == a || key == d)
   { rotateBodyControl(key, speed, degrees); }
@@ -565,6 +572,18 @@ function keyEvent(event) {
     { metaChar = false; } 
     else 
     {
+        if (key == uparrow || key == downarrow)
+        { 
+          var forwardBackVals = forwardBackwardControl(character, key, speed, uparrow);
+          
+          bodyMovement[0].start(forwardBackVals[theDirection]);
+          bodyMovement[1].start(playerDirection[theDirection]); 
+
+          zMove = forwardBackVals[theZMove]);
+          xMove = forwardBackVals[theXMove]);  
+        }
+      
+      
 	    playerControl(); 
        
 
