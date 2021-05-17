@@ -495,15 +495,7 @@ function keyEvent(event) {
 				var directionSign = 1;
 				if (key == a)
 				{
-					/* because the key will never be two values at a single time, this statement is useless here
-					if (key == downarrow) {
-					// move character backwards
-					bodyMovement[0].start('walkbackwards');
-					bodyMovement[1].start('walkbackwards');
-					zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
-					xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
-					}
-					*/
+					// nothing to do
 				}
 				if (key == d)
 				{
@@ -518,26 +510,7 @@ function keyEvent(event) {
 				these values (via chaining) or to have them as inputs, edit the
 				input (copies) and output those for further use */
 			}
-			
-	/*		
-			
-      if (key == a) {
-	 // rotate character left
-         bodyMovement[0].start('walk');
-         bodyMovement[1].start('walk');
-         yRoll = 1 * 0.5  * speed * degrees;
 	 
-      }
- 
-	    
-      if (key == d) {
-	 // rotate character right
-         bodyMovement[0].start('walk');
-         bodyMovement[1].start('walk');
-         yRoll = -1 * 0.5 * speed * degrees;
-         
-      }*/
-     
       if (key == leftarrow) {
 	    // move character left
             bodyMovement[0].start('strafeLeft');
