@@ -611,15 +611,15 @@ function keyEvent(event) {
           var forwardBackwardVals =
               {
                 theDirection: playerDirection,
-                theZMove: directionSign * (Math.cos(0)) * curSpeed / 50,
-                theXMove: directionSign * (Math.sin(0)) * curSpeed / 50
+                theZMove: directionSign * (Math.cos(0)) * speed / 50,
+                theXMove: directionSign * (Math.sin(0)) * speed / 50
               }
           
           bodyMovement[0].start(playerDirection);
           bodyMovement[1].start(playerDirection);
 
-          zMove = directionSign * (Math.cos(character.root.rotation.y)) * curSpeed / 50,
-          xMove = directionSign * (Math.sin(character.root.rotation.y)) * curSpeed / 50,
+          zMove = directionSign * (Math.cos(character.root.rotation.y)) * speed / 50,
+          xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50,
         }
       
       
