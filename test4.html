@@ -484,7 +484,10 @@ function keyEvent(event) {
 				these values (via chaining) or to have them as inputs, edit the
 				input (copies) and output those for further use*/
 				bodyMovement[0].start(playerDirection);
-				bodyMovement[1].start(playerDirection); 
+				bodyMovement[1].start(playerDirection);
+				
+				zMove = directionSign * (Math.cos(character.root.rotation.y)) * speed / 50;
+				xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50;
 			}
 			
 			
