@@ -490,23 +490,43 @@ function keyEvent(event) {
 				xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50;
 			}
 			
+			if (key == a || key == d)
+			{
+				var directionSign = 1;
+				if (theSelectedKey == a)
+				{
+					/* because the key will never be two values at a single time, this statement is useless here
+					if (key == downarrow) {
+					// move character backwards
+					bodyMovement[0].start('walkbackwards');
+					bodyMovement[1].start('walkbackwards');
+					zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
+					xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
+					}
+					*/
+				}
+				if (theSelectedKey == d)
+				{
+					directionSign = -1;
+				}
+				
+				bodyMovement[0].start('walk');
+				bodyMovement[1].start('walk');
+				yRoll = directionSign * 0.5 * curSpeed * theDegrees;
+				
+				/* TODO: I might have to figure out how to have function change
+				these values (via chaining) or to have them as inputs, edit the
+				input (copies) and output those for further use */
+			}
+			
+	/*		
 			
       if (key == a) {
 	 // rotate character left
          bodyMovement[0].start('walk');
          bodyMovement[1].start('walk');
          yRoll = 1 * 0.5  * speed * degrees;
-	      
-	      /* because the key will never be two values at a single time, this statement is useless here
-            if (key == downarrow) {
-	       // move character backwards
-               bodyMovement[0].start('walkbackwards');
-               bodyMovement[1].start('walkbackwards');
-               zMove = -(Math.cos(character.root.rotation.y)) * speed / 50;
-               xMove = -(Math.sin(character.root.rotation.y)) * speed / 50;
-         
-             }
-               */
+	 
       }
  
 	    
@@ -516,7 +536,7 @@ function keyEvent(event) {
          bodyMovement[1].start('walk');
          yRoll = -1 * 0.5 * speed * degrees;
          
-      }
+      }*/
      
       if (key == leftarrow) {
 	    // move character left
