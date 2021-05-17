@@ -493,7 +493,7 @@ function keyEvent(event) {
 			if (key == a || key == d)
 			{
 				var directionSign = 1;
-				if (theSelectedKey == a)
+				if (key == a)
 				{
 					/* because the key will never be two values at a single time, this statement is useless here
 					if (key == downarrow) {
@@ -505,14 +505,14 @@ function keyEvent(event) {
 					}
 					*/
 				}
-				if (theSelectedKey == d)
+				if (key == d)
 				{
 					directionSign = -1;
 				}
 				
 				bodyMovement[0].start('walk');
 				bodyMovement[1].start('walk');
-				yRoll = directionSign * 0.5 * curSpeed * theDegrees;
+				yRoll = directionSign * 0.5 * speed * degrees;
 				
 				/* TODO: I might have to figure out how to have function change
 				these values (via chaining) or to have them as inputs, edit the
