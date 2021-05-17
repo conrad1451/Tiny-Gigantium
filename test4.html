@@ -510,7 +510,30 @@ function keyEvent(event) {
 				these values (via chaining) or to have them as inputs, edit the
 				input (copies) and output those for further use */
 			}
-	 
+			
+			if (key == leftarrow || key == rightarrow)
+			{
+				var playerDirection = "none";
+				var directionSign = ;
+				if (key == leftarrow)
+				{
+					// move character leftwards
+					playerDirection = 'strafeLeft';
+				}
+				else
+				{
+					// move character rightwards
+					playerDirection = 'strafeRight';
+					directionSign = -1;
+				}
+				
+				bodyMovement[0].start(playerDirection);
+				bodyMovement[1].start(playerDirection);
+				zMove = (Math.cos(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
+				xMove = (Math.sin(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
+			}
+			
+		/*	
       if (key == leftarrow) {
 	    // move character left
             bodyMovement[0].start('strafeLeft');
@@ -525,8 +548,7 @@ function keyEvent(event) {
             bodyMovement[1].start('strafeRight');
             zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
             xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
-            
-          }
+          }*/
        
       if (key == spacebar) {
          jumpParabola();
