@@ -437,7 +437,34 @@ function fallParabola() {
         character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
         tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
 } 
-    
+
+function forwardBackwardControl(thePlayer, theSelectedKey, curSpeed, theUpArrow)
+{ 
+  var playerDirection = "no"
+  var directionSign = 1;
+
+  if (theSelectedKey == theUpArrow) 
+  {
+    // move character forwards
+    playerDirection = 'walk';
+  }
+  else
+  {
+    // move character backwards
+    playerDirection = 'walkbackwards';
+    directionSign = -1;
+  }
+ var forwardBackwardVals = 
+      {
+        theDirection: playerDirection,
+        theZMove: directionSign * (Math.cos(thePlayer.root.rotation.y)) * curSpeed / 50,
+        theXMove: directionSign * (Math.sin(thePlayer.root.rotation.y)) * curSpeed / 50
+  } 
+  return forwardBackwardVals;
+}
+	  
+	  
+	  
 //    var speed = 1;
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
@@ -465,6 +492,7 @@ function keyEvent(event) {
 		{
 			if (key == uparrow || key == downarrow)
 			{
+				/*
 				var playerDirection = "no";
 				var directionSign = 1;
 				
@@ -480,14 +508,29 @@ function keyEvent(event) {
 					directionSign = -1;
 				}
 				
-				/* TODO: I might have to figure out how to have function change
-				these values (via chaining) or to have them as inputs, edit the
-				input (copies) and output those for further use*/
+				// TODO: I might have to figure out how to have function change
+				// these values (via chaining) or to have them as inputs, edit the
+				// input (copies) and output those for further use
 				bodyMovement[0].start(playerDirection);
 				bodyMovement[1].start(playerDirection);
 				
 				zMove = directionSign * (Math.cos(character.root.rotation.y)) * speed / 50;
 				xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50;
+				*/
+				
+				
+				
+				forBackVals.theZMove
+				
+				var forBackVals = forwardBackwardControl(key, speed, uparrow);
+				
+				bodyMovement[0].start(forBackVals.theDirection);
+				bodyMovement[1].start(playerDirection);
+				
+				zMove = forBackVals.theZMove;
+				xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50;
+				
+				
 			}
 			
 			if (key == a || key == d)
@@ -532,23 +575,7 @@ function keyEvent(event) {
 				zMove = (Math.cos(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
 				xMove = (Math.sin(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
 			}
-			
-		/*	
-      if (key == leftarrow) {
-	    // move character left
-            bodyMovement[0].start('strafeLeft');
-            bodyMovement[1].start('strafeLeft');
-            zMove = (Math.cos(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
-            xMove = (Math.sin(character.root.rotation.y + (90 * degrees) )) * 1 / 50;
-            
-    }   
-      if (key == rightarrow) {
-	    // move character right
-            bodyMovement[0].start('strafeRight');
-            bodyMovement[1].start('strafeRight');
-            zMove = (Math.cos(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
-            xMove = (Math.sin(character.root.rotation.y - (90 * degrees) )) * 1 / 50;
-          }*/
+			 
        
       if (key == spacebar) {
          jumpParabola();
