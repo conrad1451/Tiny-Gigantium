@@ -465,8 +465,34 @@ function forwardBackwardControl(playerDirectionFacing, theSelectedKey, curSpeed,
   return forwardBackwardVals;
 }
 	  
+function leftRightControl(playerDirectionFacing, theSelectedKey, curSpeed, theLeftArrow, theDegrees)
+{ 
+  var playerDirection = "no"
+  var directionSign = 1; 
+  
+  if (theSelectedKey == theLeftArrow) 
+  {
+    // move character leftwards
+    playerDirection = 'strafeLeft';
+  }
+  else
+  {
+    // move character rightwards
+    playerDirection = 'strafeRight';
+    directionSign = -1;
+  }
+   
+ var leftRightVals = 
+      {
+        theDirection: playerDirection,
+        theZMove: 1 * (Math.cos(playerDirectionFacing + directionSign * (90 * theDegrees) )) * 1 / 50,
+        theXMove: 1 * (Math.sin(playerDirectionFacing + directionSign * (90 * theDegrees) )) * 1 / 50
+  } 
+  return leftRightVals;
+}
 	  
-	  
+    
+    
 //    var speed = 1;
 function keyEvent(event) {
 //  onkeydown = onkeyup = function(event){
@@ -494,32 +520,6 @@ function keyEvent(event) {
 		{
 			if (key == uparrow || key == downarrow)
 			{
-				/*
-				var playerDirection = "no";
-				var directionSign = 1;
-				
-				if (key == uparrow)
-				{
-					// move character forwards
-					playerDirection = 'walk';
-				}
-				else
-				{
-					// move character backwards
-					playerDirection = 'walkbackwards';
-					directionSign = -1;
-				}
-				
-				// TODO: I might have to figure out how to have function change
-				// these values (via chaining) or to have them as inputs, edit the
-				// input (copies) and output those for further use
-				bodyMovement[0].start(playerDirection);
-				bodyMovement[1].start(playerDirection);
-				
-				zMove = directionSign * (Math.cos(character.root.rotation.y)) * speed / 50;
-				xMove = directionSign * (Math.sin(character.root.rotation.y)) * speed / 50;
-				*/
-				
 				var forBackVals = forwardBackwardControl(character.root.rotation.y, key, speed, uparrow);
         
         bodyMovement[0].start(forBackVals.theDirection);
@@ -554,24 +554,15 @@ function keyEvent(event) {
 			
 			if (key == leftarrow || key == rightarrow)
 			{
-				var playerDirection = "none";
-				var directionSign = 1;
-				if (key == leftarrow)
-				{
-					// move character leftwards
-					playerDirection = 'strafeLeft';
-				}
-				else
-				{
-					// move character rightwards
-					playerDirection = 'strafeRight';
-					directionSign = -1;
-				}
-				
-				bodyMovement[0].start(playerDirection);
-				bodyMovement[1].start(playerDirection);
-				zMove = (Math.cos(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
-				xMove = (Math.sin(character.root.rotation.y + directionSign * (90 * degrees) )) * 1 / 50;
+				var leftRightVals = leftRightControl(character.root.rotation.y, key, speed, leftarrow, degrees);
+        
+        bodyMovement[0].start(leftRightVals.theDirection);
+        bodyMovement[1].start(leftRightVals.theDirection);
+       
+        globalVarToShow = leftRightVals.theDirection;
+        
+				zMove = leftRightVals.theZMove;
+				xMove = leftRightVals.theXMove;	
 			}
 			 
        
