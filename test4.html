@@ -546,10 +546,6 @@ function keyEvent(event) {
 				bodyMovement[0].start('walk');
 				bodyMovement[1].start('walk');
 				yRoll = directionSign * 0.5 * speed * degrees;
-				
-				/* TODO: I might have to figure out how to have function change
-				these values (via chaining) or to have them as inputs, edit the
-				input (copies) and output those for further use */
 			}
 			
 			if (key == leftarrow || key == rightarrow)
