@@ -11,14 +11,7 @@
         */
  
   	var degrees = Math.PI/180;
-        var cheese = 0.00;
-        var xMove = 0;
-        var yMove = 0;
-        var zMove = 0;
-        var xRoll = 0;
-        var yRoll = 0;
-        var zRoll = 0;
-  
+ 
         var xBlockRoll = 0;
         var yBlockRoll = 0;
         var zBlockRoll = 0;
@@ -27,11 +20,7 @@
 	var yPosi = 0;
 	var zPosi = 0;
 	
-	var xMoverz = 0;
-        var aGraphP = 16;
-        var aGraphSqrt = 0.01;
-        var bGraphSqrt = 0.6;
-        var xGraphSqrt = 0;
+ 
         
         var speedUp = 0;
 	  
@@ -150,6 +139,8 @@
   scene.add(dirtBlock37.root); scene.add(dirtBlock38.root); scene.add(dirtBlock39.root); scene.add(dirtBlock40.root);
 	  
 	  /**/  
+
+// FIXME: the following code block is for using a loop to add p blocks to the scene. It didn't work for some reason
 	  /*
   for(p = 0, p < landscape.length, p++) {
   	scene.add(landscape[p].root);
@@ -170,6 +161,8 @@
 	j += 10;
   };	  
 	 */ 
+
+	// TODO: find out what I meant by following line comment
 	  // the a = b = c = value strategy works!
 	  
 	var cubeSpace = 0.5;
