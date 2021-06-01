@@ -137,7 +137,7 @@ the current angle that the legs are positioned-->
   //////////////////////////////////////////////////////////////////////////////////
   //		load Character							//
   //////////////////////////////////////////////////////////////////////////////////
-  
+  /*
   var character = new THREEx.TinygigantiumChar(skinner[0]);
   scene.add(character.root);
   
@@ -156,25 +156,27 @@ the current angle that the legs are positioned-->
     headMovement[0].update(delta, now)
     headMovement[1].update(delta, now)
   })
-  
-  headAnimsC.start('still');  // headMovement[0].start('still'); /* could also be headMovement*/  
-  headAnimsT.start('still');  // headMovement[1].start('still'); /* could also be headMovement*/  
-  
+  */
+    
+  //headAnimsC.start('still');  // headMovement[0].start('still'); /* could also be headMovement*/  
+ // headAnimsT.start('still');  // headMovement[1].start('still'); /* could also be headMovement*/  
+ /* 
   var switchHeadValue = function(value) {
     headMovement[0].start(value)
     headMovement[1].start(value)
   }
-  
+  */
   // init bodyAnims
-  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
+/*  var bodyAnimsC = new THREEx.TinygigantiumCharBodyAnimations(character);
   var bodyAnimsT = new THREEx.TinygigantiumCharBodyAnimations(tinyboy);
   var bodyMovement = [bodyAnimsC, bodyAnimsT];
-  
+  */
   updateFcts.push(function(delta, now) {
+    /*
     bodyMovement[0].update(delta, now)
-    bodyMovement[1].update(delta, now)
+    bodyMovement[1].update(delta, now)*/
   })
-	  
+	  /*
   var switchBodyValue = function(value) {
     bodyMovement[0].start(value)
     bodyMovement[1].start(value)
@@ -190,7 +192,7 @@ the current angle that the legs are positioned-->
     tinyboy.root.position.y = 0;  
     tinyboy.root.position.z = 0;
     tinyboy.root.rotation.y = 180 * degrees;
-  
+  */
   
   
   //////////////////////
@@ -405,306 +407,9 @@ the current angle that the legs are positioned-->
    
     //A = 65, a = 97, Z = 90, 0 = 48, 9 = 57
     
-function jumpParabola() {
-    if(xMoverz >= 0.00001) {
-        bodyMovement[0].start('jump');
-        bodyMovement[1].start('jump');
-    }
-	
-    speedUp = 0.000001;       
-    if(xMoverz < 0.00001) {
-        xMoverz += speedUp;	
-    } else {
-        xMoverz += 0.01;	
-    }
-         
-        character.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-        tinyboy.root.position.y = -aGraphP * (xMoverz-Math.sqrt(characterHeight/aGraphP)) * (xMoverz-Math.sqrt(characterHeight/aGraphP)) + characterHeight;
-	
-}    
-    
-function fallParabola() {
-    if(xMoverz >= 0.00001) {
-        bodyMovement[0].start('fall');
-        bodyMovement[1].start('fall');
-    }
-	speedUp = 0.000001;       
-        
-    if(xMoverz < 0.00001) {
-        xMoverz += speedUp;	
-     } else {
-         xMoverz += 0.01;	
-     }
-         
-        character.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
-        tinyboy.root.position.y = -aGraphP * xMoverz * xMoverz + characterHeight;
-} 
 
-function forwardBackwardControl(playerDirectionFacing, theSelectedKey, curSpeed, theUpArrow)
-{ 
-  var playerDirection = "no"
-  var directionSign = 1;
-
-  if (theSelectedKey == theUpArrow) 
-  {
-    // move character forwards
-    playerDirection = 'walk';
-  }
-  else
-  {
-    // move character backwards
-    playerDirection = 'walkbackwards';
-    directionSign = -1;
-  }
- var forwardBackwardVals = 
-      {
-        theDirection: playerDirection,
-        theZMove: directionSign * (Math.cos(playerDirectionFacing)) * curSpeed / 50,
-        theXMove: directionSign * (Math.sin(playerDirectionFacing)) * curSpeed / 50
-  } 
-  return forwardBackwardVals;
-}
-	  
-function leftRightControl(playerDirectionFacing, theSelectedKey, curSpeed, theLeftArrow, theDegrees)
-{ 
-  var playerDirection = "no"
-  var directionSign = 1; 
-  
-  if (theSelectedKey == theLeftArrow) 
-  {
-    // move character leftwards
-    playerDirection = 'strafeLeft';
-  }
-  else
-  {
-    // move character rightwards
-    playerDirection = 'strafeRight';
-    directionSign = -1;
-  }
-   
- var leftRightVals = 
-      {
-        theDirection: playerDirection,
-        theZMove: 1 * (Math.cos(playerDirectionFacing + directionSign * (90 * theDegrees) )) * 1 / 50,
-        theXMove: 1 * (Math.sin(playerDirectionFacing + directionSign * (90 * theDegrees) )) * 1 / 50
-  } 
-  return leftRightVals;
-}
-	  
     
     
-//    var speed = 1;
-function keyEvent(event) {
-//  onkeydown = onkeyup = function(event){
-  var key = event.keyCode || event.which;	
-  var keychar = String.fromCharCode(key);
- // map[key] = event.type == 'keydown';
-	  
-	//Option 1: The mapping of keys to different key events worked, each key event worked independently 
-	//and they worked together. They just didn't fulfill the purpose. 
-	
-	
-	var key2 = event.keyCode || event.which;	
- 	var keychar2 = String.fromCharCode(key2);
-	
-	
-  if (key == exampleKey) 
-  {
-    metaChar = true;
-  }
-  if (key != exampleKey) 
-  {
-    if (metaChar) 
-    {  metaChar = false; } 
-		else 
-		{
-			if (key == uparrow || key == downarrow)
-			{
-				var forBackVals = forwardBackwardControl(character.root.rotation.y, key, speed, uparrow);
-        
-        bodyMovement[0].start(forBackVals.theDirection);
-        bodyMovement[1].start(forBackVals.theDirection);
-       
-        globalVarToShow = forBackVals.theDirection;
-        
-				zMove = forBackVals.theZMove;
-				xMove = forBackVals.theXMove;	
-			}
-			
-			if (key == a || key == d)
-			{
-				var directionSign = 1;
-				if (key == a)
-				{
-					// nothing to do
-				}
-				if (key == d)
-				{
-					directionSign = -1;
-				}
-				
-				bodyMovement[0].start('walk');
-				bodyMovement[1].start('walk');
-				yRoll = directionSign * 0.5 * speed * degrees;
-			}
-			
-			if (key == leftarrow || key == rightarrow)
-			{
-				var leftRightVals = leftRightControl(character.root.rotation.y, key, speed, leftarrow, degrees);
-        
-        bodyMovement[0].start(leftRightVals.theDirection);
-        bodyMovement[1].start(leftRightVals.theDirection);
-       
-        globalVarToShow = leftRightVals.theDirection;
-        
-				zMove = leftRightVals.theZMove;
-				xMove = leftRightVals.theXMove;	
-			}
-			 
-       
-      if (key == spacebar) {
-         jumpParabola();
-       // make character jump
-      }	 
-	  /*
-	  trying to use a loop to control speed keys failed
-	for (i = 49, i < 57, i++) {
-		if (key2 == i) {
-			speed = (i - 48) * 2;
-	    }
-	}
-	    
-	    */
-	    if (key2 == 49) {
-			speed = (1/2) * 2;
-		}
-		else if (key2 >= 50 && key2 <=56) {
-			speed = (key2 - 48) * 2;
-	    }
-	
-	    
- 
-  ////////////////////////
-  //	  	            //
-  //  CODE FOR BLOCK    //
-  //                    //
-  ////////////////////////
-	    
-	    
-// next 3 if statements control the rotation of the cube.    
-	    
-      if (key == 90) { //rotation along x axis, key z
-      	xBlockRoll = 15/50 * speed * degrees;
-      }
-      
-      if (key == 88) {//rotation along y axis, key x
-      	yBlockRoll = 15/50 * speed * degrees;
-      }
-      
-      if (key == 67) { //rotation along z axis, key c
-      	zBlockRoll = 15/50 * speed * degrees;
-      }
-    
-       
-	    
-	    
-      /*    
-      if(key == f) {
-       	xRoll = 0.025;
-       	if (character.root.rotation.x >= 90 * degrees) {
-       		xRoll = 0;
-       	}
-       }
-      if(key == s) {
-       	character.root.rotation.x = 79 * degrees;
-       }
-      if(key == l) {
-       	xRoll = 0.25;
-       }       
-       */
-       
-      
-    }
-   }
-     
-      onkeyup = function() {
-        if(key >= leftarrow && key <= downarrow) {
-        bodyMovement[0].start('stand');
-        bodyMovement[1].start('stand');
-        xMove = 0;
-        zMove = 0;
-        yRoll = 0;
-        // alert(characterHeight);  // works!!
-      }
-      	if (key == 54) {
-      	  speed = 6*2;
-        }
-	      
-        if(key == a || key == d) {
-        bodyMovement[0].start('stand');
-        bodyMovement[1].start('stand');
-        yRoll = 0;
-        xMove = 0;
-        zMove = 0;
-		
-        } 
-	      /*
-        if(key == d) {
-        bodyMovement[0].start('stand');
-        bodyMovement[1].start('stand');
-        yRoll = 0;
-        } 
-        */
-	      
-        /*
-        if(key == f) {
-         character.root.rotation.x = 0;
-         xRoll = 0;
-        }
-        if(key == s) {
-         character.root.rotation.x = 0;
-         xRoll = 0;       	
-        }
-        if(key == l) {
-        yMove = Math.cos(character.root.rotation.x);
-        zMove = Math.sin(character.root.rotation.x);
-        xRoll = 0;
-        }
-        */
-        
-        if (key == spacebar) {
-         bodyMovement[0].start('stand');
-         bodyMovement[1].start('stand');
-        /*
-         xGraphSqrt = 0;
-         speedUp = 0;
-        */
-         xMoverz += 0;
-        }
-        
-        if (key == 90) {
-          xBlockRoll = 0;
-        }
-      
-        if (key == 88) {
-      	  yBlockRoll = 0;
-        }
-      
-        if (key == 67) {
-      	  zBlockRoll = 0;
-        }
-	      
-        
-    }
-    /*
-    if(key == 40){
-      alert(1);  // works!!
-    }
-    */
-}
-onkeydown = function() {
-	keyEvent(event);
-}
 function metaKeyUp (event) {
   var key = event.keyCode || event.which;
   if (key == exampleKey) {
@@ -740,12 +445,12 @@ function metaKeyUp (event) {
     {
       //var testingz = ["speed: " + speed + " "]; //, "keychar: " + keychar + " ", "zMovers: " + "filler" + " "];
       var sss = speed;
-      var hh = character.root.position.y;
+      var hh = 0; // i replacedd this val with 0 for filler character.root.position.y;
       
       var cSpeed = sss.toString();
       var cVertPos = hh.toString();
       
-      var holderThis1 = globalVarToShow.toString();
+      var holderThis1 = 0; // i replacedd this val with 0 for filler globalVarToShow.toString();
       
       //float hhhh = hh;    // doesn't work, dont know why
 	    
@@ -787,21 +492,7 @@ function metaKeyUp (event) {
      
    // camera.position.y += cheese; 
     
-      character.root.position.x += xMove;
-      character.root.position.y += yMove;
-      character.root.position.z += zMove;
-      character.root.rotation.x += xRoll;
-      character.root.rotation.y += yRoll;
-      character.root.rotation.z += zRoll;
-      
-	  
-      tinyboy.root.position.x += xMove;
-      tinyboy.root.position.y += yMove;
-      tinyboy.root.position.z += zMove;
-	  
-      tinyboy.root.rotation.x += xRoll;
-      tinyboy.root.rotation.y += yRoll;
-      tinyboy.root.rotation.z += zRoll;
+
       
 	  
       dirtBlock1.root.rotation.x += xBlockRoll;
