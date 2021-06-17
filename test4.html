@@ -52,7 +52,7 @@ the current angle that the legs are positioned-->
 
 var globalVarToShow = 0;
 
-var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
+var skinSource = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
 var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
 
 
@@ -63,8 +63,8 @@ function sq (aNumber) {
 aNumber * aNumber;
 }	
 */
-	
-	
+
+
 var loadSkins = false;//false;	
 
 var degrees = Math.PI/180;
@@ -131,10 +131,14 @@ container = document.getElementById('container');
 container.appendChild(renderer.domElement);
 */
 
+
+var skinner = [];
 	
-var skinner = "";
-	if(loadSkins)
-	{skinner = [skinSite + choices[0], skinSite + choices[1]]};
+if(loadSkins)
+{
+skinner.push(skinSource + choices[0]);
+skinner.push(skinSource + choices[1]);
+};
 
 /*
 choice 0 - conrad w/ purple shirt, jeans 
@@ -146,10 +150,21 @@ choice 1 - conrad w/ green shirt, jeans
 //		load Character							//
 //////////////////////////////////////////////////////////////////////////////////
 
-var character = new THREEx.TinygigantiumChar(skinner[0]);
-scene.add(character.root);
 
-var tinyboy = new THREEx.TinygigantiumChar();
+var firstPlayerInput;
+var secondPlayerInput;
+	
+if(loadSkins)
+{
+	firstPlayerInput = skinner[0];
+	secondPlayerInput = skinner[1];
+}
+	
+var character = new THREEx.TinygigantiumChar(firstPlayerInput);
+var tinyboy = new THREEx.TinygigantiumChar(secondPlayerInput);
+
+	
+scene.add(character.root);
 scene.add(tinyboy.root);
 
 
