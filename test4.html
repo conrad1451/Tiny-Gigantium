@@ -132,13 +132,7 @@ container.appendChild(renderer.domElement);
 */
 
 
-var skinner = [];
-	
-if(loadSkins)
-{
-skinner.push(skinSource + choices[0]);
-skinner.push(skinSource + choices[1]);
-};
+var skinner = [skinSource + choices[0], skinSource + choices[1]];
 
 /*
 choice 0 - conrad w/ purple shirt, jeans 
@@ -160,8 +154,8 @@ if(loadSkins)
 	secondPlayerInput = skinner[1];
 }
 	
-var character = new THREEx.TinygigantiumChar(firstPlayerInput);
-var tinyboy = new THREEx.TinygigantiumChar(secondPlayerInput);
+var character = new THREEx.TinygigantiumChar();//(firstPlayerInput);
+var tinyboy = new THREEx.TinygigantiumChar();//(secondPlayerInput);
 
 	
 scene.add(character.root);
