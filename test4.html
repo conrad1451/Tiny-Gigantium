@@ -217,6 +217,18 @@ tinyboy.root.rotation.y = 180 * degrees;
 
 var blockSkin1 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/blockblue_zpsjrj2oqg6.png';
 var blockSkin2 = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/big-block_zps9lpan5st.png';
+	
+	
+function addBlock(){
+const dirtBlock = new THREEx.TinygigantiumBlock(blockSkin2);
+
+const[x, y, z] = Array(3).fill().map(  () => THREE.MathUtils.randFloatSpread(50)  );
+
+dirtBlock.positiion.set(x, y, z);
+scene.add(dirtBlock)	
+}	
+
+	/*
 var dirtBlock1 =  new THREEx.TinygigantiumBlock(blockSkin2);
 var dirtBlock2 =  new THREEx.TinygigantiumBlock(blockSkin2);
 var dirtBlock3 =  new THREEx.TinygigantiumBlock(blockSkin2);
@@ -257,7 +269,7 @@ var dirtBlock37 =  new THREEx.TinygigantiumBlock(blockSkin2);
 var dirtBlock38 =  new THREEx.TinygigantiumBlock(blockSkin2);
 var dirtBlock39 =  new THREEx.TinygigantiumBlock(blockSkin2);
 var dirtBlock40 =  new THREEx.TinygigantiumBlock(blockSkin2); 	  
-
+*/
 
 var landscape = [
 dirtBlock1, dirtBlock2, dirtBlock3, dirtBlock4, dirtBlock5, dirtBlock6, dirtBlock7, dirtBlock8
