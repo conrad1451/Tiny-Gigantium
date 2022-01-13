@@ -54,8 +54,15 @@ the current angle that the legs are positioned-->
     
     var globalVarToShow = 0;
     
-  var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
-  var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
+  //var skinSite = 'http://i1205.photobucket.com/albums/bb424/cman_was_here/';
+  //var choices = ['character_zps6kfdlafp.png', 'character2_zps5jd07vwe.png'];
+
+  var skinSite = 'https://drive.google.com/';
+  var choices = ['uc?id=189QvFXsAg3rao9veDIGbv11bAGnc60qt', 'uc?id=14dZhF2lGnZyD2HsjHCypEK0WtxjbjVy-'];
+
+	  
+//	  "https://drive.google.com/uc?id=189QvFXsAg3rao9veDIGbv11bAGnc60qt" 
+//	  "https://drive.google.com/uc?id=14dZhF2lGnZyD2HsjHCypEK0WtxjbjVy-"
   
         
         /*
@@ -143,7 +150,7 @@ the current angle that the legs are positioned-->
   var character = new THREEx.TinygigantiumChar(skinner[0]);
   scene.add(character.root);
   
-  var tinyboy = new THREEx.TinygigantiumChar();
+  var tinyboy = new THREEx.TinygigantiumChar(skinner[0]);
   scene.add(tinyboy.root);
   
   
