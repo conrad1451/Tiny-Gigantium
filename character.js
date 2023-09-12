@@ -18,8 +18,8 @@ THREEx.TinygigantiumChar	= function(skinUrl){
 	// set default arguments values
 	// link works ! -->  http://i1205.photobucket.com/albums/bb424/cman_was_here/theflash_zpsbohbmk1n.png
 	
-	skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/character2_zps5jd07vwe.png');
-	// skinUrl	= skinUrl || ('https://github.com/conrad1451/Tiny-Gigantium/blob/pages-test-branch/gameSkins/character_zps6kfdlafp.png')
+	// skinUrl	= skinUrl || ('http://i1205.photobucket.com/albums/bb424/cman_was_here/character2_zps5jd07vwe.png');
+	skinUrl	= skinUrl || ('https://github.com/conrad1451/Tiny-Gigantium/blob/pages-test-branch/gameSkins/character_zps6kfdlafp.png');
 
 	//////////////////////////////////////////////////////////////////////////////////
 	//		comment								//
